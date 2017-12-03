@@ -1,0 +1,32 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue',
+    sans-serif;
+}
+
+img {
+  width: 100%;
+}
+
+.ais-InfiniteHits {
+  &__root {
+    display: flex;
+    flex-wrap: wrap;
+
+    button {
+      /* todo: remove hack */
+      all: initial;
+      cursor: pointer;
+    }
+  }
+
+  &__item {
+    flex-basis: 12em;
+    padding: 1em;
+  }
+}
