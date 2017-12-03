@@ -5,21 +5,18 @@
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
     "build": "preact build",
+    "build:production": "cross-env NODE_ENV=production npm run build",
     "serve": "preact build && preact serve",
     "dev": "preact watch",
     "lint": "eslint src"
   },
   "eslintConfig": {
-    "extends": [
-      "algolia/react"
-    ],
+    "extends": ["algolia/react"],
     "rules": {
       "react/react-in-jsx-scope": "off"
     }
   },
-  "eslintIgnore": [
-    "build/*"
-  ],
+  "eslintIgnore": ["build/*"],
   "devDependencies": {
     "babel-eslint": "^8.0.3",
     "eslint": "^4.12.1",
@@ -37,6 +34,7 @@
     "sass-loader": "^6.0.6"
   },
   "dependencies": {
+    "cross-env": "^5.1.1",
     "preact": "^8.2.1",
     "preact-compat": "^3.17.0",
     "react-instantsearch": "^4.2.0",

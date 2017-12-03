@@ -34,7 +34,7 @@ export default class Detail extends Component<Props, any> {
   };
 
   render() {
-    const { videoId, open, onCloseDetail, start = 0 } = this.props;
+    const { videoId, open, onCloseDetail, start = 0, indexName } = this.props;
     return (
       open && (
         <div>
@@ -59,7 +59,7 @@ export default class Detail extends Component<Props, any> {
           <InstantSearch
             appId="FOQUAZ6YNS"
             apiKey="72ee3a317835b8618eda01c6fcc88f77"
-            indexName={location.search.substr(1)}
+            indexName={indexName}
           >
             <RestrictToVideo videoId={videoId} />
             <SearchBox />

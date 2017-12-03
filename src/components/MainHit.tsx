@@ -20,10 +20,8 @@ const __hit = {
   objectID: '8jwGDHHLEpI-0',
 };
 
-const Speaker = ({ hit }) => (
-  // <Highlight hit={hit} attributeName="text" tagName="mark" />
-  <p>Bjarne Stroustrup</p>
-);
+// <Highlight hit={hit} attributeName="speaker" tagName="mark" />
+const Speaker = ({ hit }) => <p>Bjarne Stroustrup</p>;
 const Title = ({ hit }) => (
   <h1>
     <Highlight hit={hit} attributeName="videoTitle" tagName="mark" />
