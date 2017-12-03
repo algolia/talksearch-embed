@@ -41,6 +41,7 @@
     "preact-compat": "^3.17.0",
     "react-instantsearch": "^4.2.0",
     "react-instantsearch-theme-algolia": "^4.3.0-beta.0",
-    "react-youtube": "^7.5.0"
+    "react-youtube": "^7.5.0",
+    "sec-to-min": "^1.0.1"
   }
 }

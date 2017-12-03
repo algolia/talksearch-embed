@@ -1,12 +1,13 @@
 import { h, Component } from 'preact';
 import { Highlight } from 'react-instantsearch/dom';
+import secToMin from 'sec-to-min';
 import { SingleHit } from '../';
 
 const TranscriptMatch = ({ hit }: { hit: SingleHit }) => (
   <Highlight hit={hit} attributeName="text" tagName="mark" />
 );
 
-const Time = ({ time }: { time: number }) => <p>{time}</p>;
+const Time = ({ time }: { time: number }) => <p>{secToMin(time)}</p>;
 
 interface HitProps {
   hit: SingleHit;
