@@ -76,7 +76,7 @@ export default class App extends Component<Props, State> {
         <InstantSearch
           appId="FOQUAZ6YNS"
           apiKey="72ee3a317835b8618eda01c6fcc88f77"
-          indexName="dotconferences"
+          indexName={location.search.substr(1)}
         >
           <RefinedSearch>
             {// todo: figure out why 0 doesn't apply

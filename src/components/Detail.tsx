@@ -59,7 +59,7 @@ export default class Detail extends Component<Props, any> {
           <InstantSearch
             appId="FOQUAZ6YNS"
             apiKey="72ee3a317835b8618eda01c6fcc88f77"
-            indexName="dotconferences"
+            indexName={location.search.substr(1)}
           >
             <RestrictToVideo videoId={videoId} />
             <SearchBox />
