@@ -26,32 +26,32 @@ const RefinedSearch = connectStateResults(
   }
 );
 
-const __hit = {
-  start: 0,
-  dur: '2.39',
-  text: 'yes',
-  videoId: '8jwGDHHLEpI',
-  videoTitle: 'dotSwift 2017 - Drew McCormack - The Value in Trees',
-  videoDescription:
-    'Filmed at https://2017.dotswift.io on January 27th in Paris. More talks on http://thedotpost.com\n\nSwift introduces new ways to model data through value types like structs and enums. Drew discusses his experiences rewriting the data model of the vector graphics app Sketch to use value trees, and finishes off pondering whether future data modelling frameworks could be based on value trees, rather than entities and relationships. To that end, he also introduces the experimental project Impeller (https://github.com/mentalfaculty/impeller).',
-  videoThumbnails: {
-    url: 'https://i.ytimg.com/vi/8jwGDHHLEpI/mqdefault.jpg',
-    width: 320,
-    height: 180,
-  },
-  videoRanking: 446,
-  channel: 'dotconferences',
-  objectID: '8jwGDHHLEpI-0',
-};
+export interface HighlightMatch {
+  value: string;
+  matchLevel: 'none' | 'partial' | 'full';
+  matchedWords: string[];
+}
 export interface SingleHit {
-  videoId: string;
   start: number;
-  videoThumbnails: { url: string };
   dur: string;
   text: string;
+  videoId: string;
   videoTitle: string;
   videoDescription: string;
+  videoThumbnails: {
+    url: string;
+    width: number;
+    height: number;
+  };
+  videoRanking: number;
+  channel: string;
   objectID: string;
+  _highlightResult: {
+    text: HighlightMatch;
+    description: HighlightMatch;
+    title: HighlightMatch;
+  };
+  _distinctSeqID?: number;
 }
 
 interface State {
@@ -99,9 +99,9 @@ export default class App extends Component<Props, State> {
         >
           <RefinedSearch>
             {// todo: figure out why 0 doesn't apply
-            isRefined => (
+            ({ isRefined }) => (
               <Configure
-                distinct={isRefined ? 1 : 1}
+                distinct={isRefined ? 3 : 0}
                 attributesToSnippet={['videoDescription:30']}
                 snippetEllipsisText="…"
               />
