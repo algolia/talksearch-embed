@@ -44,6 +44,12 @@ export default class Detail extends Component<Props, any> {
           <YouTube
             videoId={videoId}
             opts={{
+              //todo: figure out on which domain we'll be
+              origin:
+                typeof window !== 'undefined'
+                  ? window.location.origin
+                  : 'https://talksearch.netlify.com',
+              enablejsapi: '1',
               height: '390',
               width: '640',
               playerVars: {
@@ -62,6 +68,10 @@ export default class Detail extends Component<Props, any> {
             indexName={indexName}
           >
             <RestrictToVideo videoId={videoId} />
+            <Configure
+              attributesToRetrieve={['title', 'start']}
+              hitsPerPage={5}
+            />
             <SearchBox />
             <Hits
               hitComponent={({ hit }: { hit: SingleHit }) => (
