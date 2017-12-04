@@ -2,8 +2,63 @@ import { h, Component } from 'preact';
 import Pinboard from '@haroenv/react-pinboard';
 import { connectInfiniteHits } from 'react-instantsearch/connectors';
 
-import { SingleHit } from '../App';
+import { SingleHit, HighlightMatch } from '../App';
 import MainHit from './MainHit';
+
+export interface TranscriptHit extends SingleHit {
+  transcriptions: {
+    text: string;
+    _highlightResult: {
+      text: HighlightMatch;
+    };
+  }[];
+}
+
+function hasTranscript(hit: TranscriptHit | SingleHit): hit is TranscriptHit {
+  return (hit as TranscriptHit).transcriptions !== undefined;
+}
+
+const sameVideo = (
+  previous: TranscriptHit | SingleHit | void,
+  current: TranscriptHit | SingleHit
+) => typeof previous !== 'undefined' && previous.videoId === current.videoId;
+
+function transformToTranscripts(hits: SingleHit[]) {
+  return hits.reduce<(SingleHit | TranscriptHit)[]>((acc, hit) => {
+    const previous = acc[acc.length - 1];
+
+    if (sameVideo(previous, hit)) {
+      if (previous._highlightResult.text.matchLevel === 'none') {
+        return [...acc];
+      }
+      console.log('any transcript', hasTranscript(previous));
+      const possibleTranscriptions = hasTranscript(previous)
+        ? previous.transcriptions
+        : [];
+      const newHit: TranscriptHit = {
+        ...previous,
+        transcriptions: [
+          ...possibleTranscriptions,
+          {
+            text: previous.text,
+            _highlightResult: {
+              text: previous._highlightResult.text,
+            },
+          },
+          {
+            text: hit.text,
+            _highlightResult: {
+              text: hit._highlightResult.text,
+            },
+          },
+        ],
+      };
+      const firstHits = acc.splice(0, acc.length - 1);
+      return [...firstHits, newHit];
+    }
+    return [...acc, hit];
+  }, []);
+}
 
 interface InfiniteHit {
   hits: SingleHit[];
@@ -21,8 +76,9 @@ class Hits extends Component<Props, null> {
 
   render() {
     const { hasMore, hits, openDetail } = this.props;
-    // const withTranscripts = hits.reduce(() => {}, []);
-    console.log(hits.map(h => h.videoTitle || ''));
+    // const withTranscripts = transformToTranscripts(hits);
+
+    // console.log(withTranscripts);
     return (
       <div>
         {hits &&
