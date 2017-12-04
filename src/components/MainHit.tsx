@@ -1,6 +1,7 @@
 import { h, Component } from 'preact';
 import { Highlight, Snippet } from 'react-instantsearch/dom';
 import { SingleHit } from '../App';
+import { TranscriptHit } from './MainHits';
 import './MainHit.scss';
 
 // <Highlight hit={hit} attributeName="speaker" tagName="mark" />
@@ -14,11 +15,13 @@ const Description = ({ hit }) => (
   <Snippet hit={hit} attributeName="videoDescription" tagName="mark" />
 );
 const TranscriptMatch = ({ hit }) => (
-  <Highlight hit={hit} attributeName="text" tagName="mark" />
+  <div style={{ fontFamily: 'serif' }}>
+    <Highlight hit={hit} attributeName="text" tagName="mark" />
+  </div>
 );
 
 interface HitProps {
-  hit: SingleHit;
+  hit: SingleHit | TranscriptHit;
   index: number;
   onOpenDetail: (videoId: string) => void;
 }
@@ -43,7 +46,8 @@ export default class MainHit extends Component<HitProps, any> {
           <Speaker hit={hit} />
           <Title hit={hit} />
           <Description hit={hit} />
-          {/* <TranscriptMatch hit={hit} /> */}
+
+          <TranscriptMatch hit={hit} />
           <details style={{ opacity: 0.5 }}>
             <summary>all</summary>
             <pre>{JSON.stringify(hit, null, 2)}</pre>
