@@ -1,0 +1,12 @@
+article {
+  border: 1px solid black;
+  border-radius: 1em;
+  overflow: hidden;
+  padding: 1em;
+
+  button {
+    /* todo: remove hack */
+    all: initial;
+    cursor: pointer;
+  }
+}

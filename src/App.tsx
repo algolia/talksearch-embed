@@ -8,6 +8,7 @@ import {
   SearchBox,
   PoweredBy,
   Configure,
+  Stats,
 } from 'react-instantsearch/dom';
 import { connectStateResults } from 'react-instantsearch/connectors';
 
@@ -25,6 +26,23 @@ const RefinedSearch = connectStateResults(
   }
 );
 
+const __hit = {
+  start: 0,
+  dur: '2.39',
+  text: 'yes',
+  videoId: '8jwGDHHLEpI',
+  videoTitle: 'dotSwift 2017 - Drew McCormack - The Value in Trees',
+  videoDescription:
+    'Filmed at https://2017.dotswift.io on January 27th in Paris. More talks on http://thedotpost.com\n\nSwift introduces new ways to model data through value types like structs and enums. Drew discusses his experiences rewriting the data model of the vector graphics app Sketch to use value trees, and finishes off pondering whether future data modelling frameworks could be based on value trees, rather than entities and relationships. To that end, he also introduces the experimental project Impeller (https://github.com/mentalfaculty/impeller).',
+  videoThumbnails: {
+    url: 'https://i.ytimg.com/vi/8jwGDHHLEpI/mqdefault.jpg',
+    width: 320,
+    height: 180,
+  },
+  videoRanking: 446,
+  channel: 'dotconferences',
+  objectID: '8jwGDHHLEpI-0',
+};
 export interface SingleHit {
   videoId: string;
   start: number;
@@ -33,6 +51,7 @@ export interface SingleHit {
   text: string;
   videoTitle: string;
   videoDescription: string;
+  objectID: string;
 }
 
 interface State {
@@ -80,10 +99,17 @@ export default class App extends Component<Props, State> {
         >
           <RefinedSearch>
             {// todo: figure out why 0 doesn't apply
-            isRefined => <Configure distinct={isRefined ? 1 : 1} />}
+            isRefined => (
+              <Configure
+                distinct={isRefined ? 1 : 1}
+                attributesToSnippet={['videoDescription:30']}
+                snippetEllipsisText="…"
+              />
+            )}
           </RefinedSearch>
           <SearchBox />
           <PoweredBy />
+          <Stats />
           <MainHits openDetail={this.openDetail} />
         </InstantSearch>
       </div>

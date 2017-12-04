@@ -1,20 +1,59 @@
 import { h, Component } from 'preact';
-import { InfiniteHits } from 'react-instantsearch/dom';
+import MasonryInfiniteScroller from 'react-masonry-infinite';
+import Pinboard from 'react-pinboard';
+import { connectInfiniteHits } from 'react-instantsearch/connectors';
 
-import { SingleHit } from '../';
+import { SingleHit } from '../App';
 import MainHit from './MainHit';
 
-interface Props {
+interface InfiniteHit {
+  hits: SingleHit[];
+  hasMore: boolean;
+  refine(): void;
+}
+
+interface Props extends InfiniteHit {
   openDetail(videoId: string): void;
 }
-export default class MainHits extends Component<Props, null> {
+class Hits extends Component<Props, null> {
+  loadMore = () => {
+    console.log('click');
+    this.props.refine();
+  };
+
   render() {
+    const { hasMore, hits, openDetail } = this.props;
+    // const withTranscripts = hits.reduce(() => {}, []);
+    console.log(hits.map(h => h.videoTitle || ''));
     return (
-      <InfiniteHits
-        hitComponent={({ hit }: { hit: SingleHit }) => (
-          <MainHit hit={hit} onOpenDetail={this.props.openDetail} />
-        )}
-      />
+      <div>
+        {hits &&
+          hits.length > 0 && (
+            <Pinboard
+              cols={[
+                { media: '(min-width: 1000px)', cols: 4 },
+                { media: '(min-width: 800px)', cols: 3 },
+                { media: '(min-width: 500px)', cols: 2 },
+                { media: '', cols: 1 },
+              ]}
+            >
+              {hits.map((hit, index) => (
+                <MainHit
+                  key={hit.objectID}
+                  hit={hit}
+                  index={index}
+                  onOpenDetail={openDetail}
+                />
+              ))}
+            </Pinboard>
+          )}
+        {/* doesn't work yet because pinboard uses the children */
+        /* <button onClick={this.loadMore} disabled={!hasMore}>
+          Load more
+        </button> */}
+      </div>
     );
   }
 }
+
+export default connectInfiniteHits(Hits);

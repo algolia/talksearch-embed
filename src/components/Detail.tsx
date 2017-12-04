@@ -9,7 +9,7 @@ import {
 import { connectMenu } from 'react-instantsearch/connectors';
 import YouTube from 'react-youtube';
 
-import { SingleHit } from '../';
+import { SingleHit } from '../App';
 import DetailHit from './DetailHit';
 
 const VirtualMenu = connectMenu(() => null);
