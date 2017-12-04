@@ -1,6 +1,5 @@
 import { h, Component } from 'preact';
-import MasonryInfiniteScroller from 'react-masonry-infinite';
-import Pinboard from 'react-pinboard';
+import Pinboard from '@haroenv/react-pinboard';
 import { connectInfiniteHits } from 'react-instantsearch/connectors';
 
 import { SingleHit } from '../App';
@@ -11,7 +10,6 @@ interface InfiniteHit {
   hasMore: boolean;
   refine(): void;
 }
-
 interface Props extends InfiniteHit {
   openDetail(videoId: string): void;
 }
@@ -48,9 +46,11 @@ class Hits extends Component<Props, null> {
             </Pinboard>
           )}
         {/* doesn't work yet because pinboard uses the children */
-        /* <button onClick={this.loadMore} disabled={!hasMore}>
-          Load more
-        </button> */}
+        /*
+          <button onClick={this.loadMore} disabled={!hasMore}>
+            Load more
+          </button>
+          */}
       </div>
     );
   }
