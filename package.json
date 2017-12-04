@@ -7,7 +7,7 @@
     "build": "preact build",
     "build:production": "cross-env NODE_ENV=production npm run build",
     "serve": "preact build && preact serve",
-    "dev": "preact watch",
+    "dev": "preact watch --https",
     "lint": "eslint src"
   },
   "eslintConfig": {
@@ -38,12 +38,13 @@
     "sass-loader": "^6.0.6"
   },
   "dependencies": {
-    "@haroenv/react-pinboard": "0.0.11",
+    "@haroenv/react-pinboard": "0.0.17",
     "cross-env": "^5.1.1",
     "preact": "^8.2.1",
     "preact-compat": "^3.17.0",
     "react-instantsearch": "^4.2.0",
     "react-instantsearch-theme-algolia": "^4.3.0-beta.0",
+    "react-pinboard": "^0.0.9",
     "react-youtube": "^7.5.0",
     "sec-to-min": "^1.0.1"
   }
