@@ -31,11 +31,10 @@ export default class MainHit extends Component<MainProps, void> {
         ({index})
         <button onClick={this.openDetail}>
           <img src={hit.videoThumbnails.url} />
-
-          <Speaker hit={hit} />
-          <Title hit={hit} />
-          {render({ hit })}
         </button>
+        <Speaker hit={hit} />
+        <Title hit={hit} />
+        {render({ hit })}
       </article>
     );
   }
