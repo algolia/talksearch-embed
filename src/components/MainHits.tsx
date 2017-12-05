@@ -6,24 +6,37 @@ import { SingleHit, HighlightMatch } from '../App';
 import MainDetailHit from './MainDetailHit';
 import MainTranscriptHit from './MainTranscriptHit';
 
+export interface Transcript {
+  objectID: string;
+  start: number;
+  text: string;
+  _highlightResult: {
+    text: HighlightMatch;
+  };
+}
 export interface TranscriptHit extends SingleHit {
-  transcriptions: {
-    objectID: string;
-    text: string;
-    _highlightResult: {
-      text: HighlightMatch;
-    };
-  }[];
+  transcriptions: Transcript[];
 }
 
 function hasTranscript(hit: TranscriptHit | SingleHit): hit is TranscriptHit {
   return (hit as TranscriptHit).transcriptions !== undefined;
 }
 
-const sameVideo = (
-  previous: TranscriptHit | SingleHit | void,
-  current: TranscriptHit | SingleHit
-) => typeof previous !== 'undefined' && previous.videoId === current.videoId;
+function transcriptIfRelevant(
+  hit: SingleHit | TranscriptHit
+): Transcript | null {
+  if (hit._highlightResult.text.matchLevel !== 'none') {
+    return {
+      objectID: hit.objectID,
+      start: hit.start,
+      text: hit.text,
+      _highlightResult: {
+        text: hit._highlightResult.text,
+      },
+    };
+  }
+  return null;
+}
 
 function transformToTranscripts(hits: SingleHit[]) {
   return hits.reduce<(SingleHit | TranscriptHit)[]>((acc, hit) => {
@@ -50,27 +63,9 @@ function transformToTranscripts(hits: SingleHit[]) {
           // the properties of the last one
           ...previous,
           transcriptions: [
-            // previous transcriptions if it had any
-            ...(hasTranscript(previous)
-              ? previous.transcriptions
-              : // otherwise make new last transcriptions
-                [
-                  {
-                    objectID: previous.objectID,
-                    text: previous.text,
-                    _highlightResult: {
-                      text: previous._highlightResult.text,
-                    },
-                  },
-                ]),
-            // transcriptions of current hit
-            {
-              objectID: hit.objectID,
-              text: hit.text,
-              _highlightResult: {
-                text: hit._highlightResult.text,
-              },
-            },
+            ...(hasTranscript(previous) ? previous.transcriptions : []),
+            transcriptIfRelevant(previous),
+            transcriptIfRelevant(hit),
           ],
         },
       ];

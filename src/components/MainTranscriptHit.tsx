@@ -1,7 +1,9 @@
 import { h, Component, FunctionalComponent } from 'preact';
 import { Highlight, Snippet } from 'react-instantsearch/dom';
+import secToMin from 'sec-to-min';
+
 import { SingleHit } from '../App';
-import { TranscriptHit } from './MainHits';
+import { TranscriptHit, Transcript } from './MainHits';
 import MainHit from './MainHit';
 import './MainHit.scss';
 
@@ -9,15 +11,31 @@ import './MainHit.scss';
 const Description = ({ hit }) => (
   <Snippet hit={hit} attributeName="videoDescription" tagName="mark" />
 );
+
+// todo: don't copy-paste
+const Time = ({ time }: { time: number }) => <p>{secToMin(time)}</p>;
+
 const Transcripts: FunctionalComponent<{
-  transcriptions: TranscriptHit['transcriptions'];
+  transcriptions: Transcript[];
 }> = ({ transcriptions }) => (
   <div>
-    {transcriptions.map(transcription => (
-      <div style={{ textDecoration: 'underline' }} key={transcription.objectID}>
-        <Highlight hit={transcription} attributeName="text" tagName="mark" />
-      </div>
-    ))}
+    {transcriptions.map(
+      transcription =>
+        transcription && (
+          <div key={transcription.objectID}>
+            {/* todo: make button do something */}
+            <button>
+              <p>▶️</p>
+              <Time time={transcription.start} />
+            </button>
+            <Highlight
+              hit={transcription}
+              attributeName="text"
+              tagName="mark"
+            />
+          </div>
+        )
+    )}
   </div>
 );
 
@@ -35,7 +53,6 @@ export default class MainTranscriptHit extends Component<HitProps, any> {
       <MainHit
         render={({ hit }: { hit: TranscriptHit }) => (
           <span>
-            __ transcript __
             <Description hit={hit} />
             <Transcripts transcriptions={hit.transcriptions} />
             <details style={{ opacity: 0.5 }}>
