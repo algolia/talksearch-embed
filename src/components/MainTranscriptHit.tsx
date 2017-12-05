@@ -16,13 +16,13 @@ const Description = ({ hit }) => (
 const Time = ({ time }: { time: number }) => <p>{secToMin(time)}</p>;
 
 const Transcripts: FunctionalComponent<{
-  transcriptions: Transcript[];
+  transcriptions: { [objectID: string]: Transcript };
 }> = ({ transcriptions }) => (
   <div>
-    {transcriptions.map(
-      transcription =>
+    {Object.entries(transcriptions).map(
+      ([objectID, transcription]) =>
         transcription && (
-          <div key={transcription.objectID}>
+          <div key={objectID}>
             {/* todo: make button do something */}
             <button>
               <p>▶️</p>

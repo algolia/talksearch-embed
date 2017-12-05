@@ -15,7 +15,7 @@ export interface Transcript {
   };
 }
 export interface TranscriptHit extends SingleHit {
-  transcriptions: Transcript[];
+  transcriptions: { [objectID: string]: Transcript };
 }
 
 function hasTranscript(hit: TranscriptHit | SingleHit): hit is TranscriptHit {
@@ -47,8 +47,6 @@ function transformToTranscripts(hits: SingleHit[]) {
       const previous = acc[acc.length - 1];
       const firstHits = acc.splice(0, acc.length - 1);
 
-      const previousTranscriptions = [];
-
       const lastTranscriptions = {
         text: hit.text,
         _highlightResult: {
@@ -56,17 +54,23 @@ function transformToTranscripts(hits: SingleHit[]) {
         },
       };
 
+      const previousTranscriptions = transcriptIfRelevant(previous);
+      const hitTranscriptions = transcriptIfRelevant(hit);
       return [
         // all of the hits minus the last one
         ...firstHits,
         {
           // the properties of the last one
           ...previous,
-          transcriptions: [
-            ...(hasTranscript(previous) ? previous.transcriptions : []),
-            transcriptIfRelevant(previous),
-            transcriptIfRelevant(hit),
-          ],
+          transcriptions: {
+            ...hasTranscript(previous) ? previous.transcriptions : {},
+            ...previousTranscriptions
+              ? { [previousTranscriptions.objectID]: previousTranscriptions }
+              : {},
+            ...hitTranscriptions
+              ? { [hitTranscriptions.objectID]: hitTranscriptions }
+              : {},
+          },
         },
       ];
     }
