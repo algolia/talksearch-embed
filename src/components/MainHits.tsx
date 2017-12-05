@@ -3,7 +3,8 @@ import Pinboard from '@haroenv/react-pinboard';
 import { connectInfiniteHits } from 'react-instantsearch/connectors';
 
 import { SingleHit, HighlightMatch } from '../App';
-import MainHit from './MainHit';
+import MainDetailHit from './MainDetailHit';
+import MainTranscriptHit from './MainTranscriptHit';
 
 export interface TranscriptHit extends SingleHit {
   transcriptions: {
@@ -75,10 +76,10 @@ class Hits extends Component<Props, null> {
   };
 
   render() {
-    const { hasMore, hits, openDetail } = this.props;
-    // const withTranscripts = transformToTranscripts(hits);
+    const { hasMore, hits: _originalHits, openDetail } = this.props;
+    const hits = transformToTranscripts(_originalHits);
 
-    // console.log(withTranscripts);
+    console.log(hits.map(hasTranscript));
     return (
       <div>
         {hits &&
@@ -91,14 +92,24 @@ class Hits extends Component<Props, null> {
                 { media: '', cols: 1 },
               ]}
             >
-              {hits.map((hit, index) => (
-                <MainHit
-                  key={hit.objectID}
-                  hit={hit}
-                  index={index}
-                  onOpenDetail={openDetail}
-                />
-              ))}
+              {hits.map(
+                (hit, index) =>
+                  hasTranscript(hit) ? (
+                    <MainTranscriptHit
+                      key={hit.objectID}
+                      hit={hit}
+                      index={index}
+                      onOpenDetail={openDetail}
+                    />
+                  ) : (
+                    <MainDetailHit
+                      key={hit.objectID}
+                      hit={hit}
+                      index={index}
+                      onOpenDetail={openDetail}
+                    />
+                  )
+              )}
             </Pinboard>
           )}
         {/* doesn't work yet because pinboard uses the children */
