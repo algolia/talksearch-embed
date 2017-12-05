@@ -8,9 +8,10 @@ import MainTranscriptHit from './MainTranscriptHit';
 
 export interface TranscriptHit extends SingleHit {
   transcriptions: {
+    objectID: string;
     text: string;
     _highlightResult: {
-      text: HighlightMatch;
+      value: HighlightMatch;
     };
   }[];
 }
@@ -26,36 +27,53 @@ const sameVideo = (
 
 function transformToTranscripts(hits: SingleHit[]) {
   return hits.reduce<(SingleHit | TranscriptHit)[]>((acc, hit) => {
-    const previous = acc[acc.length - 1];
-
-    if (sameVideo(previous, hit)) {
-      if (previous._highlightResult.text.matchLevel === 'none') {
-        return [...acc];
-      }
-      console.log('any transcript', hasTranscript(previous));
-      const possibleTranscriptions = hasTranscript(previous)
-        ? previous.transcriptions
-        : [];
-      const newHit: TranscriptHit = {
-        ...previous,
-        transcriptions: [
-          ...possibleTranscriptions,
-          {
-            text: previous.text,
-            _highlightResult: {
-              text: previous._highlightResult.text,
-            },
-          },
-          {
-            text: hit.text,
-            _highlightResult: {
-              text: hit._highlightResult.text,
-            },
-          },
-        ],
-      };
+    if (hit._distinctSeqID === 0 || typeof hit._distinctSeqID === 'undefined') {
+      // first or no distinct, simply push
+      return [...acc, hit];
+    } else if (hit._distinctSeqID > 0) {
+      const previous = acc[acc.length - 1];
       const firstHits = acc.splice(0, acc.length - 1);
-      return [...firstHits, newHit];
+
+      const previousTranscriptions = [];
+
+      const lastTranscriptions = {
+        text: hit.text,
+        _highlightResult: {
+          text: hit._highlightResult.value,
+        },
+      };
+
+      return [
+        // all of the hits minus the last one
+        ...firstHits,
+        {
+          // the properties of the last one
+          ...previous,
+          transcriptions: [
+            // previous transcriptions if it had any
+            ...(hasTranscript(previous)
+              ? previous.transcriptions
+              : // otherwise make new last transcriptions
+                [
+                  {
+                    objectID: previous.objectID,
+                    text: previous.text,
+                    _highlightResult: {
+                      text: previous._highlightResult.value,
+                    },
+                  },
+                ]),
+            // transcriptions of current hit
+            {
+              objectID: hit.objectID,
+              text: hit.text,
+              _highlightResult: {
+                text: hit._highlightResult.value,
+              },
+            },
+          ],
+        },
+      ];
     }
     return [...acc, hit];
   }, []);
@@ -79,7 +97,6 @@ class Hits extends Component<Props, null> {
     const { hasMore, hits: _originalHits, openDetail } = this.props;
     const hits = transformToTranscripts(_originalHits);
 
-    console.log(hits.map(hasTranscript));
     return (
       <div>
         {hits &&
