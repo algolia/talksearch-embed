@@ -56,6 +56,7 @@ export interface SingleHit {
 
 interface State {
   videoId: string;
+  start: number;
   open: boolean;
 }
 
@@ -65,29 +66,33 @@ interface Props {
 export default class App extends Component<Props, State> {
   state = {
     videoId: '',
+    start: 0,
     open: false,
   };
 
-  openDetail = (videoId: string) =>
+  openDetail = ({ videoId, start }: { videoId: string; start: number }) =>
     this.setState({
       videoId,
+      start,
       open: true,
     });
 
   closeDetail = () =>
     this.setState({
       videoId: '',
+      start: 0,
       open: false,
     });
 
   render() {
-    const { open, videoId } = this.state;
+    const { open, videoId, start } = this.state;
     const { indexName } = this.props;
     return (
       <div>
         <Detail
           open={open}
           videoId={videoId}
+          start={start}
           onCloseDetail={this.closeDetail}
           indexName={indexName}
         />

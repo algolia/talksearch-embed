@@ -18,11 +18,14 @@ const Title = ({ hit }) => (
 interface MainProps {
   hit: SingleHit | TranscriptHit;
   index: number;
-  onOpenDetail: (videoId: string) => void;
+  onOpenDetail: (
+    { videoId, start }: { videoId: string; start?: number }
+  ) => void;
   render: ({ hit }: { hit: SingleHit | TranscriptHit }) => JSX.Element;
 }
 export default class MainHit extends Component<MainProps, void> {
-  openDetail = () => this.props.onOpenDetail(this.props.hit.videoId);
+  openDetail = () =>
+    this.props.onOpenDetail({ videoId: this.props.hit.videoId });
 
   render() {
     const { hit, index, render } = this.props;

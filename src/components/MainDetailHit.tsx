@@ -12,10 +12,13 @@ const Description = ({ hit }) => (
 interface HitProps {
   hit: SingleHit;
   index: number;
-  onOpenDetail: (videoId: string) => void;
+  onOpenDetail: (
+    { videoId, start }: { videoId: string; start?: number }
+  ) => void;
 }
 export default class MainDetailHit extends Component<HitProps, any> {
-  openDetail = () => this.props.onOpenDetail(this.props.hit.videoId);
+  openDetail = () =>
+    this.props.onOpenDetail({ videoId: this.props.hit.videoId });
 
   render() {
     const { hit, index, onOpenDetail } = this.props;

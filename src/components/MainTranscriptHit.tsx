@@ -17,14 +17,14 @@ const Time = ({ time }: { time: number }) => <p>{secToMin(time)}</p>;
 
 const Transcripts: FunctionalComponent<{
   transcriptions: { [objectID: string]: Transcript };
-}> = ({ transcriptions }) => (
+  openDetail: (start?: number) => void;
+}> = ({ transcriptions, openDetail }) => (
   <div>
     {Object.entries(transcriptions).map(
       ([objectID, transcription]) =>
         transcription && (
           <div key={objectID}>
-            {/* todo: make button do something */}
-            <button>
+            <button onClick={() => openDetail(transcription.start)}>
               <p>▶️</p>
               <Time time={transcription.start} />
             </button>
@@ -42,10 +42,13 @@ const Transcripts: FunctionalComponent<{
 interface HitProps {
   hit: TranscriptHit;
   index: number;
-  onOpenDetail: (videoId: string) => void;
+  onOpenDetail: (
+    { videoId, start }: { videoId: string; start?: number }
+  ) => void;
 }
 export default class MainTranscriptHit extends Component<HitProps, any> {
-  openDetail = () => this.props.onOpenDetail(this.props.hit.videoId);
+  openDetail = start =>
+    this.props.onOpenDetail({ videoId: this.props.hit.videoId, start });
 
   render() {
     const { hit, index, onOpenDetail } = this.props;
@@ -54,7 +57,10 @@ export default class MainTranscriptHit extends Component<HitProps, any> {
         render={({ hit }: { hit: TranscriptHit }) => (
           <span>
             <Description hit={hit} />
-            <Transcripts transcriptions={hit.transcriptions} />
+            <Transcripts
+              transcriptions={hit.transcriptions}
+              openDetail={this.openDetail}
+            />
             <details style={{ opacity: 0.5 }}>
               <summary>all</summary>
               <pre>{JSON.stringify(hit, null, 2)}</pre>

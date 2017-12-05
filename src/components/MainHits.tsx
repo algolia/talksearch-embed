@@ -26,10 +26,11 @@ function transcriptIfRelevant(
   hit: SingleHit | TranscriptHit
 ): Transcript | null {
   if (hit._highlightResult.text.matchLevel !== 'none') {
+    const { objectID, start, text, videoId } = hit;
     return {
-      objectID: hit.objectID,
-      start: hit.start,
-      text: hit.text,
+      objectID,
+      start,
+      text,
       _highlightResult: {
         text: hit._highlightResult.text,
       },
@@ -84,7 +85,7 @@ interface InfiniteHit {
   refine(): void;
 }
 interface Props extends InfiniteHit {
-  openDetail(videoId: string): void;
+  openDetail({ videoId, start }: { videoId: string; start?: number }): void;
 }
 class Hits extends Component<Props, null> {
   loadMore = () => {
@@ -128,7 +129,7 @@ class Hits extends Component<Props, null> {
               )}
             </Pinboard>
           )}
-        {/* doesn't work yet because pinboard uses the children */
+        {/* todo: doesn't work yet because pinboard uses the children */
         /*
           <button onClick={this.loadMore} disabled={!hasMore}>
             Load more
