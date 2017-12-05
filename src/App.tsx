@@ -70,7 +70,7 @@ export default class App extends Component<Props, State> {
     open: false,
   };
 
-  openDetail = ({ videoId, start }: { videoId: string; start: number }) =>
+  openDetail = ({ videoId, start }: { videoId: string; start?: number }) =>
     this.setState({
       videoId,
       start,
