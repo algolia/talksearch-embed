@@ -62,7 +62,6 @@ interface State {
 interface Props {
   indexName: string;
 }
-
 export default class App extends Component<Props, State> {
   state = {
     videoId: '',
