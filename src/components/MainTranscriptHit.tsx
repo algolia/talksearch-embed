@@ -1,23 +1,23 @@
-import { h, Component } from 'preact';
+import { h, Component, FunctionalComponent } from 'preact';
 import { Highlight, Snippet } from 'react-instantsearch/dom';
 import { SingleHit } from '../App';
 import { TranscriptHit } from './MainHits';
 import MainHit from './MainHit';
 import './MainHit.scss';
 
-// <Highlight hit={hit} attributeName="speaker" tagName="mark" />
-const Speaker = ({ hit }) => <p>Bjarne Stroustrup</p>;
-const Title = ({ hit }) => (
-  <h1>
-    <Highlight hit={hit} attributeName="videoTitle" tagName="mark" />
-  </h1>
-);
+// todo: make this small
 const Description = ({ hit }) => (
   <Snippet hit={hit} attributeName="videoDescription" tagName="mark" />
 );
-const TranscriptMatch = ({ hit }) => (
-  <div style={{ fontFamily: 'serif' }}>
-    <Highlight hit={hit} attributeName="text" tagName="mark" />
+const Transcripts: FunctionalComponent<{
+  transcriptions: TranscriptHit['transcriptions'];
+}> = ({ transcriptions }) => (
+  <div>
+    {transcriptions.map(transcription => (
+      <div style={{ textDecoration: 'underline' }} key={transcription.objectID}>
+        <Highlight hit={transcription} attributeName="text" tagName="mark" />
+      </div>
+    ))}
   </div>
 );
 
@@ -35,19 +35,8 @@ export default class MainTranscriptHit extends Component<HitProps, any> {
       <MainHit
         render={({ hit }: { hit: TranscriptHit }) => (
           <span>
-            <img src={hit.videoThumbnails.url} />
-            <a
-              href={`https://youtube.com/watch?v=${hit.videoId}&t=${Math.floor(
-                hit.start
-              )}s`}
-              target="_blank"
-            >
-              original
-            </a>
-            <Speaker hit={hit} />
-            <Title hit={hit} />
             <Description hit={hit} />
-            <TranscriptMatch hit={hit} />
+            <Transcripts transcriptions={hit.transcriptions} />
             <details style={{ opacity: 0.5 }}>
               <summary>all</summary>
               <pre>{JSON.stringify(hit, null, 2)}</pre>
