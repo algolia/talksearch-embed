@@ -30,6 +30,11 @@ export default class MainHit extends Component<HitProps, any> {
 
   render() {
     const { hit, index } = this.props;
+    // XXX [Tim]: Debug statement to auto-open the first result for ease of styling
+    if (this.props.hit.videoId === 'tQ99V7QjEHc') {
+      this.openDetail();
+    }
+
     return (
       <article>
         ({index})

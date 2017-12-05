@@ -1,5 +1,6 @@
 import 'react-instantsearch-theme-algolia/style.min.css';
 import './style.scss';
+import 'tachyons-algolia/build/tachyons-algolia.css';
 
 import { h, Component } from 'preact';
 import {
@@ -85,7 +86,7 @@ export default class App extends Component<Props, State> {
     const { open, videoId } = this.state;
     const { indexName } = this.props;
     return (
-      <div>
+      <div className="montserrat">
         <Detail
           open={open}
           videoId={videoId}

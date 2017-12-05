@@ -7,7 +7,7 @@ const TranscriptMatch = ({ hit }: { hit: SingleHit }) => (
   <Highlight hit={hit} attributeName="text" tagName="mark" />
 );
 
-const Time = ({ time }: { time: number }) => <p>{secToMin(time)}</p>;
+const Time = ({ time }: { time: number }) => <span>{secToMin(time)}</span>;
 
 interface HitProps {
   hit: SingleHit;
@@ -20,12 +20,23 @@ export default class Hit extends Component<HitProps, any> {
     const { hit } = this.props;
     const { start } = hit;
     return (
-      <div>
-        <button onClick={this.onSeek}>
-          <p>▶️</p>
-          <Time time={start} />
-        </button>
-        <TranscriptMatch hit={hit} />
+      <div className="flrnw mb2">
+        <div
+          className="fln h25 w25 mr2 flcnw bg-blue white br6"
+          onClick={this.onSeek}
+        >
+          <div className="fla flc">
+            <span className="icon-play" />
+          </div>
+          <div className="fln f6 tc">
+            <Time time={start} />
+          </div>
+        </div>
+        <div className="fla flcnw flccv">
+          <div className="fln f6">
+            <TranscriptMatch hit={hit} />
+          </div>
+        </div>
       </div>
     );
   }
