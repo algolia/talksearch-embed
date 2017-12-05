@@ -11,7 +11,7 @@ export interface TranscriptHit extends SingleHit {
     objectID: string;
     text: string;
     _highlightResult: {
-      value: HighlightMatch;
+      text: HighlightMatch;
     };
   }[];
 }
@@ -39,7 +39,7 @@ function transformToTranscripts(hits: SingleHit[]) {
       const lastTranscriptions = {
         text: hit.text,
         _highlightResult: {
-          text: hit._highlightResult.value,
+          text: hit._highlightResult.text,
         },
       };
 
@@ -59,7 +59,7 @@ function transformToTranscripts(hits: SingleHit[]) {
                     objectID: previous.objectID,
                     text: previous.text,
                     _highlightResult: {
-                      text: previous._highlightResult.value,
+                      text: previous._highlightResult.text,
                     },
                   },
                 ]),
@@ -68,7 +68,7 @@ function transformToTranscripts(hits: SingleHit[]) {
               objectID: hit.objectID,
               text: hit.text,
               _highlightResult: {
-                text: hit._highlightResult.value,
+                text: hit._highlightResult.text,
               },
             },
           ],

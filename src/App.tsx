@@ -47,7 +47,7 @@ export interface SingleHit {
   channel: string;
   objectID: string;
   _highlightResult: {
-    value: HighlightMatch;
+    text: HighlightMatch;
     description: HighlightMatch;
     title: HighlightMatch;
   };

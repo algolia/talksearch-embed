@@ -35,6 +35,7 @@ export default class MainTranscriptHit extends Component<HitProps, any> {
       <MainHit
         render={({ hit }: { hit: TranscriptHit }) => (
           <span>
+            __ transcript __
             <Description hit={hit} />
             <Transcripts transcriptions={hit.transcriptions} />
             <details style={{ opacity: 0.5 }}>
