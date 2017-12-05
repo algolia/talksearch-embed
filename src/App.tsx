@@ -97,11 +97,11 @@ export default class App extends Component<Props, State> {
           indexName={indexName}
         >
           <RefinedSearch>
-            {// todo: figure out why 0 doesn't apply
-            ({ isRefined }) => (
+            {({ isRefined }) => (
               <Configure
                 distinct={isRefined ? 3 : 0}
                 attributesToSnippet={['videoDescription:30']}
+                hitsPerPage={10}
                 snippetEllipsisText="…"
               />
             )}
