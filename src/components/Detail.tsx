@@ -53,7 +53,7 @@ export default class Detail extends Component<Props, any> {
               height: '390',
               width: '640',
               playerVars: {
-                autoplay: 1,
+                autoplay: 0,
                 playsinline: 1,
                 rel: 0,
                 cc_load_policy: 1,
