@@ -1,5 +1,10 @@
 import { Component } from 'preact';
+
+import applyPolyfills from './util/polyfill';
 import App from './App.tsx';
+
+applyPolyfills();
+
 let indexName = '';
 
 if (typeof window !== 'undefined') {
