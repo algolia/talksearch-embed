@@ -9,7 +9,7 @@ const Speaker = ({ hit }) => (
   </p>
 );
 const Title = ({ hit }) => (
-  <h1>
+  <h1 className="f4">
     <Highlight hit={hit} attributeName="title" tagName="mark" />
   </h1>
 );
@@ -34,13 +34,17 @@ export default class MainHit extends Component<MainProps, void> {
     // }
 
     return (
-      <article className="shadow-0 pa-1 br2">
-        ({index})
-        <button onClick={this.openDetail}>
-          <img src={hit.thumbnails.url} />
-        </button>
+      <article className="shadow-0 bg-titan-white br6 pa3 bunting">
         <Speaker hit={hit} />
         <Title hit={hit} />
+        <div>
+          <button
+            onClick={this.openDetail}
+            className="bn bg-transparent pointer"
+          >
+            <img src={hit.thumbnails.url} className="br6 shadow-0" />
+          </button>
+        </div>
         {render({ hit })}
       </article>
     );
