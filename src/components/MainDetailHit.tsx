@@ -6,7 +6,7 @@ import MainHit from './MainHit';
 import './MainHit.scss';
 
 const Description = ({ hit }) => (
-  <Snippet hit={hit} attributeName="videoDescription" tagName="mark" />
+  <Snippet hit={hit} attributeName="description" tagName="mark" />
 );
 
 interface HitProps {

@@ -11,7 +11,7 @@ const Speaker = ({ hit }) => (
 );
 const Title = ({ hit }) => (
   <h1>
-    <Highlight hit={hit} attributeName="videoTitle" tagName="mark" />
+    <Highlight hit={hit} attributeName="title" tagName="mark" />
   </h1>
 );
 

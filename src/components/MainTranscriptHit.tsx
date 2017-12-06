@@ -9,7 +9,7 @@ import './MainHit.scss';
 
 // todo: make this small
 const Description = ({ hit }) => (
-  <Snippet hit={hit} attributeName="videoDescription" tagName="mark" />
+  <Snippet hit={hit} attributeName="description" tagName="mark" />
 );
 
 // todo: don't copy-paste

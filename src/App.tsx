@@ -37,8 +37,9 @@ export interface SingleHit {
   dur: string;
   text: string;
   videoId: string;
-  videoTitle: string;
-  videoDescription: string;
+  title: string;
+  description: string;
+  // todo: change
   videoThumbnails: {
     url: string;
     width: number;
@@ -115,7 +116,7 @@ export default class App extends Component<Props, State> {
             {({ isRefined }) => (
               <Configure
                 distinct={isRefined ? 3 : 0}
-                attributesToSnippet={['videoDescription:30']}
+                attributesToSnippet={['description:30']}
                 hitsPerPage={10}
                 snippetEllipsisText="…"
               />
