@@ -13,6 +13,18 @@ const Description = ({ hit }) => (
 
 // todo: don't copy-paste
 const Time = ({ time }: { time: number }) => <p>{secToMin(time)}</p>;
+const SeekButton = ({
+  hit,
+  onClick,
+}: {
+  hit: Transcript;
+  onClick: () => void;
+}) => (
+  <button onClick={onClick}>
+    <p>▶️</p>
+    <Time time={hit.start} />
+  </button>
+);
 
 const Transcripts: FunctionalComponent<{
   transcriptions: { [objectID: string]: Transcript };
@@ -23,10 +35,10 @@ const Transcripts: FunctionalComponent<{
       ([objectID, transcription]) =>
         transcription && (
           <div key={objectID}>
-            <button onClick={() => openDetail(transcription.start)}>
-              <p>▶️</p>
-              <Time time={transcription.start} />
-            </button>
+            <SeekButton
+              hit={transcription}
+              onClick={() => openDetail(transcription.start)}
+            />
             <Highlight
               hit={transcription}
               attributeName="text"
