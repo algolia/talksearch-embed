@@ -38,7 +38,7 @@ export default class Detail extends Component<Props, any> {
     const { videoId, open, onCloseDetail, start = 0, indexName } = this.props;
     return (
       open && (
-        <div className="absolute-center-horizontal z-max top-10 w-60 bg-titan-white shadow-1 br6 ba pt3 bunting b--gray">
+        <div className="absolute-center-horizontal z-max top-10 w-60 bg-titan-white shadow-2 br6 ba pt3 bunting b--gray">
           <div className="mb2 flrnw h3 ph3">
             <div className="fln mr3">
               <img src="/img/writethedocs.png" />
@@ -97,7 +97,7 @@ export default class Detail extends Component<Props, any> {
               <InstantSearch
                 appId="FOQUAZ6YNS"
                 apiKey="72ee3a317835b8618eda01c6fcc88f77"
-                indexName={indexName}
+                indexName={`${indexName}-detail`}
               >
                 <RestrictToVideo videoId={videoId} />
                 <Configure
