@@ -5,6 +5,7 @@ import {
   SearchBox,
   PoweredBy,
   Configure,
+  Pagination,
 } from 'react-instantsearch/dom';
 import { connectMenu } from 'react-instantsearch/connectors';
 import YouTube from 'react-youtube';
@@ -52,6 +53,7 @@ export default class Detail extends Component<Props, any> {
           <div className="absolute-center-horizontal z-max top-10 w-60-l w-80-m bg-white shadow-0 br6 ba pt3 bunting b--gray">
             <div className="mb2 flrnw h3 ph3">
               <div className="fln mr3">
+                {/* todo: get image */}
                 <img src="/img/writethedocs.png" />
               </div>
               <div className="fla flcnw flspa">
@@ -118,6 +120,9 @@ export default class Detail extends Component<Props, any> {
                         <DetailHit hit={hit} onSeek={this.onSeek} />
                       )}
                     />
+                    <div className="tc">
+                      <Pagination showFirst={false} pagesPadding={0} />
+                    </div>
                   </div>
                 </InstantSearch>
               </div>
