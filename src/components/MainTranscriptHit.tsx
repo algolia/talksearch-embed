@@ -5,25 +5,11 @@ import secToMin from 'sec-to-min';
 import { SingleHit, OpenDetail } from '../App';
 import { TranscriptHit, Transcript } from './MainHits';
 import MainHit from './MainHit';
+import { SeekButton } from './DetailHit';
 
 // todo: make this small
 const Description = ({ hit }) => (
   <Snippet hit={hit} attributeName="description" tagName="mark" />
-);
-
-// todo: don't copy-paste
-const Time = ({ time }: { time: number }) => <p>{secToMin(time)}</p>;
-const SeekButton = ({
-  hit,
-  onClick,
-}: {
-  hit: Transcript;
-  onClick: () => void;
-}) => (
-  <button onClick={onClick}>
-    <p>▶️</p>
-    <Time time={hit.start} />
-  </button>
 );
 
 const Transcripts: FunctionalComponent<{
@@ -36,7 +22,7 @@ const Transcripts: FunctionalComponent<{
         transcription && (
           <div key={objectID}>
             <SeekButton
-              hit={transcription}
+              start={transcription.start}
               onClick={() => openDetail(transcription.start)}
             />
             <Highlight

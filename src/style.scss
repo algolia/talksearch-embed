@@ -45,21 +45,22 @@ img {
 // haha boom
 .ais-Hits__root {
   font-family: Montserrat, sans-serif;
+}
 
-  .text {
-    box-shadow: none !important;
-    border: none !important;
-    color: white;
+.ais-Hits__root .text,
+.text {
+  box-shadow: none !important;
+  border: none !important;
+  color: white;
+  background: var(--gradient);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 0.25em;
+  cursor: pointer;
+
+  &:focus {
     background: var(--gradient);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 0.25em;
-    cursor: pointer;
-
-    &:focus {
-      background: var(--gradient);
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24) !important;
-    }
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24) !important;
   }
 }

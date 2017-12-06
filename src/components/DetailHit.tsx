@@ -8,6 +8,22 @@ const TranscriptMatch = ({ hit }: { hit: SingleHit }) => (
 );
 
 const Time = ({ time }: { time: number }) => <span>{secToMin(time)}</span>;
+export const SeekButton = ({
+  start,
+  onClick,
+}: {
+  start: number;
+  onClick: () => void;
+}) => (
+  <button className="text mr2" onClick={onClick}>
+    <div className="fla flc ma1 f4">
+      <span className="icon-play tac" />
+    </div>
+    <div className="fln f6 tc">
+      <Time time={start} />
+    </div>
+  </button>
+);
 
 interface HitProps {
   hit: SingleHit;
@@ -21,14 +37,7 @@ export default class Hit extends Component<HitProps, any> {
     const { start } = hit;
     return (
       <div className="flrnw mb2">
-        <button className="text mr2" onClick={this.onSeek}>
-          <div className="fla flc ma f4">
-            <span className="icon-play tac" />
-          </div>
-          <div className="fln f6 tc">
-            <Time time={start} />
-          </div>
-        </button>
+        <SeekButton onClick={this.onSeek} start={start} />
         <div className="fla flcnw flccv">
           <div className="fln f6">
             <TranscriptMatch hit={hit} />
