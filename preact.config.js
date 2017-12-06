@@ -6,6 +6,6 @@ export default config => {
   preactCliTypeScript(config);
   config.node.process = 'mock';
   config.plugins.push(
-    new CopyWebpackPlugin([{ context: `${__dirname}/assets`, from: `*.*` }])
+    new CopyWebpackPlugin([{ context: `${__dirname}/assets`, from: '**/*' }])
   );
 };
