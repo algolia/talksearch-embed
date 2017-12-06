@@ -20,7 +20,7 @@ const Transcripts: FunctionalComponent<{
     {Object.entries(transcriptions).map(
       ([objectID, transcription]) =>
         transcription && (
-          <div key={objectID}>
+          <div key={objectID} className="ma1 flex">
             <SeekButton
               start={transcription.start}
               onClick={() => openDetail(transcription.start)}
