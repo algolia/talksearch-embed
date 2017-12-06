@@ -31,6 +31,8 @@ export default class Detail extends Component<Props, any> {
   };
   onReady = e => {
     this.player = e.target;
+    const { start = 0 } = this.props;
+    this.player.seekTo(start);
   };
 
   render() {
