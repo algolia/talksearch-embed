@@ -5,7 +5,8 @@ import secToMin from 'sec-to-min';
 import { SingleHit, OpenDetail } from '../App';
 import { TranscriptHit, Transcript } from './MainHits';
 import MainHit from './MainHit';
-import { SeekButton } from './DetailHit';
+import SeekButton from './SeekButton';
+import TranscriptMatch from './TranscriptMatch';
 
 // todo: make this small
 const Description = ({ hit }) => (
@@ -16,23 +17,16 @@ const Transcripts: FunctionalComponent<{
   transcriptions: { [objectID: string]: Transcript };
   openDetail: (start?: number) => void;
 }> = ({ transcriptions, openDetail }) => (
-  <div>
+  <div className="f6">
     {Object.entries(transcriptions).map(
       ([objectID, transcription]) =>
         transcription && (
-          <div key={objectID} className="ma1 flex items-center">
+          <div key={objectID} className="mt2 flex items-center">
             <SeekButton
               start={transcription.start}
               onClick={() => openDetail(transcription.start)}
             />
-            {/* todo extract and reuse */}
-            <div>
-              …<Highlight
-                hit={transcription}
-                attributeName="text"
-                tagName="mark"
-              />…
-            </div>
+            <TranscriptMatch hit={transcription} />
           </div>
         )
     )}
@@ -55,17 +49,15 @@ export default class MainTranscriptHit extends Component<HitProps, any> {
     return (
       <MainHit
         render={({ hit }: { hit: TranscriptHit }) => (
-          <span className="">
-            <div className="f6 fw3">
+          <div>
+            <div className="f6 fw3 break-words">
               <Description hit={hit} />
             </div>
-            <div className="f6 mt3">
-              <Transcripts
-                transcriptions={hit.transcriptions}
-                openDetail={this.openDetail}
-              />
-            </div>
-          </span>
+            <Transcripts
+              transcriptions={hit.transcriptions}
+              openDetail={this.openDetail}
+            />
+          </div>
         )}
         hit={hit}
         index={index}
