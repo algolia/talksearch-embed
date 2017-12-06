@@ -56,25 +56,47 @@ export interface SingleHit {
   _distinctSeqID?: number;
 }
 
+export type OpenDetail = (
+  {
+    videoId,
+    title,
+    description,
+    start,
+  }: {
+    videoId: string;
+    title: string;
+    description: string;
+    start?: number;
+  }
+) => void;
+
 interface State {
   videoId: string;
   start: number;
+  description: string;
+  title: string;
   open: boolean;
 }
+
+const defaultState = {
+  videoId: '',
+  start: 0,
+  description: '',
+  title: '',
+  open: false,
+};
 
 interface Props {
   indexName: string;
 }
 export default class App extends Component<Props, State> {
-  state = {
-    videoId: '',
-    start: 0,
-    open: false,
-  };
+  state = defaultState;
 
-  openDetail = ({ videoId, start }: { videoId: string; start?: number }) =>
+  openDetail: OpenDetail = ({ videoId, title, description, start }) =>
     this.setState({
       videoId,
+      title,
+      description,
       start,
       open: true,
     });
@@ -83,11 +105,13 @@ export default class App extends Component<Props, State> {
     this.setState({
       videoId: '',
       start: 0,
+      description: '',
+      title: '',
       open: false,
     });
 
   render() {
-    const { open, videoId, start } = this.state;
+    const { open, videoId, start, description, title } = this.state;
     const { indexName } = this.props;
     return (
       <div className="montserrat">
@@ -96,13 +120,15 @@ export default class App extends Component<Props, State> {
             {
               rel: 'stylesheet',
               href:
-                'https://unpkg.com/@haroenv/tachyons-algolia@0.0.0-beta.2/tachyons-algolia.min.css',
+                'https://unpkg.com/@haroenv/tachyons-algolia/tachyons-algolia.min.css',
             },
           ]}
         />
         <Detail
           open={open}
           videoId={videoId}
+          title={title}
+          description={description}
           start={start}
           onCloseDetail={this.closeDetail}
           indexName={indexName}

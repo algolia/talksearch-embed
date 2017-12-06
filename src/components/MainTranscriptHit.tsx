@@ -2,7 +2,7 @@ import { h, Component, FunctionalComponent } from 'preact';
 import { Highlight, Snippet } from 'react-instantsearch/dom';
 import secToMin from 'sec-to-min';
 
-import { SingleHit } from '../App';
+import { SingleHit, OpenDetail } from '../App';
 import { TranscriptHit, Transcript } from './MainHits';
 import MainHit from './MainHit';
 import './MainHit.scss';
@@ -42,16 +42,16 @@ const Transcripts: FunctionalComponent<{
 interface HitProps {
   hit: TranscriptHit;
   index: number;
-  onOpenDetail: (
-    { videoId, start }: { videoId: string; start?: number }
-  ) => void;
+  openDetail: OpenDetail;
 }
 export default class MainTranscriptHit extends Component<HitProps, any> {
-  openDetail = start =>
-    this.props.onOpenDetail({ videoId: this.props.hit.videoId, start });
+  openDetail = start => {
+    const { videoId, description, title } = this.props.hit;
+    this.props.openDetail({ videoId, description, title, start });
+  };
 
   render() {
-    const { hit, index, onOpenDetail } = this.props;
+    const { hit, index, openDetail } = this.props;
     return (
       <MainHit
         render={({ hit }: { hit: TranscriptHit }) => (
@@ -67,7 +67,9 @@ export default class MainTranscriptHit extends Component<HitProps, any> {
             </details>
           </span>
         )}
-        {...{ hit, index, onOpenDetail }}
+        hit={hit}
+        index={index}
+        openDetail={openDetail}
       />
     );
   }

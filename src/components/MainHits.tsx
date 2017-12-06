@@ -2,7 +2,7 @@ import { h, Component } from 'preact';
 import Pinboard from '@haroenv/react-pinboard';
 import { connectInfiniteHits } from 'react-instantsearch/connectors';
 
-import { SingleHit, HighlightMatch } from '../App';
+import { SingleHit, HighlightMatch, OpenDetail } from '../App';
 import MainDetailHit from './MainDetailHit';
 import MainTranscriptHit from './MainTranscriptHit';
 
@@ -85,7 +85,7 @@ interface InfiniteHit {
   refine(): void;
 }
 interface Props extends InfiniteHit {
-  openDetail({ videoId, start }: { videoId: string; start?: number }): void;
+  openDetail: OpenDetail;
 }
 class Hits extends Component<Props, null> {
   loadMore = () => {
@@ -116,14 +116,14 @@ class Hits extends Component<Props, null> {
                       key={hit.objectID}
                       hit={hit}
                       index={index}
-                      onOpenDetail={openDetail}
+                      openDetail={openDetail}
                     />
                   ) : (
                     <MainDetailHit
                       key={hit.objectID}
                       hit={hit}
                       index={index}
-                      onOpenDetail={openDetail}
+                      openDetail={openDetail}
                     />
                   )
               )}

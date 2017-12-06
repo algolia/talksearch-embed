@@ -1,6 +1,6 @@
 import { h, Component } from 'preact';
 import { Highlight, Snippet } from 'react-instantsearch/dom';
-import { SingleHit } from '../App';
+import { SingleHit, OpenDetail } from '../App';
 import { TranscriptHit } from './MainHits';
 import './MainHit.scss';
 
@@ -18,14 +18,14 @@ const Title = ({ hit }) => (
 interface MainProps {
   hit: SingleHit | TranscriptHit;
   index: number;
-  onOpenDetail: (
-    { videoId, start }: { videoId: string; start?: number }
-  ) => void;
+  openDetail: OpenDetail;
   render: ({ hit }: { hit: SingleHit | TranscriptHit }) => JSX.Element;
 }
 export default class MainHit extends Component<MainProps, void> {
-  openDetail = () =>
-    this.props.onOpenDetail({ videoId: this.props.hit.videoId });
+  openDetail = () => {
+    const { videoId, description, title } = this.props.hit;
+    this.props.openDetail({ videoId, description, title });
+  };
 
   render() {
     const { hit, index, render } = this.props;

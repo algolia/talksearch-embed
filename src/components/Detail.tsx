@@ -19,6 +19,8 @@ const RestrictToVideo = ({ videoId }: { videoId: string }) => (
 
 interface Props {
   videoId: string;
+  title: string;
+  description: string;
   open: boolean;
   start?: number;
   onCloseDetail: () => void;
@@ -35,7 +37,15 @@ export default class Detail extends Component<Props, any> {
   };
 
   render() {
-    const { videoId, open, onCloseDetail, start = 0, indexName } = this.props;
+    const {
+      open,
+      videoId,
+      description,
+      title,
+      start = 0,
+      onCloseDetail,
+      indexName,
+    } = this.props;
     return (
       open && (
         <div className="absolute-center-horizontal z-max top-10 w-60 bg-titan-white shadow-2 br6 ba pt3 bunting b--gray">
@@ -44,12 +54,13 @@ export default class Detail extends Component<Props, any> {
               <img src="/img/writethedocs.png" />
             </div>
             <div className="fla flcnw flspa">
-              <div className="fln f4">
+              {/* todo: use extracted values */}
+              {/* <div className="fln f4">
                 <span className="mulberry pr2">Tim Carry -</span>
                 Write The Docs
                 <span className="mulberry pl2">- 2017</span>
-              </div>
-              <div className="fln f3 b">A Search Engine in CSS</div>
+              </div> */}
+              <div className="fln f3 b">{title}</div>
             </div>
             <div className="fln flcnw">
               <button
@@ -86,11 +97,7 @@ export default class Detail extends Component<Props, any> {
                 }}
                 onReady={this.onReady}
               />
-              <div className="mt3 lh-copy">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                lacus ligula, accumsan id imperdiet rhoncus, dapibus vitae arcu.
-                Nulla non quam erat, luctus consequat nisi
-              </div>
+              <div className="mt3 lh-copy">{description}</div>
             </div>
 
             <div className="fln w-40">
@@ -118,7 +125,8 @@ export default class Detail extends Component<Props, any> {
 
           <div className="flrnw mb3 ph3">
             <div className="fla tl royal-blue b f4">
-              &lt;/&gt; embed this talk on your webpage
+              <span className="dejavu black">{'< /> '}</span>
+              embed this talk on your webpage
             </div>
             <div className="fla tr">
               <img src="/img/search-by-algolia.svg" />
