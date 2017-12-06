@@ -42,7 +42,14 @@ img {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
-// haha boom
+.ellipsis {
+  flex-grow: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .ais-InstantSearch__root {
   font-family: Montserrat, sans-serif !important;
 }

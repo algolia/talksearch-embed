@@ -61,7 +61,7 @@ export default class Detail extends Component<Props, any> {
                 Write The Docs
                 <span className="mulberry pl2">- 2017</span>
               </div> */}
-                <div className="fln f3 b">{title}</div>
+                <div className="fln f3 b ellipsis">{title}</div>
               </div>
               <div className="fln flcnw">
                 <button
