@@ -69,8 +69,7 @@ export default class Detail extends Component<Props, any> {
                   aria-label="close"
                   onClick={onCloseDetail}
                 >
-                  close
-                  <span className="icon-close" />
+                  close <span className="icon-close" />
                 </button>
               </div>
             </div>
