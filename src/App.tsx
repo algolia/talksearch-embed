@@ -149,11 +149,15 @@ export default class App extends Component<Props, State> {
                 />
               )}
             </RefinedSearch>
-            <div className="flex">
+            <div className="flex items-center mb2">
               <SearchBox />
-              <PoweredBy />
+              <div className="ml3">
+                <PoweredBy />
+              </div>
             </div>
-            <Stats />
+            <div className="ml3 mb2">
+              <Stats />
+            </div>
             <MainHits openDetail={this.openDetail} />
           </InstantSearch>
         </div>
