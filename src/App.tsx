@@ -2,6 +2,7 @@ import 'react-instantsearch-theme-algolia/style.min.css';
 import './style.scss';
 
 import { h, Component } from 'preact';
+import Helmet from 'preact-helmet';
 import {
   InstantSearch,
   Hits,
@@ -88,7 +89,16 @@ export default class App extends Component<Props, State> {
     const { open, videoId, start } = this.state;
     const { indexName } = this.props;
     return (
-      <div>
+      <div className="montserrat">
+        <Helmet
+          link={[
+            {
+              rel: 'stylesheet',
+              href:
+                'https://unpkg.com/@haroenv/tachyons-algolia@0.0.0-beta.2/tachyons-algolia.min.css',
+            },
+          ]}
+        />
         <Detail
           open={open}
           videoId={videoId}
