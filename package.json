@@ -23,6 +23,7 @@
   ],
   "devDependencies": {
     "babel-eslint": "^8.0.3",
+    "copy-webpack-plugin": "^4.2.3",
     "eslint": "^4.12.1",
     "eslint-config-algolia": "^13.0.1",
     "eslint-config-prettier": "^2.9.0",
