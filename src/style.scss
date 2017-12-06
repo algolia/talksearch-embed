@@ -37,6 +37,11 @@ img {
   width: 3rem;
 }
 
+// relative stuff
+h1e {
+  height: 1em;
+}
+
 // shadow that works in safari
 .shadow-0 {
   box-shadow: 0 2px 2px 0 rgba(73, 85, 136, 0.29);
@@ -65,7 +70,8 @@ img {
   white-space: nowrap;
 }
 
-.ais-InstantSearch__root {
+.ais-InstantSearch__root,
+button {
   font-family: Montserrat, sans-serif !important;
 }
 

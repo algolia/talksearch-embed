@@ -128,14 +128,14 @@ export default class Detail extends Component<Props, any> {
                 <span className="dejavu black">{'< /> '}</span>
                 embed this talk on your webpage
               </div>
-              <div className="fla tr">
+              <div className="fla tr h1e">
                 <img src="/img/search-by-algolia.svg" />
               </div>
             </div>
 
             <div className="bt b--black-30">
               <div className="pa3 flrnw">
-                <div className="fln w-30">
+                <div className="flex w-30 pr3">
                   <img src="/img/talksearch.svg" />
                 </div>
                 <div className="fln w-60 black-50 lh-copy f5">
@@ -151,9 +151,10 @@ export default class Detail extends Component<Props, any> {
               </div>
             </div>
           </div>
+          {/* todo: find what's wrong with z-index */}
           <button
             onClick={onCloseDetail}
-            className="db vh-100 vw-100 w-100 o-0 pointer"
+            className="db vh-100 vw-100 w-100 o-30 z-max bn bg-black pointer"
           />
         </div>
       )
