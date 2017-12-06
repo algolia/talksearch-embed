@@ -33,6 +33,7 @@ export default class MainHit extends Component<MainProps, void> {
     //   this.openDetail();
     // }
 
+    const { thumbnails: { url }, dur: duration } = hit;
     return (
       <article className="shadow-0 bg-titan-white br6 pa3 bunting">
         <Speaker hit={hit} />
@@ -42,8 +43,12 @@ export default class MainHit extends Component<MainProps, void> {
             onClick={this.openDetail}
             className="bn bg-transparent pointer"
           >
-            <img src={hit.thumbnails.url} className="br6 shadow-0" />
+            <img src={url} className="br6 shadow-0" />
           </button>
+          <div>
+            <p>Duration</p>
+            <p>{duration}</p>
+          </div>
         </div>
         {render({ hit })}
       </article>
