@@ -34,7 +34,8 @@ export interface HighlightMatch {
 }
 export interface SingleHit {
   start: number;
-  dur: string;
+  duration: number;
+  year: number;
   text: string;
   videoId: string;
   title: string;
@@ -132,28 +133,30 @@ export default class App extends Component<Props, State> {
           onCloseDetail={this.closeDetail}
           indexName={indexName}
         />
-        <InstantSearch
-          appId="FOQUAZ6YNS"
-          apiKey="72ee3a317835b8618eda01c6fcc88f77"
-          indexName={indexName}
-        >
-          <RefinedSearch>
-            {({ isRefined }) => (
-              <Configure
-                distinct={isRefined ? 3 : 0}
-                attributesToSnippet={['description:30']}
-                hitsPerPage={10}
-                snippetEllipsisText="…"
-              />
-            )}
-          </RefinedSearch>
-          <div className="flex">
-            <SearchBox />
-            <PoweredBy />
-          </div>
-          <Stats />
-          <MainHits openDetail={this.openDetail} />
-        </InstantSearch>
+        <div className="absolute top-0 left-0">
+          <InstantSearch
+            appId="FOQUAZ6YNS"
+            apiKey="72ee3a317835b8618eda01c6fcc88f77"
+            indexName={indexName}
+          >
+            <RefinedSearch>
+              {({ isRefined }) => (
+                <Configure
+                  distinct={isRefined ? 3 : 0}
+                  attributesToSnippet={['description:30']}
+                  hitsPerPage={10}
+                  snippetEllipsisText="…"
+                />
+              )}
+            </RefinedSearch>
+            <div className="flex">
+              <SearchBox />
+              <PoweredBy />
+            </div>
+            <Stats />
+            <MainHits openDetail={this.openDetail} />
+          </InstantSearch>
+        </div>
       </div>
     );
   }

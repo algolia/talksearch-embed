@@ -33,7 +33,7 @@ export default class MainHit extends Component<MainProps, void> {
     //   this.openDetail();
     // }
 
-    const { thumbnails: { url }, dur: duration } = hit;
+    const { thumbnails: { url }, duration, year } = hit;
     return (
       // todo: bg white
       <article className="shadow-0 bg-white br6 pa3 bunting">
@@ -53,8 +53,7 @@ export default class MainHit extends Component<MainProps, void> {
             </div>
             <div className="mt4">
               <div className="f7 o-40 mb1">Year</div>
-              {/* todo: find the year in index */}
-              <div>N/A</div>
+              <div>{year}</div>
             </div>
           </div>
         </div>
