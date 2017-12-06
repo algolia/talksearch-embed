@@ -49,7 +49,7 @@ export default class Detail extends Component<Props, any> {
     return (
       open && (
         <div className="">
-          <div className="absolute-center-horizontal z-max top-10 w-60 bg--white shadow-0 br6 ba pt3 bunting b--gray">
+          <div className="absolute-center-horizontal z-max top-10 w-60-l bg-white shadow-0 br6 ba pt3 bunting b--gray">
             <div className="mb2 flrnw h3 ph3">
               <div className="fln mr3">
                 <img src="/img/writethedocs.png" />
@@ -141,8 +141,11 @@ export default class Detail extends Component<Props, any> {
                 <div className="fln w-60 black-50 lh-copy f5">
                   A tool to help conference organizers make all their videos
                   searchable & interactive.
-                  <a href="#" className="link b royal-blue pl2">
-                    Visit TalkSearch project
+                  <a
+                    href="https://community.algolia.com/talksearch"
+                    className="link b royal-blue pl2"
+                  >
+                    Visit the TalkSearch project
                   </a>
                 </div>
               </div>
