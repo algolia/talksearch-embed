@@ -1,6 +1,6 @@
 import 'react-instantsearch-theme-algolia/style.min.css';
 import './style.scss';
-import 'tachyons-algolia/build/tachyons-algolia.css';
+import 'tachyons-algolia/build/tachyons-algolia.min.css';
 
 import { h, Component } from 'preact';
 import {

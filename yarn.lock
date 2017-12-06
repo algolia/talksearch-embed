@@ -7312,8 +7312,9 @@ table@^4.0.1:
     slice-ansi "1.0.0"
     string-width "^2.1.1"
 
-"tachyons-algolia@file:../tachyons-algolia":
-  version "0.3.14"
+tachyons-algolia@^0.3.15:
+  version "0.3.15"
+  resolved "https://registry.yarnpkg.com/tachyons-algolia/-/tachyons-algolia-0.3.15.tgz#213560fb0f72cd111d11b3da5ca6a1a0c712596f"
 
 tapable@^0.2.5, tapable@^0.2.7:
   version "0.2.8"
