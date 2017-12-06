@@ -25,7 +25,7 @@ export default class MainDetailHit extends Component<HitProps, any> {
     return (
       <MainHit
         render={({ hit }: { hit: SingleHit }) => (
-          <div className="f6 fw3">
+          <div className="f6 fw3 break-words">
             <Description hit={hit} />
           </div>
         )}
