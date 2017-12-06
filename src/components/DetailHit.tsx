@@ -15,11 +15,18 @@ export const SeekButton = ({
   start: number;
   onClick: () => void;
 }) => (
-  <button className="text mr2" onClick={onClick}>
-    <div className="fla flc ma1 f4">
+  <button
+    className="text mr2"
+    style={{
+      width: '36px',
+      height: '36px',
+    }}
+    onClick={onClick}
+  >
+    <div className="fla flc ma1 f5">
       <span className="icon-play tac" />
     </div>
-    <div className="fln f6 tc">
+    <div className="fln f7 tc">
       <Time time={start} />
     </div>
   </button>
@@ -36,7 +43,7 @@ export default class Hit extends Component<HitProps, any> {
     const { hit } = this.props;
     const { start } = hit;
     return (
-      <div className="flrnw mb2">
+      <div className="flrnw mb2 items-center">
         <SeekButton onClick={this.onSeek} start={start} />
         <div className="fla flcnw flccv">
           <div className="fln f6">

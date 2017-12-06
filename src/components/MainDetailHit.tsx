@@ -25,13 +25,8 @@ export default class MainDetailHit extends Component<HitProps, any> {
     return (
       <MainHit
         render={({ hit }: { hit: SingleHit }) => (
-          <div>
+          <div className="f6 fw3">
             <Description hit={hit} />
-
-            <details style={{ opacity: 0.5 }}>
-              <summary>all</summary>
-              <pre>{JSON.stringify(hit, null, 2)}</pre>
-            </details>
           </div>
         )}
         hit={hit}

@@ -4,12 +4,12 @@ import { SingleHit, OpenDetail } from '../App';
 import { TranscriptHit } from './MainHits';
 
 const Speaker = ({ hit }) => (
-  <p>
+  <div style={{ color: '#3369E7' }} className="f6">
     <Highlight hit={hit} attributeName="speaker" tagName="mark" />
-  </p>
+  </div>
 );
 const Title = ({ hit }) => (
-  <h1 className="f4">
+  <h1 className="f5 mt1">
     <Highlight hit={hit} attributeName="title" tagName="mark" />
   </h1>
 );
@@ -35,19 +35,27 @@ export default class MainHit extends Component<MainProps, void> {
 
     const { thumbnails: { url }, dur: duration } = hit;
     return (
-      <article className="shadow-0 bg-titan-white br6 pa3 bunting">
+      // todo: bg white
+      <article className="shadow-0 bg--white br6 pa3 bunting">
         <Speaker hit={hit} />
         <Title hit={hit} />
-        <div>
+        <div className="flex mb2">
           <button
             onClick={this.openDetail}
             className="bn bg-transparent pointer"
           >
             <img src={url} className="br6 shadow-0" />
           </button>
-          <div>
-            <p>Duration</p>
-            <p>{duration}</p>
+          <div className="ml2">
+            <div>
+              <div className="f7 o-40 mb1">Duration</div>
+              <div>{duration}</div>
+            </div>
+            <div className="mt4">
+              <div className="f7 o-40 mb1">Year</div>
+              {/* todo: find the year in index */}
+              <div>N/A</div>
+            </div>
           </div>
         </div>
         {render({ hit })}

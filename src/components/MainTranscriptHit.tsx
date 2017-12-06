@@ -20,16 +20,19 @@ const Transcripts: FunctionalComponent<{
     {Object.entries(transcriptions).map(
       ([objectID, transcription]) =>
         transcription && (
-          <div key={objectID} className="ma1 flex">
+          <div key={objectID} className="ma1 flex items-center">
             <SeekButton
               start={transcription.start}
               onClick={() => openDetail(transcription.start)}
             />
-            <Highlight
-              hit={transcription}
-              attributeName="text"
-              tagName="mark"
-            />
+            {/* todo extract and reuse */}
+            <div>
+              …<Highlight
+                hit={transcription}
+                attributeName="text"
+                tagName="mark"
+              />…
+            </div>
           </div>
         )
     )}
@@ -52,16 +55,16 @@ export default class MainTranscriptHit extends Component<HitProps, any> {
     return (
       <MainHit
         render={({ hit }: { hit: TranscriptHit }) => (
-          <span>
-            <Description hit={hit} />
-            <Transcripts
-              transcriptions={hit.transcriptions}
-              openDetail={this.openDetail}
-            />
-            <details style={{ opacity: 0.5 }}>
-              <summary>all</summary>
-              <pre>{JSON.stringify(hit, null, 2)}</pre>
-            </details>
+          <span className="">
+            <div className="f6 fw3">
+              <Description hit={hit} />
+            </div>
+            <div className="f6 mt3">
+              <Transcripts
+                transcriptions={hit.transcriptions}
+                openDetail={this.openDetail}
+              />
+            </div>
           </span>
         )}
         hit={hit}
