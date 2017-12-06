@@ -19,7 +19,10 @@ export interface TranscriptHit extends SingleHit {
 }
 
 function hasTranscript(hit: TranscriptHit | SingleHit): hit is TranscriptHit {
-  return (hit as TranscriptHit).transcriptions !== undefined;
+  return (
+    (hit as TranscriptHit).transcriptions !== undefined &&
+    Object.keys((hit as TranscriptHit).transcriptions).length > 0
+  );
 }
 
 function transcriptIfRelevant(
@@ -43,7 +46,18 @@ function transformToTranscripts(hits: SingleHit[]) {
   return hits.reduce<(SingleHit | TranscriptHit)[]>((acc, hit) => {
     if (hit._distinctSeqID === 0 || typeof hit._distinctSeqID === 'undefined') {
       // first or no distinct, simply push
-      return [...acc, hit];
+      const hitTranscriptions = transcriptIfRelevant(hit);
+      return [
+        ...acc,
+        {
+          ...hit,
+          transcriptions: {
+            ...hitTranscriptions
+              ? { [hitTranscriptions.objectID]: hitTranscriptions }
+              : {},
+          },
+        },
+      ];
     } else if (hit._distinctSeqID > 0) {
       const previous = acc[acc.length - 1];
       const firstHits = acc.splice(0, acc.length - 1);
