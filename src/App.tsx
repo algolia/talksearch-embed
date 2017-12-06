@@ -39,13 +39,12 @@ export interface SingleHit {
   videoId: string;
   title: string;
   description: string;
-  // todo: change
-  videoThumbnails: {
+  thumbnails: {
     url: string;
     width: number;
     height: number;
   };
-  videoRanking: number;
+  ranking: number;
   channel: string;
   objectID: string;
   _highlightResult: {

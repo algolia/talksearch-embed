@@ -38,7 +38,7 @@ export default class MainHit extends Component<MainProps, void> {
       <article>
         ({index})
         <button onClick={this.openDetail}>
-          <img src={hit.videoThumbnails.url} />
+          <img src={hit.thumbnails.url} />
         </button>
         <Speaker hit={hit} />
         <Title hit={hit} />
