@@ -1,6 +1,7 @@
 import { Component } from 'preact';
 import applyPolyfills from './util/polyfill';
 import App from './App.tsx';
+import Error from './Error.tsx';
 
 applyPolyfills();
 
@@ -15,6 +16,6 @@ if (typeof window !== 'undefined') {
 
 export default class Index extends Component {
   render() {
-    return <App indexName={indexName} />;
+    return indexName === null ? <Error /> : <App indexName={indexName} />;
   }
 }
