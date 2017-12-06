@@ -21,17 +21,14 @@ export default class Hit extends Component<HitProps, any> {
     const { start } = hit;
     return (
       <div className="flrnw mb2">
-        <div
-          className="fln h25 w25 mr2 flcnw bg-blue white br6"
-          onClick={this.onSeek}
-        >
-          <div className="fla flc">
-            <span className="icon-play" />
+        <button className="text mr2" onClick={this.onSeek}>
+          <div className="fla flc ma f4">
+            <span className="icon-play tac" />
           </div>
           <div className="fln f6 tc">
             <Time time={start} />
           </div>
-        </div>
+        </button>
         <div className="fla flcnw flccv">
           <div className="fln f6">
             <TranscriptMatch hit={hit} />

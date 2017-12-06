@@ -34,7 +34,7 @@ export default class MainHit extends Component<MainProps, void> {
     // }
 
     return (
-      <article className="shadow-2 pa-1 br2">
+      <article className="shadow-0 pa-1 br2">
         ({index})
         <button onClick={this.openDetail}>
           <img src={hit.thumbnails.url} />
