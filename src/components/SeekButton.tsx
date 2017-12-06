@@ -10,7 +10,7 @@ const SeekButton = ({
   onClick: () => void;
 }) => (
   <button
-    className="text mr2"
+    className="text mr2 montserrat fw3"
     style={{
       width: '36px',
       height: '36px',
