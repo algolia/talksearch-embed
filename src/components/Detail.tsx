@@ -40,7 +40,7 @@ export default class Detail extends Component<Props, any> {
         <div className="absolute-center-horizontal z-max top-10 w-60 bg-titan-white shadow-1 br6 ba pt3 bunting b--gray">
           <div className="mb2 flrnw h3 ph3">
             <div className="fln mr3">
-              <img src="./img/writethedocs.png" />
+              <img src="./assets/img/writethedocs.png" />
             </div>
             <div className="fla flcnw flspa">
               <div className="fln f4">
@@ -120,14 +120,14 @@ export default class Detail extends Component<Props, any> {
               &lt;/&gt; embed this talk on your webpage
             </div>
             <div className="fla tr">
-              <img src="./img/search-by-algolia.svg" />
+              <img src="./assets/img/search-by-algolia.svg" />
             </div>
           </div>
 
           <div className="bt b--black-30">
             <div className="pa3 flrnw">
               <div className="fln w-30">
-                <img src="./img/talksearch.svg" />
+                <img src="./assets/img/talksearch.svg" />
               </div>
               <div className="fln w-60 black-50 lh-copy f5">
                 A tool to help conference organizers make all their videos
