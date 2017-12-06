@@ -5,7 +5,6 @@ import secToMin from 'sec-to-min';
 import { SingleHit, OpenDetail } from '../App';
 import { TranscriptHit, Transcript } from './MainHits';
 import MainHit from './MainHit';
-import './MainHit.scss';
 
 // todo: make this small
 const Description = ({ hit }) => (

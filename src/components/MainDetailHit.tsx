@@ -3,7 +3,6 @@ import { Highlight, Snippet } from 'react-instantsearch/dom';
 import { SingleHit, OpenDetail } from '../App';
 import { TranscriptHit } from './MainHits';
 import MainHit from './MainHit';
-import './MainHit.scss';
 
 const Description = ({ hit }) => (
   <Snippet hit={hit} attributeName="description" tagName="mark" />

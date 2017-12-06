@@ -2,7 +2,6 @@ import { h, Component } from 'preact';
 import { Highlight, Snippet } from 'react-instantsearch/dom';
 import { SingleHit, OpenDetail } from '../App';
 import { TranscriptHit } from './MainHits';
-import './MainHit.scss';
 
 const Speaker = ({ hit }) => (
   <p>
@@ -35,7 +34,7 @@ export default class MainHit extends Component<MainProps, void> {
     // }
 
     return (
-      <article>
+      <article className="shadow-2 pa-1 br2">
         ({index})
         <button onClick={this.openDetail}>
           <img src={hit.thumbnails.url} />
