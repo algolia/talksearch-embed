@@ -4,34 +4,33 @@ import { SingleHit } from '../App';
 import { TranscriptHit } from './MainHits';
 import './MainHit.scss';
 
-// <Highlight hit={hit} attributeName="speaker" tagName="mark" />
-const Speaker = ({ hit }) => <p>Bjarne Stroustrup</p>;
+const Speaker = ({ hit }) => (
+  <p>
+    <Highlight hit={hit} attributeName="speaker" tagName="mark" />
+  </p>
+);
 const Title = ({ hit }) => (
   <h1>
     <Highlight hit={hit} attributeName="videoTitle" tagName="mark" />
   </h1>
 );
-const Description = ({ hit }) => (
-  <Snippet hit={hit} attributeName="videoDescription" tagName="mark" />
-);
-const TranscriptMatch = ({ hit }) => (
-  <div style={{ fontFamily: 'serif' }}>
-    <Highlight hit={hit} attributeName="text" tagName="mark" />
-  </div>
-);
 
-interface HitProps {
+interface MainProps {
   hit: SingleHit | TranscriptHit;
   index: number;
-  onOpenDetail: (videoId: string) => void;
+  onOpenDetail: (
+    { videoId, start }: { videoId: string; start?: number }
+  ) => void;
+  render: ({ hit }: { hit: SingleHit | TranscriptHit }) => JSX.Element;
 }
-export default class MainHit extends Component<HitProps, any> {
-  openDetail = () => this.props.onOpenDetail(this.props.hit.videoId);
+export default class MainHit extends Component<MainProps, void> {
+  openDetail = () =>
+    this.props.onOpenDetail({ videoId: this.props.hit.videoId });
 
   render() {
-    const { hit, index } = this.props;
+    const { hit, index, render } = this.props;
     // XXX [Tim]: Debug statement to auto-open the first result for ease of styling
-    if (this.props.hit.videoId === 'tQ99V7QjEHc') {
+    if (hit.videoId === 'tQ99V7QjEHc') {
       this.openDetail();
     }
 
@@ -40,24 +39,10 @@ export default class MainHit extends Component<HitProps, any> {
         ({index})
         <button onClick={this.openDetail}>
           <img src={hit.videoThumbnails.url} />
-          <a
-            href={`https://youtube.com/watch?v=${hit.videoId}&t=${Math.floor(
-              hit.start
-            )}s`}
-            target="_blank"
-          >
-            original
-          </a>
-          <Speaker hit={hit} />
-          <Title hit={hit} />
-          <Description hit={hit} />
-
-          <TranscriptMatch hit={hit} />
-          <details style={{ opacity: 0.5 }}>
-            <summary>all</summary>
-            <pre>{JSON.stringify(hit, null, 2)}</pre>
-          </details>
         </button>
+        <Speaker hit={hit} />
+        <Title hit={hit} />
+        {render({ hit })}
       </article>
     );
   }

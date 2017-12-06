@@ -3,58 +3,77 @@ import Pinboard from '@haroenv/react-pinboard';
 import { connectInfiniteHits } from 'react-instantsearch/connectors';
 
 import { SingleHit, HighlightMatch } from '../App';
-import MainHit from './MainHit';
+import MainDetailHit from './MainDetailHit';
+import MainTranscriptHit from './MainTranscriptHit';
 
+export interface Transcript {
+  objectID: string;
+  start: number;
+  text: string;
+  _highlightResult: {
+    text: HighlightMatch;
+  };
+}
 export interface TranscriptHit extends SingleHit {
-  transcriptions: {
-    text: string;
-    _highlightResult: {
-      text: HighlightMatch;
-    };
-  }[];
+  transcriptions: { [objectID: string]: Transcript };
 }
 
 function hasTranscript(hit: TranscriptHit | SingleHit): hit is TranscriptHit {
   return (hit as TranscriptHit).transcriptions !== undefined;
 }
 
-const sameVideo = (
-  previous: TranscriptHit | SingleHit | void,
-  current: TranscriptHit | SingleHit
-) => typeof previous !== 'undefined' && previous.videoId === current.videoId;
+function transcriptIfRelevant(
+  hit: SingleHit | TranscriptHit
+): Transcript | null {
+  if (hit._highlightResult.text.matchLevel !== 'none') {
+    const { objectID, start, text, videoId } = hit;
+    return {
+      objectID,
+      start,
+      text,
+      _highlightResult: {
+        text: hit._highlightResult.text,
+      },
+    };
+  }
+  return null;
+}
 
 function transformToTranscripts(hits: SingleHit[]) {
   return hits.reduce<(SingleHit | TranscriptHit)[]>((acc, hit) => {
-    const previous = acc[acc.length - 1];
-
-    if (sameVideo(previous, hit)) {
-      if (previous._highlightResult.text.matchLevel === 'none') {
-        return [...acc];
-      }
-      console.log('any transcript', hasTranscript(previous));
-      const possibleTranscriptions = hasTranscript(previous)
-        ? previous.transcriptions
-        : [];
-      const newHit: TranscriptHit = {
-        ...previous,
-        transcriptions: [
-          ...possibleTranscriptions,
-          {
-            text: previous.text,
-            _highlightResult: {
-              text: previous._highlightResult.text,
-            },
-          },
-          {
-            text: hit.text,
-            _highlightResult: {
-              text: hit._highlightResult.text,
-            },
-          },
-        ],
-      };
+    if (hit._distinctSeqID === 0 || typeof hit._distinctSeqID === 'undefined') {
+      // first or no distinct, simply push
+      return [...acc, hit];
+    } else if (hit._distinctSeqID > 0) {
+      const previous = acc[acc.length - 1];
       const firstHits = acc.splice(0, acc.length - 1);
-      return [...firstHits, newHit];
+
+      const lastTranscriptions = {
+        text: hit.text,
+        _highlightResult: {
+          text: hit._highlightResult.text,
+        },
+      };
+
+      const previousTranscriptions = transcriptIfRelevant(previous);
+      const hitTranscriptions = transcriptIfRelevant(hit);
+      return [
+        // all of the hits minus the last one
+        ...firstHits,
+        {
+          // the properties of the last one
+          ...previous,
+          transcriptions: {
+            ...hasTranscript(previous) ? previous.transcriptions : {},
+            ...previousTranscriptions
+              ? { [previousTranscriptions.objectID]: previousTranscriptions }
+              : {},
+            ...hitTranscriptions
+              ? { [hitTranscriptions.objectID]: hitTranscriptions }
+              : {},
+          },
+        },
+      ];
     }
     return [...acc, hit];
   }, []);
@@ -66,7 +85,7 @@ interface InfiniteHit {
   refine(): void;
 }
 interface Props extends InfiniteHit {
-  openDetail(videoId: string): void;
+  openDetail({ videoId, start }: { videoId: string; start?: number }): void;
 }
 class Hits extends Component<Props, null> {
   loadMore = () => {
@@ -75,10 +94,9 @@ class Hits extends Component<Props, null> {
   };
 
   render() {
-    const { hasMore, hits, openDetail } = this.props;
-    // const withTranscripts = transformToTranscripts(hits);
+    const { hasMore, hits: _originalHits, openDetail } = this.props;
+    const hits = transformToTranscripts(_originalHits);
 
-    // console.log(withTranscripts);
     return (
       <div>
         {hits &&
@@ -91,17 +109,27 @@ class Hits extends Component<Props, null> {
                 { media: '', cols: 1 },
               ]}
             >
-              {hits.map((hit, index) => (
-                <MainHit
-                  key={hit.objectID}
-                  hit={hit}
-                  index={index}
-                  onOpenDetail={openDetail}
-                />
-              ))}
+              {hits.map(
+                (hit, index) =>
+                  hasTranscript(hit) ? (
+                    <MainTranscriptHit
+                      key={hit.objectID}
+                      hit={hit}
+                      index={index}
+                      onOpenDetail={openDetail}
+                    />
+                  ) : (
+                    <MainDetailHit
+                      key={hit.objectID}
+                      hit={hit}
+                      index={index}
+                      onOpenDetail={openDetail}
+                    />
+                  )
+              )}
             </Pinboard>
           )}
-        {/* doesn't work yet because pinboard uses the children */
+        {/* todo: doesn't work yet because pinboard uses the children */
         /*
           <button onClick={this.loadMore} disabled={!hasMore}>
             Load more
