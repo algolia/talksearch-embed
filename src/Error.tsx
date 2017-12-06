@@ -9,6 +9,7 @@ export default class Error extends Component<any, any> {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
+          textAlign: 'center',
           height: 'calc(100% - 16px)',
           fontFamily:
             'Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
