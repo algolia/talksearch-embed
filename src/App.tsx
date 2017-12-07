@@ -230,7 +230,6 @@ export default class App extends Component<Props, State> {
               </div>
             </div>
           </InstantSearch>
-          )
         </div>
       </div>
     );
