@@ -144,6 +144,7 @@ export default class App extends Component<Props, State> {
     return (
       <div className="montserrat">
         <Helmet
+          htmlAttributes={{ lang: 'en' }}
           link={[
             {
               rel: 'stylesheet',
