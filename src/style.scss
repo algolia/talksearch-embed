@@ -106,3 +106,9 @@ button {
 .ais-PoweredBy__searchBy {
   white-space: pre;
 }
+
+@media (max-width: 40rem) {
+  .w-100-40r {
+    width: 100% !important;
+  }
+}
