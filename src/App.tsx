@@ -171,6 +171,7 @@ export default class App extends Component<Props, State> {
     const { indexName, metadata: { name }, videoName } = this.props;
     const open = detailOpen || Boolean(videoName);
 
+    // todo: get rid of ugly conditional in `title`
     return (
       <div className="montserrat ma0">
         <Helmet
@@ -182,7 +183,8 @@ export default class App extends Component<Props, State> {
                 'https://unpkg.com/@haroenv/tachyons-algolia/tachyons-algolia.min.css',
             },
           ]}
-          title={`${open ? title : name} | TalkSearch`}
+          title={`${open ? title || name : name}${(title || name) &&
+            ' | '}TalkSearch`}
         />
         <Detail
           open={open}
