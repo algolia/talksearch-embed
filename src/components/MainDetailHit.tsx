@@ -3,6 +3,7 @@ import { Highlight, Snippet } from 'react-instantsearch/dom';
 import { SingleHit, OpenDetail } from '../App';
 import { TranscriptHit } from './MainHits';
 import MainHit from './MainHit';
+import { OnRefine } from './Tags';
 
 const Description = ({ hit }) => (
   <Snippet hit={hit} attributeName="description" tagName="mark" />
@@ -11,6 +12,7 @@ const Description = ({ hit }) => (
 interface HitProps {
   hit: SingleHit;
   index: number;
+  onRefine: OnRefine;
   openDetail: OpenDetail;
 }
 export default class MainDetailHit extends Component<HitProps, any> {
@@ -20,7 +22,7 @@ export default class MainDetailHit extends Component<HitProps, any> {
   };
 
   render() {
-    const { hit, index, openDetail } = this.props;
+    const { hit, index, onRefine, openDetail } = this.props;
 
     return (
       <MainHit
@@ -32,6 +34,7 @@ export default class MainDetailHit extends Component<HitProps, any> {
         hit={hit}
         index={index}
         openDetail={openDetail}
+        onRefine={onRefine}
       />
     );
   }

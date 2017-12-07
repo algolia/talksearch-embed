@@ -10,6 +10,7 @@ import MainHits from './components/MainHits';
 import Detail from './components/Detail';
 import SearchBar from './components/SearchBar';
 import Refinement from './components/Refinement';
+import { OnRefine } from './components/Tags';
 
 const RefinedSearch = connectStateResults(
   ({ children, searchState: { query = '' } }) => {
@@ -35,6 +36,7 @@ export interface SingleHit {
   videoId: string;
   title: string;
   description: string;
+  tags: string[];
   thumbnails: {
     url: string;
     width: number;
@@ -77,6 +79,9 @@ interface State {
   speaker: string;
   year: number;
   open: boolean;
+  defaultRefinements: {
+    tags: string[];
+  };
 }
 
 const defaultState = {
@@ -87,6 +92,9 @@ const defaultState = {
   speaker: '',
   year: 2017,
   open: false,
+  defaultRefinements: {
+    tags: [],
+  },
 };
 
 export interface Metadata {
@@ -121,6 +129,23 @@ export default class App extends Component<Props, State> {
       open: true,
     });
 
+  onRefine: OnRefine = ({ tag }) =>
+    this.setState(({ defaultRefinements }) => {
+      const tags = new Set(defaultRefinements.tags);
+      // toggle the tag
+      if (tags.has(tag)) {
+        tags.delete(tag);
+      } else {
+        tags.add(tag);
+      }
+      return {
+        defaultRefinements: {
+          ...defaultRefinements,
+          tags: Array.from(tags),
+        },
+      };
+    });
+
   closeDetail = () =>
     this.setState({
       videoId: '',
@@ -128,6 +153,7 @@ export default class App extends Component<Props, State> {
       description: '',
       title: '',
       open: false,
+      defaultRefinements: { tags: [] },
     });
 
   render() {
@@ -139,12 +165,13 @@ export default class App extends Component<Props, State> {
       title,
       speaker,
       year,
+      defaultRefinements: { tags = [] },
     } = this.state;
     const { indexName, metadata: { name } } = this.props;
     return (
       <div className="montserrat bg-athens-gray ma0">
         <Helmet
-          htmlAttributes={{ lang: 'en', class:'bg-athens-gray' }}
+          htmlAttributes={{ lang: 'en', class: 'bg-athens-gray' }}
           link={[
             {
               rel: 'stylesheet',
@@ -189,7 +216,7 @@ export default class App extends Component<Props, State> {
             </div>
             <div className="bg-athens-gray flex flex-nowrap flex-column flex-row-40">
               <div className="mb4 mb0-l mr4-l shadow-0 shadow-none-40 bg-athens-gray-40 fln w-30-40 w-20-l pa2-40">
-                <Refinement attribute="tags" />
+                <Refinement attribute="tags" defaultRefinement={tags} />
                 <Refinement attribute="year" />
               </div>
               <div className="fln w-70-40 w-80-l pa2-40">

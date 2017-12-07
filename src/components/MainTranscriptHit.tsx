@@ -7,6 +7,7 @@ import { TranscriptHit, Transcript } from './MainHits';
 import MainHit from './MainHit';
 import SeekButton from './SeekButton';
 import TranscriptMatch from './TranscriptMatch';
+import { OnRefine } from './Tags';
 
 const Description = ({ hit }) => (
   <Snippet hit={hit} attributeName="description" tagName="mark" />
@@ -35,6 +36,7 @@ const Transcripts: FunctionalComponent<{
 interface HitProps {
   hit: TranscriptHit;
   index: number;
+  onRefine: OnRefine;
   openDetail: OpenDetail;
 }
 export default class MainTranscriptHit extends Component<HitProps, any> {
@@ -51,7 +53,7 @@ export default class MainTranscriptHit extends Component<HitProps, any> {
   };
 
   render() {
-    const { hit, index, openDetail } = this.props;
+    const { hit, index, onRefine, openDetail } = this.props;
     return (
       <MainHit
         render={({ hit }: { hit: TranscriptHit }) => (
@@ -68,6 +70,7 @@ export default class MainTranscriptHit extends Component<HitProps, any> {
         hit={hit}
         index={index}
         openDetail={openDetail}
+        onRefine={onRefine}
       />
     );
   }

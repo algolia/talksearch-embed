@@ -5,6 +5,7 @@ import { connectInfiniteHits } from 'react-instantsearch/connectors';
 import { SingleHit, HighlightMatch, OpenDetail } from '../App';
 import MainDetailHit from './MainDetailHit';
 import MainTranscriptHit from './MainTranscriptHit';
+import { OnRefine } from './Tags';
 
 export interface Transcript {
   objectID: string;
@@ -100,6 +101,7 @@ interface InfiniteHit {
 }
 interface Props extends InfiniteHit {
   openDetail: OpenDetail;
+  onRefine: OnRefine;
 }
 class Hits extends Component<Props, null> {
   loadMore = () => {
@@ -108,7 +110,7 @@ class Hits extends Component<Props, null> {
   };
 
   render() {
-    const { hasMore, hits: _originalHits, openDetail } = this.props;
+    const { hasMore, hits: _originalHits, onRefine, openDetail } = this.props;
     const hits = transformToTranscripts(_originalHits);
 
     return (
@@ -130,6 +132,7 @@ class Hits extends Component<Props, null> {
                       key={hit.objectID}
                       hit={hit}
                       index={index}
+                      onRefine={onRefine}
                       openDetail={openDetail}
                     />
                   ) : (
@@ -137,6 +140,7 @@ class Hits extends Component<Props, null> {
                       key={hit.objectID}
                       hit={hit}
                       index={index}
+                      onRefine={onRefine}
                       openDetail={openDetail}
                     />
                   )

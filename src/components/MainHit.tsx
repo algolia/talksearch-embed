@@ -2,6 +2,7 @@ import { h, Component } from 'preact';
 import { Highlight, Snippet } from 'react-instantsearch/dom';
 import { SingleHit, OpenDetail } from '../App';
 import { TranscriptHit } from './MainHits';
+import Tags, { OnRefine } from './Tags';
 
 const Speaker = ({ hit }) => (
   <div style={{ color: '#3369E7' }} className="f6">
@@ -18,6 +19,7 @@ interface MainProps {
   hit: SingleHit | TranscriptHit;
   index: number;
   openDetail: OpenDetail;
+  onRefine: OnRefine;
   render: ({ hit }: { hit: SingleHit | TranscriptHit }) => JSX.Element;
 }
 export default class MainHit extends Component<MainProps, void> {
@@ -27,9 +29,9 @@ export default class MainHit extends Component<MainProps, void> {
   };
 
   render() {
-    const { hit, index, render } = this.props;
+    const { hit, index, onRefine, render } = this.props;
 
-    const { thumbnails: { url }, duration, year } = hit;
+    const { thumbnails: { url }, duration, year, tags } = hit;
     return (
       <article className="shadow-0 bg-white br6 pa3 bunting">
         <Speaker hit={hit} />
@@ -53,6 +55,7 @@ export default class MainHit extends Component<MainProps, void> {
             </div>
           </div>
         </div>
+        <Tags tags={tags} onRefine={onRefine} />
         {render({ hit })}
       </article>
     );
