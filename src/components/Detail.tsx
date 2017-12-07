@@ -41,8 +41,8 @@ const Pagination = connectPagination(
 );
 
 const VirtualMenu = connectMenu(() => null);
-const RestrictToVideo = ({ videoId }: { videoId: string }) => (
-  <VirtualMenu attributeName="videoId" defaultRefinement={videoId} />
+const RestrictToVideo = ({ id }: { id: string }) => (
+  <VirtualMenu attributeName="id" defaultRefinement={id} />
 );
 
 const client = algoliasearch('FOQUAZ6YNS', '72ee3a317835b8618eda01c6fcc88f77');
@@ -57,7 +57,7 @@ interface State {
 }
 
 interface Props {
-  videoId: string;
+  id: string;
   title: string;
   description: string;
   speaker: string;
@@ -71,12 +71,12 @@ interface Props {
 export default class Detail extends Component<Props, State> {
   constructor(props) {
     super(props);
-    const { title, description, speaker, year, videoId, indexName } = props;
+    const { title, description, speaker, year, id, indexName } = props;
     if (title === '') {
       const index = client.initIndex(indexName);
       index
         .search({
-          filters: `videoId:${videoId}`,
+          filters: `id:${id}`,
           attributesToRetrieve: ['title', 'description', 'speaker', 'year'],
           attributesToHighlight: [],
           hitsPerPage: 1,
@@ -112,7 +112,7 @@ export default class Detail extends Component<Props, State> {
 
   render() {
     const {
-      videoId,
+      id,
       open,
       start = 0,
       onCloseDetail,
@@ -164,7 +164,7 @@ export default class Detail extends Component<Props, State> {
             <div className="flex flex-wrap flex-nowrap-l mb3 ph3-ns">
               <div className="fln w-100 w-60-m w-70-l pr3-ns">
                 <YouTube
-                  videoId={videoId}
+                  id={id}
                   opts={{
                     origin:
                       typeof window !== 'undefined'
@@ -191,7 +191,7 @@ export default class Detail extends Component<Props, State> {
                   apiKey="72ee3a317835b8618eda01c6fcc88f77"
                   indexName={`${indexName}-detail`}
                 >
-                  <RestrictToVideo videoId={videoId} />
+                  <RestrictToVideo id={id} />
                   <Configure
                     attributesToRetrieve={['title', 'start']}
                     hitsPerPage={7}
@@ -225,7 +225,7 @@ export default class Detail extends Component<Props, State> {
                       <pre
                       >{`<iframe href="https://talksearch-embed.algolia.com/?i=${
                         indexName
-                      }&video=${videoId}"/>`}</pre>
+                      }&video=${id}"/>`}</pre>
                     </span>
                   )}
                 </div>

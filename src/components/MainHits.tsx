@@ -31,7 +31,7 @@ function transcriptIfRelevant(
 ): Transcript | null {
   try {
     if (hit._highlightResult.text.matchLevel !== 'none') {
-      const { objectID, start, text, videoId } = hit;
+      const { objectID, start, text, id } = hit;
       return {
         objectID,
         start,

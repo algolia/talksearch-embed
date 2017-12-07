@@ -33,7 +33,7 @@ export interface SingleHit {
   year: number;
   speaker: string;
   text: string;
-  videoId: string;
+  id: string;
   title: string;
   description: string;
   tags: string[];
@@ -56,7 +56,7 @@ export interface SingleHit {
 
 export type OpenDetail = (
   {
-    videoId,
+    id,
     title,
     description,
     speaker,
@@ -64,7 +64,7 @@ export type OpenDetail = (
     start,
     indexName,
   }: {
-    videoId: string;
+    id: string;
     title: string;
     description: string;
     speaker: string;
@@ -75,7 +75,7 @@ export type OpenDetail = (
 ) => void;
 
 interface State {
-  videoId: string;
+  id: string;
   start: number;
   title: string;
   description: string;
@@ -89,7 +89,7 @@ interface State {
 }
 
 const defaultState = {
-  videoId: '',
+  id: '',
   start: 0,
   title: '',
   description: '',
@@ -118,7 +118,7 @@ export default class App extends Component<Props, State> {
   state = defaultState;
 
   openDetail: OpenDetail = ({
-    videoId,
+    id,
     title,
     description,
     start,
@@ -127,7 +127,7 @@ export default class App extends Component<Props, State> {
     indexName,
   }) =>
     this.setState({
-      videoId,
+      id,
       title,
       description,
       speaker,
@@ -156,7 +156,7 @@ export default class App extends Component<Props, State> {
 
   closeDetail = () =>
     this.setState({
-      videoId: '',
+      id: '',
       start: 0,
       description: '',
       title: '',
@@ -167,7 +167,7 @@ export default class App extends Component<Props, State> {
   render() {
     const {
       open: detailOpen,
-      videoId,
+      id,
       start,
       description,
       title,
@@ -196,7 +196,7 @@ export default class App extends Component<Props, State> {
         />
         <Detail
           open={open}
-          videoId={videoId || videoName}
+          id={id || videoName}
           start={start}
           onCloseDetail={this.closeDetail}
           indexName={stateIndex || indexName}
