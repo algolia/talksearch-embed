@@ -134,7 +134,7 @@ export default class Detail extends Component<Props, State> {
     return (
       open && (
         <div>
-          <div className="w-100 bg-white shadow-0 pt1 pt3 bunting">
+          <div className="w-100 bg-white pt1 pt3 bunting">
             <div className="mb2 flrnw h3 ph1 ph3-ns">
               {avatar && (
                 <div className="fln mr3" style={{ width: 64 }}>
