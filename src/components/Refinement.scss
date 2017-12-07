@@ -7,17 +7,19 @@
 
     &__SearchBox {
       .ais-SearchBox__root {
-        margin: 1em;
+        padding-right: 1em;
       }
     }
 
     @media (max-width: 40rem) {
       &__root {
         width: 100%;
-        overflow: scroll;
       }
 
       &__items {
+        // todo: what causes this inset?
+        width: 100%;
+        overflow: scroll;
         display: flex;
         flex-wrap: nowrap;
         justify-content: center;
@@ -27,12 +29,16 @@
 
       &__item {
         color: #3e396b;
-        background: red;
         font-weight: 300;
 
         label {
-          // actually clickable
+          padding: 1em;
+          margin: 1em;
         }
+      }
+
+      &__itemSelected {
+        font-weight: 600;
       }
 
       &__itemLabel {
