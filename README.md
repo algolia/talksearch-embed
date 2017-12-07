@@ -1,5 +1,15 @@
 # TalkSearch embed
 
+![TalkSearch](assets/img/logo-talksearch-line@2x.png)
+
+> This is part of the [TalkSearch](https://community.algolia.com/talksearch)
+> project by [Algolia](https://algolia.com)
+
+[Website](https://community.algolia.com/talksearch) |
+[**embed**](https://github.com/algolia/talksearch-embed) |
+[scraper](https://github.com/algolia/talksearch-scraper) |
+[landing page source](https://github.com/algolia/talksearch)
+
 This here is the code that you'll use to show a TalkSearch implementation on
 your site.
 
