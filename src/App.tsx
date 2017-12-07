@@ -151,6 +151,7 @@ export default class App extends Component<Props, State> {
                 'https://unpkg.com/@haroenv/tachyons-algolia/tachyons-algolia.min.css',
             },
           ]}
+          title={`${open ? title : name} | TalkSearch`}
         />
         <Detail
           open={open}
