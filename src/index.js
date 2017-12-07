@@ -11,8 +11,6 @@ let indexName = '';
 if (typeof window !== 'undefined') {
   const url = new URLSearchParams(window.location.search);
   indexName = url.get('i');
-  const themeColor = url.get('color');
-  document.body.style.setProperty('--color', themeColor);
 }
 
 const client = algoliasearch('FOQUAZ6YNS', '72ee3a317835b8618eda01c6fcc88f77');
@@ -25,8 +23,11 @@ export default class Index extends Component {
 
   async componentDidMount() {
     if (indexName) {
+      const metadata = await index.getObject(indexName);
+      document.body.style.setProperty('--color', metadata.themeColor);
+
       this.setState({
-        metadata: await index.getObject(indexName),
+        metadata,
       });
     }
   }
