@@ -7,12 +7,14 @@ import Error from './Error.tsx';
 applyPolyfills();
 
 let indexName = '';
+let videoName = null;
 // todo: enable when we find a solution
 const accentEnabled = false;
 
 if (typeof window !== 'undefined') {
   const url = new URLSearchParams(window.location.search);
   indexName = url.get('i');
+  videoName = url.get('video');
 }
 
 const client = algoliasearch('FOQUAZ6YNS', '72ee3a317835b8618eda01c6fcc88f77');
@@ -41,7 +43,11 @@ export default class Index extends Component {
     return indexName === null ? (
       <Error />
     ) : (
-      <App indexName={indexName} metadata={this.state.metadata} />
+      <App
+        indexName={indexName}
+        metadata={this.state.metadata}
+        videoName={videoName}
+      />
     );
   }
 }

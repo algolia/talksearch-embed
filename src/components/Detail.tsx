@@ -7,6 +7,7 @@ import {
   Configure,
   Pagination,
 } from 'react-instantsearch/dom';
+import * as algoliasearch from 'algoliasearch';
 import { connectMenu } from 'react-instantsearch/connectors';
 import YouTube from 'react-youtube';
 
@@ -17,6 +18,16 @@ const VirtualMenu = connectMenu(() => null);
 const RestrictToVideo = ({ videoId }: { videoId: string }) => (
   <VirtualMenu attributeName="videoId" defaultRefinement={videoId} />
 );
+
+const client = algoliasearch('FOQUAZ6YNS', '72ee3a317835b8618eda01c6fcc88f77');
+
+interface State {
+  title: string;
+  description: string;
+  speaker: string;
+  year: number;
+  singleVideo: boolean;
+}
 
 interface Props {
   videoId: string;
@@ -30,7 +41,33 @@ interface Props {
   indexName: string;
   metadata: Metadata;
 }
-export default class Detail extends Component<Props, any> {
+export default class Detail extends Component<Props, State> {
+  constructor(props) {
+    super(props);
+    const { title, description, speaker, year, videoId, indexName } = props;
+    if (title === '') {
+      const index = client.initIndex(indexName);
+      index
+        .search({
+          filters: `videoId:${videoId}`,
+          attributesToRetrieve: ['title', 'description', 'speaker', 'year'],
+          attributesToHighlight: [],
+          hitsPerPage: 1,
+        })
+        .then(({ hits: [state] }) => {
+          state.singleVideo = true;
+          this.state = state;
+        });
+    } else {
+      this.state = {
+        title,
+        description,
+        speaker,
+        year,
+        singleVideo: false,
+      };
+    }
+  }
   player = null;
   onSeek = (time: number) => {
     this.player.seekTo(time);
@@ -45,14 +82,12 @@ export default class Detail extends Component<Props, any> {
       videoId,
       open,
       start = 0,
-      title,
-      description,
-      speaker,
-      year,
       onCloseDetail,
       indexName,
       metadata: { name, avatar },
     } = this.props;
+    const { title, description, speaker, year, singleVideo } = this.state;
+
     return (
       open && (
         <div className="">
@@ -71,17 +106,19 @@ export default class Detail extends Component<Props, any> {
                 </div>
                 <div className="fln f5 f3-ns b ellipsis">{title}</div>
               </div>
-              <div className="fln flcnw">
-                <button
-                  className="fln mba pointer bg-transparent bw0 pa0"
-                  onClick={onCloseDetail}
-                >
-                  <span className="dn db-ns black-50 f5">
-                    <span className="icon-caret-left" /> back to search
-                  </span>
-                  <span className="dn-ns db b bunting tr mt2">Back</span>
-                </button>
-              </div>
+              {!singleVideo && (
+                <div className="fln flcnw">
+                  <button
+                    className="fln mba pointer bg-transparent bw0 pa0"
+                    onClick={onCloseDetail}
+                  >
+                    <span className="dn db-ns black-50 f5">
+                      <span className="icon-caret-left" /> back to search
+                    </span>
+                    <span className="dn-ns db b bunting tr mt2">Back</span>
+                  </button>
+                </div>
+              )}
             </div>
 
             <div className="flex flex-wrap flex-nowrap-l mb3 ph3-ns">

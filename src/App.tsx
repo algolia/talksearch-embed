@@ -107,6 +107,7 @@ export interface Metadata {
 interface Props {
   indexName: string;
   metadata: Metadata;
+  videoName: string | null;
 }
 export default class App extends Component<Props, State> {
   state = defaultState;
@@ -158,7 +159,7 @@ export default class App extends Component<Props, State> {
 
   render() {
     const {
-      open,
+      open: detailOpen,
       videoId,
       start,
       description,
@@ -167,7 +168,9 @@ export default class App extends Component<Props, State> {
       year,
       defaultRefinements: { tags = [] },
     } = this.state;
-    const { indexName, metadata: { name } } = this.props;
+    const { indexName, metadata: { name }, videoName } = this.props;
+    const open = detailOpen || Boolean(videoName);
+
     return (
       <div className="montserrat ma0">
         <Helmet
@@ -183,14 +186,14 @@ export default class App extends Component<Props, State> {
         />
         <Detail
           open={open}
-          videoId={videoId}
+          videoId={videoId || videoName}
+          start={start}
+          onCloseDetail={this.closeDetail}
+          indexName={indexName}
           title={title}
           description={description}
           year={year}
           speaker={speaker}
-          start={start}
-          onCloseDetail={this.closeDetail}
-          indexName={indexName}
           metadata={this.props.metadata}
         />
         <div hidden={open}>

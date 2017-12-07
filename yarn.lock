@@ -179,7 +179,7 @@ algoliasearch-helper@^2.21.0:
     qs "^6.2.1"
     util "^0.10.3"
 
-algoliasearch@^3.24.0:
+algoliasearch@^3.24.0, algoliasearch@^3.24.7:
   version "3.24.7"
   resolved "https://registry.yarnpkg.com/algoliasearch/-/algoliasearch-3.24.7.tgz#7ba6c41c9c87b3d36c3181e1d93d482b2ae1a660"
   dependencies:
