@@ -57,8 +57,8 @@ export default class Detail extends Component<Props, any> {
       open && (
         <div className="">
           {/* todo: responsive lol */}
-          <div className="absolute-center-horizontal z-max top-1-ns w-100 w-80-m w-60-l bg-white shadow-0 br6-ns ba-ns pt3 bunting b--gray">
-            <div className="mb2 flrnw h3 ph3">
+          <div className="absolute-center-horizontal z-max top-1-ns w-100 w-80-m w-60-l bg-white shadow-0 br6-ns ba-ns pt1 pt3-ns bunting b--gray">
+            <div className="mb2 flrnw h3 ph1 ph3-ns">
               {imageURL && (
                 <div className="fln mr3" style={{ width: 64 }}>
                   <img src={imageURL} />
@@ -74,19 +74,22 @@ export default class Detail extends Component<Props, any> {
               </div>
               <div className="fln flcnw">
                 <button
-                  className="fln mba pointer bg-transparent bw0 black-50 f5"
+                  className="fln mba pointer bg-transparent bw0 pa0"
                   aria-label="close"
                   onClick={onCloseDetail}
                 >
-                  <span className="db-ns">
+                  <span className="dn db-ns black-50 f5">
                     close <span className="icon-close" />
+                  </span>
+                  <span className="dn-ns db b bunting tr mt2">
+                    Back
                   </span>
                 </button>
               </div>
             </div>
 
-            <div className="flex flex-wrap flex-nowrap-l mb3 ph3">
-              <div className="fln w-100 w-60-m w-60-l pr3">
+            <div className="flex flex-wrap flex-nowrap-l mb3 ph3-ns">
+              <div className="fln w-100 w-60-m w-60-l pr3-ns">
                 <YouTube
                   videoId={videoId}
                   opts={{
@@ -95,7 +98,6 @@ export default class Detail extends Component<Props, any> {
                         ? window.location.origin
                         : 'https://talksearch-embed.algolia.com',
                     enablejsapi: '1',
-                    // height: '390',
                     width: '100%',
                     playerVars: {
                       autoplay: 1,
@@ -107,10 +109,10 @@ export default class Detail extends Component<Props, any> {
                   }}
                   onReady={this.onReady}
                 />
-                <div className="mt3 lh-copy">{description}</div>
+                <div className="mt3 lh-copy f6">{description}</div>
               </div>
 
-              <div className="fln w-100 w-40-m w-40-l">
+              <div className="fln w-100 w-40-m w-40-l mt3 mt0-ns ph1 ph0-ns">
                 <InstantSearch
                   appId="FOQUAZ6YNS"
                   apiKey="72ee3a317835b8618eda01c6fcc88f77"
@@ -128,7 +130,7 @@ export default class Detail extends Component<Props, any> {
                         <DetailHit hit={hit} onSeek={this.onSeek} />
                       )}
                     />
-                    <div className="tc">
+                    <div className="tc dn db-ns">
                       <Pagination showFirst={false} pagesPadding={0} />
                     </div>
                   </div>
@@ -136,7 +138,7 @@ export default class Detail extends Component<Props, any> {
               </div>
             </div>
 
-            <div className="flrnw mb3 ph3 dn">
+            <div className="dn flex-ns flex-nowrap-ns mb3 ph3 dn db-ns">
               <div className="fla tl royal-blue b f4 flrnw flrcv">
                 <div className="fln tl">
                   <span className="dejavu black">{'< /> '}</span>
@@ -148,7 +150,7 @@ export default class Detail extends Component<Props, any> {
               </div>
             </div>
 
-            <div className="bt b--black-30 flrnw flc pv3 ph5">
+            <div className="dn flex-ns flex-nowrap b--black-30 pv3 ph5">
               <div className="fla flrnw">
                 <div className="fln w-30 pr4 flrnw flrcv">
                   <img className="fln" src="/img/talksearch.svg" />
