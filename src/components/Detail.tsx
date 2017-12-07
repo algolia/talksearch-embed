@@ -214,7 +214,12 @@ export default class Detail extends Component<Props, State> {
             <div className="dn flex-ns flex-nowrap b--black-30 pv3 ph5">
               <div className="fla flrnw">
                 <div className="fln w-30 pr4 flrnw flrcv">
-                  <img className="fln" src="/img/talksearch.svg" />
+                  <a
+                    href="https://community.algolia.com/talksearch"
+                    target="_blank"
+                  >
+                    <img className="fln" src="/img/talksearch.svg" />
+                  </a>
                 </div>
                 <div className="fln w-70 black-30 lh-copy f5 flc">
                   <div className="fla">
