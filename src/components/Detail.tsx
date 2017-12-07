@@ -57,7 +57,7 @@ export default class Detail extends Component<Props, any> {
       open && (
         <div className="">
           {/* todo: responsive lol */}
-          <div className="absolute-center-horizontal z-max top-1-ns w-100 w-80-m w-60-l bg-white shadow-0 br6-ns ba-ns pt1 pt3-ns bunting b--gray">
+          <div className="w-100 bg-white shadow-0 pt1 pt3 bunting">
             <div className="mb2 flrnw h3 ph1 ph3-ns">
               {avatar && (
                 <div className="fln mr3" style={{ width: 64 }}>
@@ -75,11 +75,10 @@ export default class Detail extends Component<Props, any> {
               <div className="fln flcnw">
                 <button
                   className="fln mba pointer bg-transparent bw0 pa0"
-                  aria-label="close"
                   onClick={onCloseDetail}
                 >
                   <span className="dn db-ns black-50 f5">
-                    close <span className="icon-close" />
+                    back to search <span className="icon-search" />
                   </span>
                   <span className="dn-ns db b bunting tr mt2">Back</span>
                 </button>
@@ -168,11 +167,6 @@ export default class Detail extends Component<Props, any> {
               </div>
             </div>
           </div>
-          {/* todo: find what's wrong with z-index */}
-          <button
-            onClick={onCloseDetail}
-            className="db vh-100 vw-100 w-100 o-30 z-max bn bg-black pointer"
-          />
         </div>
       )
     );
