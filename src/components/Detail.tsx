@@ -59,9 +59,11 @@ export default class Detail extends Component<Props, any> {
           {/* todo: responsive lol */}
           <div className="absolute-center-horizontal z-max top-10 w-60-l w-80-m bg-white shadow-0 br6 ba pt3 bunting b--gray">
             <div className="mb2 flrnw h3 ph3">
-              <div className="fln mr3" style={{ width: 64 }}>
-                <img src={imageURL} />
-              </div>
+              {imageURL && (
+                <div className="fln mr3" style={{ width: 64 }}>
+                  <img src={imageURL} />
+                </div>
+              )}
               <div className="fla flcnw flspa">
                 <div className="fln f4">
                   <span className="mulberry pr2">{speaker} -</span>
