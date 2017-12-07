@@ -14,10 +14,9 @@ import Refinement from './components/Refinement';
 const RefinedSearch = connectStateResults(
   ({ children, searchState: { query = '' } }) => {
     try {
-      // todo: add the other factors when relevant
-      return children({ isRefined: query.length > 0 });
+      return children({ hasQuery: query.length > 0 });
     } catch (_) {
-      return children({ isRefined: false });
+      return children({ hasQuery: false });
     }
   }
 );
@@ -175,9 +174,9 @@ export default class App extends Component<Props, State> {
             indexName={indexName}
           >
             <RefinedSearch>
-              {({ isRefined }) => (
+              {({ hasQuery }) => (
                 <Configure
-                  distinct={isRefined ? 3 : 0}
+                  distinct={hasQuery ? 3 : 0}
                   attributesToSnippet={['description:30']}
                   hitsPerPage={10}
                   snippetEllipsisText="…"
