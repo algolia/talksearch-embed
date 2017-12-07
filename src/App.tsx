@@ -216,7 +216,7 @@ export default class App extends Component<Props, State> {
             <RefinedSearch>
               {({ hasQuery }) => (
                 <Configure
-                  distinct={hasQuery ? 3 : 0}
+                  distinct={hasQuery ? 3 : 1}
                   attributesToSnippet={['description:30']}
                   hitsPerPage={10}
                   snippetEllipsisText="…"
@@ -235,6 +235,18 @@ export default class App extends Component<Props, State> {
                   withSearchBox={false}
                   responsive={false}
                 />
+                <Refinement
+                  attribute="speaker"
+                  withSearchBox={false}
+                  responsive={false}
+                />
+                {indexName === 'ALL_VIDEOS' && (
+                  <Refinement
+                    attribute="channel"
+                    withSearchBox={false}
+                    responsive={false}
+                  />
+                )}
               </div>
               <div className="fln w-70-40 w-80-l pa2-40">
                 <MainHits
