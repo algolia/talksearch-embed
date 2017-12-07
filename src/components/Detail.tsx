@@ -27,6 +27,7 @@ interface State {
   speaker: string;
   year: number;
   singleVideo: boolean;
+  showModal: boolean;
 }
 
 interface Props {
@@ -54,9 +55,12 @@ export default class Detail extends Component<Props, State> {
           attributesToHighlight: [],
           hitsPerPage: 1,
         })
-        .then(({ hits: [state] }) => {
-          state.singleVideo = true;
-          this.state = state;
+        .then(({ hits: [hit] }) => {
+          this.state = {
+            ...hit,
+            singleVideo: true,
+            showModal: false,
+          };
         });
     } else {
       this.state = {
@@ -65,6 +69,7 @@ export default class Detail extends Component<Props, State> {
         speaker,
         year,
         singleVideo: false,
+        showModal: false,
       };
     }
   }
@@ -77,6 +82,8 @@ export default class Detail extends Component<Props, State> {
     this.player.seekTo(this.props.start || 0);
   };
 
+  showEmbedModal = () => this.setState({ showModal: true });
+
   render() {
     const {
       videoId,
@@ -86,11 +93,18 @@ export default class Detail extends Component<Props, State> {
       indexName,
       metadata: { name, avatar },
     } = this.props;
-    const { title, description, speaker, year, singleVideo } = this.state;
+    const {
+      title,
+      description,
+      speaker,
+      year,
+      singleVideo,
+      showModal,
+    } = this.state;
 
     return (
       open && (
-        <div className="">
+        <div>
           <div className="w-100 bg-white shadow-0 pt1 pt3 bunting">
             <div className="mb2 flrnw h3 ph1 ph3-ns">
               {avatar && (
@@ -177,9 +191,17 @@ export default class Detail extends Component<Props, State> {
 
             <div className="dn flex-ns flex-nowrap-ns mb3 ph3 dn db-ns">
               <div className="fla tl royal-blue b f4 flrnw flrcv">
-                <div className="fln tl">
+                <div className="fln tl" onClick={this.showEmbedModal}>
                   <span className="dejavu black">{'< /> '}</span>
                   embed this talk on your webpage
+                  {showModal && (
+                    <span className="dejavu black">
+                      <pre
+                      >{`<iframe href="https://talksearch-embed.algolia.com/?i=${
+                        indexName
+                      }&video=${videoId}"/>`}</pre>
+                    </span>
+                  )}
                 </div>
               </div>
               <div className="fln w-20 flc">
