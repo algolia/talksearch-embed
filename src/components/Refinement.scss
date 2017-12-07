@@ -16,7 +16,7 @@
 
       &__items {
         width: 100%;
-        overflow: scroll;
+        overflow-x: scroll;
         display: flex;
         flex-wrap: nowrap;
         align-items: center;
@@ -30,6 +30,9 @@
         label {
           padding: 1em;
           margin: 1em;
+        }
+        &:first-child label {
+          margin-left: 0px;
         }
       }
 

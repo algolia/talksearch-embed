@@ -13,6 +13,20 @@ body {
   // --secondary: #3771e4;
 }
 
+@media (--breakpoint-not-small) {
+  .bg-white-ns { background: #fff; }
+  .bg-athens-gray-ns { background-color: rgb(238,240,247); }
+}
+@media (--breakpoint-medium) {
+  .bg-white-m { background: #fff; }
+  .bg-athens-gray-m { background-color: rgb(238,240,247); }
+}
+@media (min-width: 60em) {
+  .bg-white-l { background: #fff; }
+  .bg-athens-gray-l[class] { background-color: rgb(237,240,247); }
+}
+
+
 body {
   height: 100%;
   overflow: auto;

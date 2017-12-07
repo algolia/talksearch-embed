@@ -142,9 +142,9 @@ export default class App extends Component<Props, State> {
     } = this.state;
     const { indexName, metadata: { name } } = this.props;
     return (
-      <div className="montserrat">
+      <div className="montserrat bg-athens-gray ma0">
         <Helmet
-          htmlAttributes={{ lang: 'en' }}
+          htmlAttributes={{ lang: 'en', class:'bg-athens-gray' }}
           link={[
             {
               rel: 'stylesheet',
@@ -184,12 +184,14 @@ export default class App extends Component<Props, State> {
               )}
             </RefinedSearch>
             <SearchBar name={name} />
-            <div className="mb2 ml2">
+            <div className="mb2 ml2 dn db-l">
               <Stats />
             </div>
-            <div className="cf">
-              <Refinement attribute="tags" />
-              <div className="w-100-40r w-70-m w-80-l fl">
+            <div className="bg-athens-gray flex flex-nowrap flex-row">
+              <div className="mb4 mb0-l mr4-l shadow-0 bg-athens-gray-l fln">
+                <Refinement attribute="tags" />
+              </div>
+              <div className="fla pa2-l">
                 <MainHits openDetail={this.openDetail} />
               </div>
             </div>
