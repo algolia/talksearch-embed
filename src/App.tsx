@@ -167,7 +167,8 @@ export default class App extends Component<Props, State> {
           indexName={indexName}
           metadata={this.props.metadata}
         />
-        <div className="absolute top-0 left-0">
+        {/* todo: position */}
+        <div className="">
           <InstantSearch
             appId="FOQUAZ6YNS"
             apiKey="72ee3a317835b8618eda01c6fcc88f77"
@@ -187,9 +188,9 @@ export default class App extends Component<Props, State> {
             <div className="mb2 ml2">
               <Stats />
             </div>
-            <div className="flex flex-nowrap-l">
+            <div className="cf">
               <Refinement attribute="tags" />
-              <div className="w-70-m w-80-l">
+              <div className="w-100-40r w-70-m w-80-l fl">
                 <MainHits openDetail={this.openDetail} />
               </div>
             </div>
