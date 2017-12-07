@@ -5,14 +5,40 @@ import {
   SearchBox,
   PoweredBy,
   Configure,
-  Pagination,
 } from 'react-instantsearch/dom';
+import { connectPagination } from 'react-instantsearch/connectors';
 import * as algoliasearch from 'algoliasearch';
 import { connectMenu } from 'react-instantsearch/connectors';
 import YouTube from 'react-youtube';
 
 import { SingleHit, Metadata } from '../App';
 import DetailHit from './DetailHit';
+
+const Pagination = connectPagination(
+  ({ refine, currentRefinement, nbPages }) => {
+    const hidePrevious = currentRefinement === 1;
+    const hideNext = currentRefinement === nbPages;
+    return (
+      <div style={{ userSelect: 'none' }}>
+        <button
+          className={`${hidePrevious &&
+            'o-10'} pointer bn bg-transparent bunting fw3`}
+          onClick={() => refine(currentRefinement - 1)}
+        >
+          previous
+        </button>
+        {' • '}
+        <button
+          className={`${hideNext &&
+            'o-10'} pointer bn bg-transparent bunting fw3`}
+          onClick={() => refine(currentRefinement + 1)}
+        >
+          next
+        </button>
+      </div>
+    );
+  }
+);
 
 const VirtualMenu = connectMenu(() => null);
 const RestrictToVideo = ({ videoId }: { videoId: string }) => (
@@ -168,7 +194,7 @@ export default class Detail extends Component<Props, State> {
                   <RestrictToVideo videoId={videoId} />
                   <Configure
                     attributesToRetrieve={['title', 'start']}
-                    hitsPerPage={5}
+                    hitsPerPage={7}
                   />
                   <SearchBox
                     translations={{
@@ -182,7 +208,7 @@ export default class Detail extends Component<Props, State> {
                       )}
                     />
                     <div className="tc dn db-ns">
-                      <Pagination showFirst={false} pagesPadding={0} />
+                      <Pagination />
                     </div>
                   </div>
                 </InstantSearch>
