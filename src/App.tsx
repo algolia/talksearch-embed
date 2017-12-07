@@ -187,11 +187,11 @@ export default class App extends Component<Props, State> {
             <div className="mb2 ml2 dn db-l">
               <Stats />
             </div>
-            <div className="bg-athens-gray flex flex-nowrap flex-row">
-              <div className="mb4 mb0-l mr4-l shadow-0 shadow-none-l bg-athens-gray-l fln w-20-l pa2-l">
+            <div className="bg-athens-gray flex flex-nowrap flex-column flex-row-40">
+              <div className="mb4 mb0-l mr4-l shadow-0 shadow-none-40 bg-athens-gray-40 fln w-30-40 w-20-l pa2-40">
                 <Refinement attribute="tags" />
               </div>
-              <div className="fla pa2-l">
+              <div className="fln w-70-40 w-80-l pa2-40">
                 <MainHits openDetail={this.openDetail} />
               </div>
             </div>
