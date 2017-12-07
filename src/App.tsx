@@ -3,12 +3,13 @@ import './style.scss';
 
 import { h, Component } from 'preact';
 import Helmet from 'preact-helmet';
-import { InstantSearch, Hits, Configure, Stats } from 'react-instantsearch/dom';
+import { InstantSearch, Configure, Stats } from 'react-instantsearch/dom';
 import { connectStateResults } from 'react-instantsearch/connectors';
 
 import MainHits from './components/MainHits';
 import Detail from './components/Detail';
 import SearchBar from './components/SearchBar';
+import Refinement from './components/Refinement';
 
 const RefinedSearch = connectStateResults(
   ({ children, searchState: { query = '' } }) => {
@@ -186,7 +187,12 @@ export default class App extends Component<Props, State> {
             <div className="mb2 ml2">
               <Stats />
             </div>
-            <MainHits openDetail={this.openDetail} />
+            <div className="flex flex-nowrap-l">
+              <Refinement attribute="tags" />
+              <div className="w-70-m w-80-l">
+                <MainHits openDetail={this.openDetail} />
+              </div>
+            </div>
           </InstantSearch>
         </div>
       </div>
