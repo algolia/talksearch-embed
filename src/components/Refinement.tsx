@@ -11,7 +11,7 @@ export default class Refinement extends Component<Props, void> {
   render() {
     const { attribute } = this.props;
     return (
-      <article className="w-100-40r w-30-m w-20-l">
+      <article className="">
         <h1 className="hide-40 f5">{attribute}</h1>
         <Media query="(min-width: 40rem)">
           {matches => (

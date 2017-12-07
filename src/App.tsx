@@ -188,7 +188,7 @@ export default class App extends Component<Props, State> {
               <Stats />
             </div>
             <div className="bg-athens-gray flex flex-nowrap flex-row">
-              <div className="mb4 mb0-l mr4-l shadow-0 bg-athens-gray-l fln">
+              <div className="mb4 mb0-l mr4-l shadow-0 shadow-none-l bg-athens-gray-l fln w-20-l pa2-l">
                 <Refinement attribute="tags" />
               </div>
               <div className="fla pa2-l">

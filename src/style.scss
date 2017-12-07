@@ -13,17 +13,22 @@ body {
   // --secondary: #3771e4;
 }
 
-@media (--breakpoint-not-small) {
-  .bg-white-ns { background: #fff; }
-  .bg-athens-gray-ns { background-color: rgb(238,240,247); }
+// We use the [class] hack to overspecify the selectors so they are more
+// specific than the one included by tachyons
+@media (min-width: 30em){
+  .bg-white-ns[class] { background: #fff; }
+  .bg-athens-gray-ns[class] { background-color: rgb(238,240,247); }
+  .shadow-none-ns[class] { box-shadow: none; }
 }
-@media (--breakpoint-medium) {
-  .bg-white-m { background: #fff; }
-  .bg-athens-gray-m { background-color: rgb(238,240,247); }
+@media (min-width: 30em) and (max-width: 60em) {
+  .bg-white-m[class] { background: #fff; }
+  .bg-athens-gray-m[class] { background-color: rgb(238,240,247); }
+  .shadow-none-m[class] { box-shadow: none; }
 }
 @media (min-width: 60em) {
-  .bg-white-l { background: #fff; }
+  .bg-white-l[class] { background: #fff; }
   .bg-athens-gray-l[class] { background-color: rgb(237,240,247); }
+  .shadow-none-l[class] { box-shadow: none; }
 }
 
 
