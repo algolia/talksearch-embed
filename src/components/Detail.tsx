@@ -77,7 +77,7 @@ export default class Detail extends Component<Props, any> {
                   onClick={onCloseDetail}
                 >
                   <span className="dn db-ns black-50 f5">
-                    back to search <span className="icon-search" />
+                    <span className="icon-caret-left" /> back to search
                   </span>
                   <span className="dn-ns db b bunting tr mt2">Back</span>
                 </button>
