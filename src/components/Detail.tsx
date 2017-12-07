@@ -69,6 +69,7 @@ interface Props {
   onCloseDetail: () => void;
   indexName: string;
   metadata: Metadata;
+  affiliation: boolean;
 }
 export default class Detail extends Component<Props, State> {
   constructor(props) {
@@ -112,7 +113,14 @@ export default class Detail extends Component<Props, State> {
   showEmbedModal = () => this.setState({ showModal: true });
 
   render() {
-    const { id, open, start = 0, onCloseDetail, indexName } = this.props;
+    const {
+      id,
+      open,
+      start = 0,
+      onCloseDetail,
+      indexName,
+      affiliation,
+    } = this.props;
     const {
       title,
       description,
@@ -231,30 +239,32 @@ export default class Detail extends Component<Props, State> {
               </div>
             </div>
 
-            <div className="dn flex-ns flex-nowrap b--black-30 pv3 ph5">
-              <div className="fla flrnw">
-                <div className="fln w-30 pr4 flrnw flrcv">
-                  <a
-                    href="https://community.algolia.com/talksearch"
-                    target="_blank"
-                  >
-                    <img className="fln" src="/img/talksearch.svg" />
-                  </a>
-                </div>
-                <div className="fln w-70 black-30 lh-copy f5 flc">
-                  <div className="fla">
-                    A tool to help conference organizers make all their videos
-                    searchable & interactive.
+            {affiliation && (
+              <div className="dn flex-ns flex-nowrap b--black-30 pv3 ph5">
+                <div className="fla flrnw">
+                  <div className="fln w-30 pr4 flrnw flrcv">
                     <a
                       href="https://community.algolia.com/talksearch"
-                      className="link b royal-blue pl2"
+                      target="_blank"
                     >
-                      Visit the TalkSearch project
+                      <img className="fln" src="/img/talksearch.svg" />
                     </a>
+                  </div>
+                  <div className="fln w-70 black-30 lh-copy f5 flc">
+                    <div className="fla">
+                      A tool to help conference organizers make all their videos
+                      searchable & interactive.
+                      <a
+                        href="https://community.algolia.com/talksearch"
+                        className="link b royal-blue pl2"
+                      >
+                        Visit the TalkSearch project
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       )

@@ -8,6 +8,7 @@ applyPolyfills();
 
 let indexName = '';
 let videoName = undefined;
+let affiliation = true;
 // todo: enable when we find a solution
 const accentEnabled = false;
 
@@ -15,6 +16,8 @@ if (typeof window !== 'undefined') {
   const url = new URLSearchParams(window.location.search);
   indexName = url.get('i');
   videoName = url.get('video');
+  // assume affiliation should be shown, unless `ts=false`
+  affiliation = url.get('ts') !== 'false';
 }
 
 const client = algoliasearch('FOQUAZ6YNS', '72ee3a317835b8618eda01c6fcc88f77');
@@ -47,6 +50,7 @@ export default class Index extends Component {
         indexName={indexName}
         metadata={this.state.metadata}
         videoName={videoName}
+        affiliation={affiliation}
       />
     );
   }

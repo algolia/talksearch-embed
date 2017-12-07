@@ -113,6 +113,7 @@ interface Props {
   indexName: string;
   metadata: Metadata;
   videoName: string | undefined;
+  affiliation: boolean;
 }
 export default class App extends Component<Props, State> {
   state = defaultState;
@@ -176,7 +177,12 @@ export default class App extends Component<Props, State> {
       defaultRefinements: { tags = [] },
       indexName: stateIndex,
     } = this.state;
-    const { indexName, metadata: { name }, videoName } = this.props;
+    const {
+      indexName,
+      metadata: { name },
+      videoName,
+      affiliation,
+    } = this.props;
     const open = detailOpen || Boolean(videoName);
 
     // todo: get rid of ugly conditional in `title`
@@ -206,6 +212,7 @@ export default class App extends Component<Props, State> {
           year={year}
           speaker={speaker}
           metadata={this.props.metadata}
+          affiliation={affiliation}
         />
         <div hidden={open}>
           <InstantSearch
