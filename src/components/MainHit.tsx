@@ -29,9 +29,9 @@ export default class MainHit extends Component<MainProps, void> {
   render() {
     const { hit, index, render } = this.props;
     // XXX [Tim]: Debug statement to auto-open the first result for ease of styling
-   // if (hit.videoId === 'tQ99V7QjEHc') {
-   //   this.openDetail();
-   // }
+    // if (hit.videoId === 'tQ99V7QjEHc') {
+    //   this.openDetail();
+    // }
 
     const { thumbnails: { url }, duration, year } = hit;
     return (
@@ -41,8 +41,9 @@ export default class MainHit extends Component<MainProps, void> {
         <div className="flex mb2">
           <button
             onClick={this.openDetail}
-            className="bn bg-transparent pointer"
+            className="bn bg-transparent pointer pa0 relative f3"
           >
+            <span className="absolute icon-play white o-70 ma3" />
             <img src={url} className="br6 shadow-0" />
           </button>
           <div className="ml2">
