@@ -93,8 +93,6 @@ export default class Detail extends Component<Props, State> {
       .then(({ hits: [hit] }) => {
         this.setState(hit);
       });
-
-    console.log({ props });
     if (props.metadata.avatar == null) {
       const meta = client.initIndex('METADATA');
       meta
@@ -124,8 +122,6 @@ export default class Detail extends Component<Props, State> {
       showModal,
       metadata: { name, avatar },
     } = this.state;
-
-    console.log({ state: this.state });
 
     return (
       open && (
