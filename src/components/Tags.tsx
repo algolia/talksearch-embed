@@ -8,7 +8,6 @@ interface Props {
 export default class Tags extends Component<Props, void> {
   render() {
     const { tags = [], onRefine } = this.props;
-    console.log(tags);
     return (
       <div className="flex overflow-scroll f7">
         {tags.map(tag => (
