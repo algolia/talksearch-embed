@@ -56,7 +56,6 @@ export default class Detail extends Component<Props, any> {
     return (
       open && (
         <div className="">
-          {/* todo: responsive lol */}
           <div className="w-100 bg-white shadow-0 pt1 pt3 bunting">
             <div className="mb2 flrnw h3 ph1 ph3-ns">
               {avatar && (
@@ -86,7 +85,7 @@ export default class Detail extends Component<Props, any> {
             </div>
 
             <div className="flex flex-wrap flex-nowrap-l mb3 ph3-ns">
-              <div className="fln w-100 w-60-m w-60-l pr3-ns">
+              <div className="fln w-100 w-60-m w-70-l pr3-ns">
                 <YouTube
                   videoId={videoId}
                   opts={{
@@ -109,7 +108,7 @@ export default class Detail extends Component<Props, any> {
                 <div className="mt3 lh-copy f6">{description}</div>
               </div>
 
-              <div className="fln w-100 w-40-m w-40-l mt3 mt0-ns ph1 ph0-ns">
+              <div className="fln w-100 w-40-m w-30-l mt3 mt0-ns ph1 ph0-ns">
                 <InstantSearch
                   appId="FOQUAZ6YNS"
                   apiKey="72ee3a317835b8618eda01c6fcc88f77"
