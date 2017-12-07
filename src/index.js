@@ -16,8 +16,8 @@ if (typeof window !== 'undefined') {
   const url = new URLSearchParams(window.location.search);
   indexName = url.get('i');
   videoName = url.get('video');
-  // assume affiliation should be shown, unless `ts=false`
-  affiliation = url.get('ts') !== 'false';
+  // assume affiliation should be shown, unless `affiliation=false`
+  affiliation = url.get('affiliation') !== 'false';
 }
 
 const client = algoliasearch('FOQUAZ6YNS', '72ee3a317835b8618eda01c6fcc88f77');
