@@ -193,8 +193,7 @@ export default class App extends Component<Props, State> {
           indexName={indexName}
           metadata={this.props.metadata}
         />
-
-        {!open && (
+        <div hidden={open}>
           <InstantSearch
             appId="FOQUAZ6YNS"
             apiKey="72ee3a317835b8618eda01c6fcc88f77"
@@ -231,7 +230,8 @@ export default class App extends Component<Props, State> {
               </div>
             </div>
           </InstantSearch>
-        )}
+          )
+        </div>
       </div>
     );
   }
