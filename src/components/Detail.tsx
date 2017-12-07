@@ -56,7 +56,8 @@ export default class Detail extends Component<Props, any> {
     return (
       open && (
         <div className="">
-          <div className="absolute-center-horizontal z-max top-1-ns w-90 w-80-m w-60-l bg-white shadow-0 br6 ba pt3 bunting b--gray">
+          {/* todo: responsive lol */}
+          <div className="absolute-center-horizontal z-max top-1-ns w-100 w-80-m w-60-l bg-white shadow-0 br6-ns ba-ns pt3 bunting b--gray">
             <div className="mb2 flrnw h3 ph3">
               {imageURL && (
                 <div className="fln mr3" style={{ width: 64 }}>
@@ -77,7 +78,9 @@ export default class Detail extends Component<Props, any> {
                   aria-label="close"
                   onClick={onCloseDetail}
                 >
-                  close <span className="icon-close" />
+                  <span className="db-ns">
+                    close <span className="icon-close" />
+                  </span>
                 </button>
               </div>
             </div>
@@ -133,30 +136,34 @@ export default class Detail extends Component<Props, any> {
               </div>
             </div>
 
-            <div className="flrnw mb3 ph3">
-              <div className="fla tl royal-blue b f4">
-                <span className="dejavu black">{'< /> '}</span>
-                embed this talk on your webpage
+            <div className="flrnw mb3 ph3 dn">
+              <div className="fla tl royal-blue b f4 flrnw flrcv">
+                <div className="fln tl">
+                  <span className="dejavu black">{'< /> '}</span>
+                  embed this talk on your webpage
+                </div>
               </div>
-              <div className="fla tr h1e">
+              <div className="fln w-20 flc">
                 <img src="/img/search-by-algolia.svg" />
               </div>
             </div>
 
-            <div className="bt b--black-30">
-              <div className="pa3 flrnw">
-                <div className="flex w-30 pr3">
-                  <img src="/img/talksearch.svg" />
+            <div className="bt b--black-30 flrnw flc pv3 ph5">
+              <div className="fla flrnw">
+                <div className="fln w-30 pr4 flrnw flrcv">
+                  <img className="fln" src="/img/talksearch.svg" />
                 </div>
-                <div className="fln w-60 black-50 lh-copy f5">
-                  A tool to help conference organizers make all their videos
-                  searchable & interactive.
-                  <a
-                    href="https://community.algolia.com/talksearch"
-                    className="link b royal-blue pl2"
-                  >
-                    Visit the TalkSearch project
-                  </a>
+                <div className="fln w-70 black-30 lh-copy f5 flc">
+                  <div className="fla">
+                    A tool to help conference organizers make all their videos
+                    searchable & interactive.
+                    <a
+                      href="https://community.algolia.com/talksearch"
+                      className="link b royal-blue pl2"
+                    >
+                      Visit the TalkSearch project
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
