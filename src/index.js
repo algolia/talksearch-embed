@@ -7,6 +7,8 @@ import Error from './Error.tsx';
 applyPolyfills();
 
 let indexName = '';
+// todo: enable when we find a solution
+const accentEnabled = false;
 
 if (typeof window !== 'undefined') {
   const url = new URLSearchParams(window.location.search);
@@ -24,7 +26,7 @@ export default class Index extends Component {
   componentDidMount() {
     if (indexName) {
       index.getObject(indexName).then(metadata => {
-        if (metadata.accentColor) {
+        if (metadata.accentColor && accentEnabled) {
           document.body.style.setProperty('--color', metadata.accentColor);
         }
 
