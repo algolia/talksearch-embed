@@ -3,18 +3,12 @@ import './style.scss';
 
 import { h, Component } from 'preact';
 import Helmet from 'preact-helmet';
-import {
-  InstantSearch,
-  Hits,
-  SearchBox,
-  PoweredBy,
-  Configure,
-  Stats,
-} from 'react-instantsearch/dom';
+import { InstantSearch, Hits, Configure, Stats } from 'react-instantsearch/dom';
 import { connectStateResults } from 'react-instantsearch/connectors';
 
 import MainHits from './components/MainHits';
 import Detail from './components/Detail';
+import SearchBar from './components/SearchBar';
 
 const RefinedSearch = connectStateResults(
   ({ children, searchState: { query = '' } }) => {
@@ -186,13 +180,7 @@ export default class App extends Component<Props, State> {
                 />
               )}
             </RefinedSearch>
-            <div className="flex flex-wrap flex-nowrap-ns items-center ma2 mb3">
-              <span className="ma3">{name}</span>
-              <SearchBox />
-              <div className="ma3">
-                <PoweredBy />
-              </div>
-            </div>
+            <SearchBar name={name} />
             <div className="mb2 ml2">
               <Stats />
             </div>
