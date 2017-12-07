@@ -54,6 +54,7 @@ interface State {
   year?: number;
   singleVideo: boolean;
   showModal: boolean;
+  metadata: Metadata;
 }
 
 interface Props {
@@ -75,6 +76,7 @@ export default class Detail extends Component<Props, State> {
     this.state = {
       singleVideo: this.props.videoName != null,
       showModal: false,
+      metadata: props.metadata,
     };
   }
 
@@ -91,6 +93,14 @@ export default class Detail extends Component<Props, State> {
       .then(({ hits: [hit] }) => {
         this.setState(hit);
       });
+
+    console.log({ props });
+    if (props.metadata.avatar == null) {
+      const meta = client.initIndex('METADATA');
+      meta
+        .getObject(props.indexName)
+        .then(metadata => this.setState({ metadata }));
+    }
   }
   player = null;
   onSeek = (time: number) => {
@@ -104,14 +114,7 @@ export default class Detail extends Component<Props, State> {
   showEmbedModal = () => this.setState({ showModal: true });
 
   render() {
-    const {
-      id,
-      open,
-      start = 0,
-      onCloseDetail,
-      indexName,
-      metadata: { name, avatar },
-    } = this.props;
+    const { id, open, start = 0, onCloseDetail, indexName } = this.props;
     const {
       title,
       description,
@@ -119,6 +122,7 @@ export default class Detail extends Component<Props, State> {
       year,
       singleVideo,
       showModal,
+      metadata: { name, avatar },
     } = this.state;
 
     console.log({ state: this.state });
