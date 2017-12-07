@@ -120,6 +120,7 @@ export default class Detail extends Component<Props, State> {
       onCloseDetail,
       indexName,
       affiliation,
+      metadata: { name: _name, avatar: _avatar },
     } = this.props;
     const {
       title,
@@ -128,8 +129,12 @@ export default class Detail extends Component<Props, State> {
       year,
       singleVideo,
       showModal,
-      metadata: { name, avatar },
+      metadata: { name: __name, avatar: __avatar },
     } = this.state;
+
+    // todo: do this correctly
+    const name = _name || __name || '';
+    const avatar = _avatar || __avatar || '';
 
     return (
       open && (
