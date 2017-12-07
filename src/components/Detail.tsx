@@ -65,7 +65,7 @@ export default class Detail extends Component<Props, any> {
                 </div>
               )}
               <div className="fla flcnw flspa">
-                <div className="fln f7 f4-ns">
+                <div className="fln f7 f5-m f4-ns">
                   <span className="mulberry pr2">{speaker} -</span>
                   {name}
                   <span className="mulberry pl2">- {year}</span>
