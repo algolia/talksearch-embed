@@ -94,7 +94,7 @@ export interface Metadata {
   objectID: string;
   name: string;
   youtubeURL: string;
-  imageURL: string;
+  avatar: string;
   accentColor?: string;
 }
 interface Props {

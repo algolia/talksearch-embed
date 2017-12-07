@@ -51,7 +51,7 @@ export default class Detail extends Component<Props, any> {
       year,
       onCloseDetail,
       indexName,
-      metadata: { name, imageURL },
+      metadata: { name, avatar },
     } = this.props;
     return (
       open && (
@@ -59,9 +59,9 @@ export default class Detail extends Component<Props, any> {
           {/* todo: responsive lol */}
           <div className="absolute-center-horizontal z-max top-1-ns w-100 w-80-m w-60-l bg-white shadow-0 br6-ns ba-ns pt1 pt3-ns bunting b--gray">
             <div className="mb2 flrnw h3 ph1 ph3-ns">
-              {imageURL && (
+              {avatar && (
                 <div className="fln mr3" style={{ width: 64 }}>
-                  <img src={imageURL} />
+                  <img src={avatar} />
                 </div>
               )}
               <div className="fla flcnw flspa">
@@ -81,9 +81,7 @@ export default class Detail extends Component<Props, any> {
                   <span className="dn db-ns black-50 f5">
                     close <span className="icon-close" />
                   </span>
-                  <span className="dn-ns db b bunting tr mt2">
-                    Back
-                  </span>
+                  <span className="dn-ns db b bunting tr mt2">Back</span>
                 </button>
               </div>
             </div>
