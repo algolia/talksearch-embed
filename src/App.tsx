@@ -112,7 +112,7 @@ export interface Metadata {
 interface Props {
   indexName: string;
   metadata: Metadata;
-  videoName: string | null;
+  videoName: string | undefined;
 }
 export default class App extends Component<Props, State> {
   state = defaultState;
@@ -197,6 +197,7 @@ export default class App extends Component<Props, State> {
         <Detail
           open={open}
           id={id || videoName}
+          videoName={videoName}
           start={start}
           onCloseDetail={this.closeDetail}
           indexName={stateIndex || indexName}

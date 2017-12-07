@@ -48,16 +48,17 @@ const RestrictToVideo = ({ id }: { id: string }) => (
 const client = algoliasearch('FOQUAZ6YNS', '72ee3a317835b8618eda01c6fcc88f77');
 
 interface State {
-  title: string;
-  description: string;
-  speaker: string;
-  year: number;
+  title?: string;
+  description?: string;
+  speaker?: string;
+  year?: number;
   singleVideo: boolean;
   showModal: boolean;
 }
 
 interface Props {
   id: string;
+  videoName: string | null;
   title: string;
   description: string;
   speaker: string;
@@ -71,33 +72,25 @@ interface Props {
 export default class Detail extends Component<Props, State> {
   constructor(props) {
     super(props);
-    const { title, description, speaker, year, id, indexName } = props;
-    if (title === '') {
-      const index = client.initIndex(indexName);
-      index
-        .search({
-          filters: `id:${id}`,
-          attributesToRetrieve: ['title', 'description', 'speaker', 'year'],
-          attributesToHighlight: [],
-          hitsPerPage: 1,
-        })
-        .then(({ hits: [hit] }) => {
-          this.state = {
-            ...hit,
-            singleVideo: true,
-            showModal: false,
-          };
-        });
-    } else {
-      this.state = {
-        title,
-        description,
-        speaker,
-        year,
-        singleVideo: false,
-        showModal: false,
-      };
-    }
+    this.state = {
+      singleVideo: this.props.videoName != null,
+      showModal: false,
+    };
+  }
+
+  componentWillReceiveProps(props) {
+    const index = client.initIndex(props.indexName);
+
+    index
+      .search({
+        filters: `id:${props.id}`,
+        attributesToRetrieve: ['title', 'description', 'speaker', 'year'],
+        attributesToHighlight: [],
+        hitsPerPage: 1,
+      })
+      .then(({ hits: [hit] }) => {
+        this.setState(hit);
+      });
   }
   player = null;
   onSeek = (time: number) => {
@@ -127,6 +120,8 @@ export default class Detail extends Component<Props, State> {
       singleVideo,
       showModal,
     } = this.state;
+
+    console.log({ state: this.state });
 
     return (
       open && (
@@ -222,8 +217,7 @@ export default class Detail extends Component<Props, State> {
                   embed this talk on your webpage
                   {showModal && (
                     <span className="dejavu black">
-                      <pre
-                      >{`<iframe href="https://talksearch-embed.algolia.com/?i=${
+                      <pre className="overflow-auto w-80">{`<iframe href="https://talksearch-embed.algolia.com/?i=${
                         indexName
                       }&video=${id}"/>`}</pre>
                     </span>

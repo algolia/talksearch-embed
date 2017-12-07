@@ -7,7 +7,7 @@ import Error from './Error.tsx';
 applyPolyfills();
 
 let indexName = '';
-let videoName = null;
+let videoName = undefined;
 // todo: enable when we find a solution
 const accentEnabled = false;
 
