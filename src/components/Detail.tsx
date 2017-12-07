@@ -164,7 +164,7 @@ export default class Detail extends Component<Props, State> {
             <div className="flex flex-wrap flex-nowrap-l mb3 ph3-ns">
               <div className="fln w-100 w-60-m w-70-l pr3-ns">
                 <YouTube
-                  id={id}
+                  videoId={id}
                   opts={{
                     origin:
                       typeof window !== 'undefined'
