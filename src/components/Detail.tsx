@@ -57,7 +57,7 @@ export default class Detail extends Component<Props, any> {
       open && (
         <div className="">
           {/* todo: responsive lol */}
-          <div className="absolute-center-horizontal z-max top-10 w-60-l w-80-m bg-white shadow-0 br6 ba pt3 bunting b--gray">
+          <div className="absolute-center-horizontal z-max top-1-ns w-90 w-80-m w-60-l bg-white shadow-0 br6 ba pt3 bunting b--gray">
             <div className="mb2 flrnw h3 ph3">
               {imageURL && (
                 <div className="fln mr3" style={{ width: 64 }}>
@@ -65,12 +65,12 @@ export default class Detail extends Component<Props, any> {
                 </div>
               )}
               <div className="fla flcnw flspa">
-                <div className="fln f4">
+                <div className="fln f7 f4-ns">
                   <span className="mulberry pr2">{speaker} -</span>
                   {name}
                   <span className="mulberry pl2">- {year}</span>
                 </div>
-                <div className="fln f3 b ellipsis">{title}</div>
+                <div className="fln f5 f3-ns b ellipsis">{title}</div>
               </div>
               <div className="fln flcnw">
                 <button
@@ -83,8 +83,8 @@ export default class Detail extends Component<Props, any> {
               </div>
             </div>
 
-            <div className="flrnw mb3 ph3">
-              <div className="fln w-60 pr3">
+            <div className="flex flex-wrap flex-nowrap-l mb3 ph3">
+              <div className="fln w-100 w-60-m w-60-l pr3">
                 <YouTube
                   videoId={videoId}
                   opts={{
@@ -109,7 +109,7 @@ export default class Detail extends Component<Props, any> {
                 <div className="mt3 lh-copy">{description}</div>
               </div>
 
-              <div className="fln w-40">
+              <div className="fln w-100 w-40-m w-40-l">
                 <InstantSearch
                   appId="FOQUAZ6YNS"
                   apiKey="72ee3a317835b8618eda01c6fcc88f77"
