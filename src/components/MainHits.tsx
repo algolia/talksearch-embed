@@ -29,18 +29,22 @@ function hasTranscript(hit: TranscriptHit | SingleHit): hit is TranscriptHit {
 function transcriptIfRelevant(
   hit: SingleHit | TranscriptHit
 ): Transcript | null {
-  if (hit._highlightResult.text.matchLevel !== 'none') {
-    const { objectID, start, text, videoId } = hit;
-    return {
-      objectID,
-      start,
-      text,
-      _highlightResult: {
-        text: hit._highlightResult.text,
-      },
-    };
+  try {
+    if (hit._highlightResult.text.matchLevel !== 'none') {
+      const { objectID, start, text, videoId } = hit;
+      return {
+        objectID,
+        start,
+        text,
+        _highlightResult: {
+          text: hit._highlightResult.text,
+        },
+      };
+    }
+    return null;
+  } catch (_) {
+    return null;
   }
-  return null;
 }
 
 function transformToTranscripts(hits: SingleHit[]) {

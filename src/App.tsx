@@ -45,6 +45,7 @@ export interface SingleHit {
   ranking: number;
   channel: string;
   objectID: string;
+  indexName?: string;
   _highlightResult: {
     text: HighlightMatch;
     description: HighlightMatch;
@@ -61,6 +62,7 @@ export type OpenDetail = (
     speaker,
     year,
     start,
+    indexName,
   }: {
     videoId: string;
     title: string;
@@ -68,6 +70,7 @@ export type OpenDetail = (
     speaker: string;
     year: number;
     start?: number;
+    indexName: string;
   }
 ) => void;
 
@@ -79,6 +82,7 @@ interface State {
   speaker: string;
   year: number;
   open: boolean;
+  indexName: string | undefined;
   defaultRefinements: {
     tags: string[];
   };
@@ -92,6 +96,7 @@ const defaultState = {
   speaker: '',
   year: 2017,
   open: false,
+  indexName: undefined,
   defaultRefinements: {
     tags: [],
   },
@@ -119,6 +124,7 @@ export default class App extends Component<Props, State> {
     start,
     speaker,
     year,
+    indexName,
   }) =>
     this.setState({
       videoId,
@@ -127,6 +133,7 @@ export default class App extends Component<Props, State> {
       speaker,
       year,
       start,
+      indexName,
       open: true,
     });
 
@@ -167,6 +174,7 @@ export default class App extends Component<Props, State> {
       speaker,
       year,
       defaultRefinements: { tags = [] },
+      indexName: stateIndex,
     } = this.state;
     const { indexName, metadata: { name }, videoName } = this.props;
     const open = detailOpen || Boolean(videoName);
@@ -191,7 +199,7 @@ export default class App extends Component<Props, State> {
           videoId={videoId || videoName}
           start={start}
           onCloseDetail={this.closeDetail}
-          indexName={indexName}
+          indexName={stateIndex || indexName}
           title={title}
           description={description}
           year={year}

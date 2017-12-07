@@ -26,7 +26,7 @@ export default class Index extends Component {
   };
 
   componentDidMount() {
-    if (indexName) {
+    if (indexName && indexName !== 'ALL_VIDEOS') {
       index.getObject(indexName).then(metadata => {
         if (metadata.accentColor && accentEnabled) {
           document.body.style.setProperty('--color', metadata.accentColor);
