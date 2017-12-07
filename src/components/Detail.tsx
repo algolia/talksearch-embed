@@ -56,7 +56,6 @@ export default class Detail extends Component<Props, any> {
     return (
       open && (
         <div className="">
-          {/* todo: responsive lol */}
           <div className="absolute-center-horizontal z-max top-1-ns w-90 w-80-m w-60-l bg-white shadow-0 br6 ba pt3 bunting b--gray">
             <div className="mb2 flrnw h3 ph3">
               {imageURL && (
@@ -88,11 +87,10 @@ export default class Detail extends Component<Props, any> {
                 <YouTube
                   videoId={videoId}
                   opts={{
-                    // todo: figure out on which domain we'll be
                     origin:
                       typeof window !== 'undefined'
                         ? window.location.origin
-                        : 'https://talksearch.netlify.com',
+                        : 'https://talksearch-embed.algolia.com',
                     enablejsapi: '1',
                     // height: '390',
                     width: '100%',

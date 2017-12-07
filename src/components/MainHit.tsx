@@ -35,7 +35,6 @@ export default class MainHit extends Component<MainProps, void> {
 
     const { thumbnails: { url }, duration, year } = hit;
     return (
-      // todo: bg white
       <article className="shadow-0 bg-white br6 pa3 bunting">
         <Speaker hit={hit} />
         <Title hit={hit} />

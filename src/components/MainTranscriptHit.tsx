@@ -8,7 +8,6 @@ import MainHit from './MainHit';
 import SeekButton from './SeekButton';
 import TranscriptMatch from './TranscriptMatch';
 
-// todo: make this small
 const Description = ({ hit }) => (
   <Snippet hit={hit} attributeName="description" tagName="mark" />
 );
