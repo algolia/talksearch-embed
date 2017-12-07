@@ -36,6 +36,7 @@ export interface SingleHit {
   start: number;
   duration: number;
   year: number;
+  speaker: string;
   text: string;
   videoId: string;
   title: string;
@@ -61,11 +62,15 @@ export type OpenDetail = (
     videoId,
     title,
     description,
+    speaker,
+    year,
     start,
   }: {
     videoId: string;
     title: string;
     description: string;
+    speaker: string;
+    year: number;
     start?: number;
   }
 ) => void;
@@ -73,30 +78,51 @@ export type OpenDetail = (
 interface State {
   videoId: string;
   start: number;
-  description: string;
   title: string;
+  description: string;
+  speaker: string;
+  year: number;
   open: boolean;
 }
 
 const defaultState = {
   videoId: '',
   start: 0,
-  description: '',
   title: '',
+  description: '',
+  speaker: '',
+  year: 2017,
   open: false,
 };
 
+export interface Metadata {
+  objectID: string;
+  name: string;
+  youtubeURL: string;
+  imageURL: string;
+  accentColor?: string;
+}
 interface Props {
   indexName: string;
+  metadata: Metadata;
 }
 export default class App extends Component<Props, State> {
   state = defaultState;
 
-  openDetail: OpenDetail = ({ videoId, title, description, start }) =>
+  openDetail: OpenDetail = ({
+    videoId,
+    title,
+    description,
+    start,
+    speaker,
+    year,
+  }) =>
     this.setState({
       videoId,
       title,
       description,
+      speaker,
+      year,
       start,
       open: true,
     });
@@ -111,8 +137,16 @@ export default class App extends Component<Props, State> {
     });
 
   render() {
-    const { open, videoId, start, description, title } = this.state;
-    const { indexName } = this.props;
+    const {
+      open,
+      videoId,
+      start,
+      description,
+      title,
+      speaker,
+      year,
+    } = this.state;
+    const { indexName, metadata: { name } } = this.props;
     return (
       <div className="montserrat">
         <Helmet
@@ -129,9 +163,12 @@ export default class App extends Component<Props, State> {
           videoId={videoId}
           title={title}
           description={description}
+          year={year}
+          speaker={speaker}
           start={start}
           onCloseDetail={this.closeDetail}
           indexName={indexName}
+          metadata={this.props.metadata}
         />
         <div className="absolute top-0 left-0">
           <InstantSearch
@@ -149,13 +186,14 @@ export default class App extends Component<Props, State> {
                 />
               )}
             </RefinedSearch>
-            <div className="flex items-center mb2">
+            <div className="flex flex-wrap flex-nowrap-ns items-center ma2 mb3">
+              <span className="ma3">{name}</span>
               <SearchBox />
-              <div className="ml3">
+              <div className="ma3">
                 <PoweredBy />
               </div>
             </div>
-            <div className="ml3 mb2">
+            <div className="mb2 ml2">
               <Stats />
             </div>
             <MainHits openDetail={this.openDetail} />

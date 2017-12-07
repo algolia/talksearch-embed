@@ -22,8 +22,8 @@ interface MainProps {
 }
 export default class MainHit extends Component<MainProps, void> {
   openDetail = () => {
-    const { videoId, description, title } = this.props.hit;
-    this.props.openDetail({ videoId, description, title });
+    const { videoId, description, title, speaker, year } = this.props.hit;
+    this.props.openDetail({ videoId, description, title, speaker, year });
   };
 
   render() {

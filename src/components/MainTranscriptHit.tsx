@@ -40,8 +40,15 @@ interface HitProps {
 }
 export default class MainTranscriptHit extends Component<HitProps, any> {
   openDetail = start => {
-    const { videoId, description, title } = this.props.hit;
-    this.props.openDetail({ videoId, description, title, start });
+    const { videoId, description, title, speaker, year } = this.props.hit;
+    this.props.openDetail({
+      videoId,
+      description,
+      title,
+      speaker,
+      year,
+      start,
+    });
   };
 
   render() {

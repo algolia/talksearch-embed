@@ -10,7 +10,7 @@ import {
 import { connectMenu } from 'react-instantsearch/connectors';
 import YouTube from 'react-youtube';
 
-import { SingleHit } from '../App';
+import { SingleHit, Metadata } from '../App';
 import DetailHit from './DetailHit';
 
 const VirtualMenu = connectMenu(() => null);
@@ -22,10 +22,13 @@ interface Props {
   videoId: string;
   title: string;
   description: string;
+  speaker: string;
+  year: number;
   open: boolean;
   start?: number;
   onCloseDetail: () => void;
   indexName: string;
+  metadata: Metadata;
 }
 export default class Detail extends Component<Props, any> {
   player = null;
@@ -39,13 +42,16 @@ export default class Detail extends Component<Props, any> {
 
   render() {
     const {
-      open,
       videoId,
-      description,
-      title,
+      open,
       start = 0,
+      title,
+      description,
+      speaker,
+      year,
       onCloseDetail,
       indexName,
+      metadata: { name, imageURL },
     } = this.props;
     return (
       open && (
@@ -53,17 +59,15 @@ export default class Detail extends Component<Props, any> {
           {/* todo: responsive lol */}
           <div className="absolute-center-horizontal z-max top-10 w-60-l w-80-m bg-white shadow-0 br6 ba pt3 bunting b--gray">
             <div className="mb2 flrnw h3 ph3">
-              <div className="fln mr3">
-                {/* todo: get image */}
-                <img src="/img/writethedocs.png" />
+              <div className="fln mr3" style={{ width: 64 }}>
+                <img src={imageURL} />
               </div>
               <div className="fla flcnw flspa">
-                {/* todo: use extracted values */}
-                {/* <div className="fln f4">
-                <span className="mulberry pr2">Tim Carry -</span>
-                Write The Docs
-                <span className="mulberry pl2">- 2017</span>
-              </div> */}
+                <div className="fln f4">
+                  <span className="mulberry pr2">{speaker} -</span>
+                  {name}
+                  <span className="mulberry pl2">- {year}</span>
+                </div>
                 <div className="fln f3 b ellipsis">{title}</div>
               </div>
               <div className="fln flcnw">
