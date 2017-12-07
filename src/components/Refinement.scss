@@ -15,13 +15,12 @@
       }
 
       &__items {
-        // todo: what causes this inset?
         width: 100%;
         overflow: scroll;
         display: flex;
         flex-wrap: nowrap;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
         padding-bottom: 1em;
       }
 
