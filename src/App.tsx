@@ -190,6 +190,7 @@ export default class App extends Component<Props, State> {
             <div className="bg-athens-gray flex flex-nowrap flex-column flex-row-40">
               <div className="mb4 mb0-l mr4-l shadow-0 shadow-none-40 bg-athens-gray-40 fln w-30-40 w-20-l pa2-40">
                 <Refinement attribute="tags" />
+                <Refinement attribute="year" />
               </div>
               <div className="fln w-70-40 w-80-l pa2-40">
                 <MainHits openDetail={this.openDetail} />
