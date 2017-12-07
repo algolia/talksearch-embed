@@ -120,7 +120,11 @@ export default class Detail extends Component<Props, any> {
                     attributesToRetrieve={['title', 'start']}
                     hitsPerPage={5}
                   />
-                  <SearchBox />
+                  <SearchBox
+                    translations={{
+                      placeholder: 'Search in this video',
+                    }}
+                  />
                   <div className="mt2">
                     <Hits
                       hitComponent={({ hit }: { hit: SingleHit }) => (
