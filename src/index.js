@@ -24,7 +24,9 @@ export default class Index extends Component {
   async componentDidMount() {
     if (indexName) {
       const metadata = await index.getObject(indexName);
-      document.body.style.setProperty('--color', metadata.themeColor);
+      if (metadata.accentColor) {
+        document.body.style.setProperty('--color', metadata.accentColor);
+      }
 
       this.setState({
         metadata,

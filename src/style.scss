@@ -10,12 +10,7 @@ html {
 
 body {
   --main: var(--color, #4841b0);
-  // todo: figure out how to lighten to get the secondary color
-  --secondary: var(--secondary-color, #3771e4);
-  // hardcoded fallback
-  --main: #4841b0;
-  --secondary: #3771e4;
-  --gradient: linear-gradient(143.09deg, var(--main) 0%, var(--secondary) 100%);
+  // --secondary: #3771e4;
 }
 
 body {
@@ -78,7 +73,14 @@ button {
 .ais-Hits__root .text,
 .text {
   color: white;
-  background: var(--gradient);
+  background: {
+    color: var(--main);
+    image: linear-gradient(
+      143.09deg,
+      rgba(82, 82, 82, 0) 0%,
+      rgba(82, 82, 82, 0.4) 100%
+    );
+  }
   display: flex;
   flex-direction: column;
   align-items: center;
