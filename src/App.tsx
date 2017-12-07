@@ -169,9 +169,9 @@ export default class App extends Component<Props, State> {
     } = this.state;
     const { indexName, metadata: { name } } = this.props;
     return (
-      <div className="montserrat bg-athens-gray ma0">
+      <div className="montserrat ma0">
         <Helmet
-          htmlAttributes={{ lang: 'en', class: 'bg-athens-gray' }}
+          htmlAttributes={{ lang: 'en' }}
           link={[
             {
               rel: 'stylesheet',
@@ -214,8 +214,8 @@ export default class App extends Component<Props, State> {
             <div className="mb2 ml2 dn db-l">
               <Stats />
             </div>
-            <div className="bg-athens-gray flex flex-nowrap flex-column flex-row-40">
-              <div className="mb4 mb0-l mr4-l shadow-0 shadow-none-40 bg-athens-gray-40 fln w-30-40 w-20-l pa2-40">
+            <div className="flex flex-nowrap flex-column flex-row-40">
+              <div className="mb4 mb0-l mr4-l shadow-0 shadow-none-40 fln w-30-40 w-20-l pa2-40">
                 <Refinement attribute="tags" defaultRefinement={tags} />
                 <Refinement attribute="year" />
               </div>

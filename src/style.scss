@@ -15,38 +15,71 @@ body {
 
 // We use the [class] hack to overspecify the selectors so they are more
 // specific than the one included by tachyons
-@media (min-width: 30em){
-  .bg-white-ns[class] { background: #fff; }
-  .bg-athens-gray-ns[class] { background-color: rgb(238,240,247); }
-  .shadow-none-ns[class] { box-shadow: none; }
+@media (min-width: 30em) {
+  .bg-white-ns[class] {
+    background: #fff;
+  }
+  .shadow-none-ns[class] {
+    box-shadow: none;
+  }
 }
 @media (min-width: 30em) and (max-width: 60em) {
-  .bg-white-m[class] { background: #fff; }
-  .bg-athens-gray-m[class] { background-color: rgb(238,240,247); }
-  .shadow-none-m[class] { box-shadow: none; }
+  .bg-white-m[class] {
+    background: #fff;
+  }
+  .shadow-none-m[class] {
+    box-shadow: none;
+  }
 }
 @media (min-width: 40em) {
-  .bg-white-40[class] { background: #fff; }
-  .bg-athens-gray-40[class] { background-color: rgb(238,240,247); }
-  .shadow-none-40[class] { box-shadow: none; }
-  .w-10-40[class] { width: 10%; }
-  .w-20-40[class] { width: 20%; }
-  .w-30-40 { width: 30%; }
-  .w-40-40[class] { width: 40%; }
-  .w-50-40[class] { width: 50%; }
-  .w-60-40[class] { width: 60%; }
-  .w-70-40[class] { width: 70%; }
-  .w-80-40[class] { width: 80%; }
-  .w-90-40[class] { width: 90%; }
-  .pa2-40[class] { padding: var(--spacing-small); }
-  .flex-row-40[class] { flex-direction: row; }
+  .bg-white-40[class] {
+    background: #fff;
+  }
+  .shadow-none-40[class] {
+    box-shadow: none;
+  }
+  .w-10-40[class] {
+    width: 10%;
+  }
+  .w-20-40[class] {
+    width: 20%;
+  }
+  .w-30-40 {
+    width: 30%;
+  }
+  .w-40-40[class] {
+    width: 40%;
+  }
+  .w-50-40[class] {
+    width: 50%;
+  }
+  .w-60-40[class] {
+    width: 60%;
+  }
+  .w-70-40[class] {
+    width: 70%;
+  }
+  .w-80-40[class] {
+    width: 80%;
+  }
+  .w-90-40[class] {
+    width: 90%;
+  }
+  .pa2-40[class] {
+    padding: var(--spacing-small);
+  }
+  .flex-row-40[class] {
+    flex-direction: row;
+  }
 }
 @media (min-width: 60em) {
-  .bg-white-l[class] { background: #fff; }
-  .bg-athens-gray-l[class] { background-color: rgb(237,240,247); }
-  .shadow-none-l[class] { box-shadow: none; }
+  .bg-white-l[class] {
+    background: #fff;
+  }
+  .shadow-none-l[class] {
+    box-shadow: none;
+  }
 }
-
 
 body {
   height: 100%;
