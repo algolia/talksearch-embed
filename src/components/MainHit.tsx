@@ -1,5 +1,6 @@
 import { h, Component } from 'preact';
 import { Highlight, Snippet } from 'react-instantsearch/dom';
+import secoToMin from 'sec-to-min';
 import { SingleHit, OpenDetail } from '../App';
 import { TranscriptHit } from './MainHits';
 import Tags, { OnRefine } from './Tags';
@@ -24,8 +25,22 @@ interface MainProps {
 }
 export default class MainHit extends Component<MainProps, void> {
   openDetail = () => {
-    const { videoId, description, title, speaker, year } = this.props.hit;
-    this.props.openDetail({ videoId, description, title, speaker, year });
+    const {
+      videoId,
+      description,
+      title,
+      speaker,
+      year,
+      indexName,
+    } = this.props.hit;
+    this.props.openDetail({
+      videoId,
+      description,
+      title,
+      speaker,
+      year,
+      indexName,
+    });
   };
 
   render() {
@@ -47,7 +62,7 @@ export default class MainHit extends Component<MainProps, void> {
           <div className="ml2">
             <div>
               <div className="f7 o-40 mb1">Duration</div>
-              <div>{duration}</div>
+              <div>{secoToMin(duration)}</div>
             </div>
             <div className="mt4">
               <div className="f7 o-40 mb1">Year</div>
