@@ -21,15 +21,16 @@ export default class Index extends Component {
     metadata: {},
   };
 
-  async componentDidMount() {
+  componentDidMount() {
     if (indexName) {
-      const metadata = await index.getObject(indexName);
-      if (metadata.accentColor) {
-        document.body.style.setProperty('--color', metadata.accentColor);
-      }
+      index.getObject(indexName).then(metadata => {
+        if (metadata.accentColor) {
+          document.body.style.setProperty('--color', metadata.accentColor);
+        }
 
-      this.setState({
-        metadata,
+        this.setState({
+          metadata,
+        });
       });
     }
   }
