@@ -218,48 +218,50 @@ export default class Detail extends Component<Props, State> {
               </div>
             </div>
 
-            <div className="dn flex-ns flex-nowrap-ns mb3 ph3 dn db-ns">
-              <div className="fla tl royal-blue b f4 flrnw flrcv">
-                <div className="fln tl" onClick={this.showEmbedModal}>
-                  <span className="dejavu black">{'< /> '}</span>
-                  embed this talk on your webpage
-                  {showModal && (
-                    <span className="dejavu black">
-                      <pre className="overflow-auto w-80">{`<iframe href="https://talksearch-embed.algolia.com/?i=${
-                        indexName
-                      }&video=${id}"/>`}</pre>
-                    </span>
-                  )}
-                </div>
-              </div>
-              <div className="fln w-20 flc">
-                <a href="https://algolia.com" target="_blank">
-                  <img src="/img/search-by-algolia.svg" />
-                </a>
-              </div>
-            </div>
-
             {affiliation && (
-              <div className="dn flex-ns flex-nowrap b--black-30 pv3 ph5">
-                <div className="fla flrnw">
-                  <div className="fln w-30 pr4 flrnw flrcv">
-                    <a
-                      href="https://community.algolia.com/talksearch"
-                      target="_blank"
-                    >
-                      <img className="fln" src="/img/talksearch.svg" />
+              <div>
+                <div className="dn flex-ns flex-nowrap-ns mb3 ph3 dn db-ns">
+                  <div className="fla tl royal-blue b f4 flrnw flrcv">
+                    <div className="fln tl" onClick={this.showEmbedModal}>
+                      <span className="dejavu black">{'< /> '}</span>
+                      embed this talk on your webpage
+                      {showModal && (
+                        <span className="dejavu black">
+                          <pre className="overflow-auto w-80">{`<iframe href="https://talksearch-embed.algolia.com/?i=${
+                            indexName
+                          }&video=${id}"/>`}</pre>
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                  <div className="fln w-20 flc">
+                    <a href="https://algolia.com" target="_blank">
+                      <img src="/img/search-by-algolia.svg" />
                     </a>
                   </div>
-                  <div className="fln w-70 black-30 lh-copy f5 flc">
-                    <div className="fla">
-                      A tool to help conference organizers make all their videos
-                      searchable & interactive.
+                </div>
+
+                <div className="dn flex-ns flex-nowrap b--black-30 pv3 ph5">
+                  <div className="fla flrnw">
+                    <div className="fln w-30 pr4 flrnw flrcv">
                       <a
                         href="https://community.algolia.com/talksearch"
-                        className="link b royal-blue pl2"
+                        target="_blank"
                       >
-                        Visit the TalkSearch project
+                        <img className="fln" src="/img/talksearch.svg" />
                       </a>
+                    </div>
+                    <div className="fln w-70 black-30 lh-copy f5 flc">
+                      <div className="fla">
+                        A tool to help conference organizers make all their
+                        videos searchable & interactive.
+                        <a
+                          href="https://community.algolia.com/talksearch"
+                          className="link b royal-blue pl2"
+                        >
+                          Visit the TalkSearch project
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
