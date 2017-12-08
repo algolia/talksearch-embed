@@ -110,7 +110,8 @@ export default class Detail extends Component<Props, State> {
     this.player.seekTo(this.props.start || 0);
   };
 
-  showEmbedModal = () => this.setState({ showModal: true });
+  showEmbedModal = () =>
+    this.setState(({ showModal }) => ({ showModal: !showModal }));
 
   render() {
     const {
@@ -232,9 +233,7 @@ export default class Detail extends Component<Props, State> {
                       embed this talk on your webpage
                       {showModal && (
                         <span className="dejavu black">
-                          <pre className="overflow-auto w-80">{`<iframe href="https://talksearch-embed.algolia.com/?i=${
-                            indexName
-                          }&video=${id}"/>`}</pre>
+                          <pre className="overflow-auto w-80">{`<iframe href="https://talksearch-embed.algolia.com/?i=${indexName}&video=${id}"/>`}</pre>
                         </span>
                       )}
                     </div>
