@@ -142,7 +142,7 @@ button {
 .text {
   color: white;
   background: {
-    color: var(--main);
+    color: var(--main) !important;
     image: linear-gradient(
       143.09deg,
       rgba(82, 82, 82, 0) 0%,
