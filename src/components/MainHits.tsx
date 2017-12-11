@@ -33,7 +33,13 @@ function transcriptIfRelevant(
   hit: SingleHit | TranscriptHit
 ): Transcript | null {
   try {
-    if (hit._highlightResult.text.matchLevel !== 'none') {
+    const matchLevel =
+      hit._snippetResult && hit._snippetResult.text
+        ? hit._snippetResult.text.matchLevel
+        : hit._highlightResult &&
+        hit._highlightResult.text &&
+        hit._highlightResult.text.matchLevel;
+    if (matchLevel !== 'none') {
       const { objectID, start, text, id } = hit;
       return {
         objectID,
