@@ -235,7 +235,8 @@ export default class App extends Component<Props, State> {
               {({ hasQuery }) => (
                 <Configure
                   distinct={hasQuery ? 3 : 1}
-                  attributesToSnippet={['description:30', 'text:15']}
+                  attributesToSnippet={['description:30', 'text:10']}
+                  attributesToHighlight={['speaker', 'title', 'description']}
                   hitsPerPage={10}
                   snippetEllipsisText="…"
                 />

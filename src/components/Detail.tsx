@@ -208,6 +208,7 @@ export default class Detail extends Component<Props, State> {
                   <Configure
                     attributesToRetrieve={['title', 'start']}
                     attributesToSnippet={['text:15']}
+                    attributesToHighlight={[]}
                     snippetEllipsisText="…"
                     hitsPerPage={7}
                   />
