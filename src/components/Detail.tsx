@@ -207,6 +207,8 @@ export default class Detail extends Component<Props, State> {
                   <RestrictToVideo id={id} />
                   <Configure
                     attributesToRetrieve={['title', 'start']}
+                    attributesToSnippet={['text:15']}
+                    snippetEllipsisText="…"
                     hitsPerPage={7}
                   />
                   <SearchBox

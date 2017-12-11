@@ -2,7 +2,7 @@ import { h, Component } from 'preact';
 import Pinboard from '@haroenv/react-pinboard';
 import { connectInfiniteHits } from 'react-instantsearch/connectors';
 
-import { SingleHit, HighlightMatch, OpenDetail } from '../App';
+import { SingleHit, HighlightMatch, OpenDetail, SnippetMatch } from '../App';
 import MainDetailHit from './MainDetailHit';
 import MainTranscriptHit from './MainTranscriptHit';
 import { OnRefine } from './Tags';
@@ -14,6 +14,9 @@ export interface Transcript {
   _highlightResult: {
     text: HighlightMatch;
   };
+  _snippetResult: {
+    text: SnippetMatch,
+  },
 }
 export interface TranscriptHit extends SingleHit {
   transcriptions: { [objectID: string]: Transcript };
@@ -38,6 +41,9 @@ function transcriptIfRelevant(
         text,
         _highlightResult: {
           text: hit._highlightResult.text,
+        },
+        _snippetResult: {
+          text: hit._snippetResult.text,
         },
       };
     }
@@ -71,6 +77,9 @@ function transformToTranscripts(hits: SingleHit[]) {
         text: hit.text,
         _highlightResult: {
           text: hit._highlightResult.text,
+        },
+        _snippetResult: {
+          text: hit._snippetResult.text,
         },
       };
 
@@ -140,14 +149,14 @@ class Hits extends Component<Props, null> {
                       openDetail={openDetail}
                     />
                   ) : (
-                    <MainDetailHit
-                      key={hit.objectID}
-                      hit={hit}
-                      index={index}
-                      onRefine={onRefine}
-                      openDetail={openDetail}
-                    />
-                  )
+                      <MainDetailHit
+                        key={hit.objectID}
+                        hit={hit}
+                        index={index}
+                        onRefine={onRefine}
+                        openDetail={openDetail}
+                      />
+                    )
               )}
             </Pinboard>
           )}

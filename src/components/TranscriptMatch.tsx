@@ -1,5 +1,5 @@
 import { h, Component } from 'preact';
-import { Highlight } from 'react-instantsearch/dom';
+import { Snippet } from 'react-instantsearch/dom';
 import { Transcript } from './MainHits';
 
 interface Props {
@@ -9,7 +9,7 @@ export default class TranscriptMatch extends Component<Props, void> {
   render() {
     return (
       <div>
-        …<Highlight hit={this.props.hit} attributeName="text" tagName="mark" />…
+        <Snippet hit={this.props.hit} attributeName="text" tagName="mark" />
       </div>
     );
   }

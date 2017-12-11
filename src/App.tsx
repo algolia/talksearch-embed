@@ -27,6 +27,11 @@ export interface HighlightMatch {
   matchLevel: 'none' | 'partial' | 'full';
   matchedWords: string[];
 }
+export interface SnippetMatch {
+  value: string;
+  matchLevel: 'none' | 'partial' | 'full';
+}
+
 export interface SingleHit {
   start: number;
   duration: number;
@@ -50,6 +55,10 @@ export interface SingleHit {
     text: HighlightMatch;
     description: HighlightMatch;
     title: HighlightMatch;
+  };
+  _snippetResult: {
+    text: SnippetMatch;
+    description: SnippetMatch;
   };
   _distinctSeqID?: number;
 }
@@ -226,7 +235,7 @@ export default class App extends Component<Props, State> {
               {({ hasQuery }) => (
                 <Configure
                   distinct={hasQuery ? 3 : 1}
-                  attributesToSnippet={['description:30']}
+                  attributesToSnippet={['description:30', 'text:15']}
                   hitsPerPage={10}
                   snippetEllipsisText="…"
                 />
