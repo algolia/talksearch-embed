@@ -228,14 +228,15 @@ export default class Detail extends Component<Props, State> {
               <div>
                 <div className="dn flex-ns flex-nowrap-ns mb3 ph3 dn db-ns">
                   <div className="fla tl royal-blue b f4 flrnw flrcv">
-                    <div className="fln tl" onClick={this.showEmbedModal}>
-                      <span className="dejavu black">{'< /> '}</span>
-                      embed this talk on your webpage
+                    <div className="fln tl" >
+                      <button onClick={this.showEmbedModal} className="bg-transparent bn bunting pointer">
+                        <span className="dejavu black">{'< /> '}</span>
+                        embed this talk on your webpage
+                      </button>
                       {showModal && (
                         <span className="dejavu black">
                           <pre className="overflow-auto w-80">{`<iframe href="https://talksearch-embed.algolia.com/?i=${indexName}&video=${id}"/>`}</pre>
-                        </span>
-                      )}
+                        </span>)}
                     </div>
                   </div>
                   <div className="fln w-20 flc">
