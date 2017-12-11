@@ -64,14 +64,14 @@ export type OpenDetail = (
     start,
     indexName,
   }: {
-    id: string;
-    title: string;
-    description: string;
-    speaker: string;
-    year: number;
-    start?: number;
-    indexName: string;
-  }
+      id: string;
+      title: string;
+      description: string;
+      speaker: string;
+      year: number;
+      start?: number;
+      indexName: string;
+    }
 ) => void;
 
 interface State {
@@ -114,6 +114,7 @@ interface Props {
   metadata: Metadata;
   videoName: string | undefined;
   affiliation: boolean;
+  autoplay: boolean;
 }
 export default class App extends Component<Props, State> {
   state = defaultState;
@@ -213,6 +214,7 @@ export default class App extends Component<Props, State> {
           speaker={speaker}
           metadata={this.props.metadata}
           affiliation={affiliation}
+          autoplay={this.props.autoplay ? 1 : 0}
         />
         <div hidden={open}>
           <InstantSearch

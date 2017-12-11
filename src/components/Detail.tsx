@@ -70,6 +70,7 @@ interface Props {
   indexName: string;
   metadata: Metadata;
   affiliation: boolean;
+  autoplay: 0 | 1;
 }
 export default class Detail extends Component<Props, State> {
   constructor(props) {
@@ -107,7 +108,9 @@ export default class Detail extends Component<Props, State> {
   };
   onReady = e => {
     this.player = e.target;
-    this.player.seekTo(this.props.start || 0);
+    if (this.props.start) {
+      this.player.seekTo(this.props.start);
+    }
   };
 
   showEmbedModal = () =>
@@ -122,6 +125,7 @@ export default class Detail extends Component<Props, State> {
       indexName,
       affiliation,
       metadata: { name: _name, avatar: _avatar },
+      autoplay
     } = this.props;
     const {
       title,
@@ -179,10 +183,10 @@ export default class Detail extends Component<Props, State> {
                       typeof window !== 'undefined'
                         ? window.location.origin
                         : 'https://talksearch-embed.algolia.com',
-                    enablejsapi: '1',
+                    enablejsapi: 1,
                     width: '100%',
                     playerVars: {
-                      autoplay: 1,
+                      autoplay,
                       playsinline: 1,
                       rel: 0,
                       cc_load_policy: 1,
