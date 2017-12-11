@@ -15,8 +15,8 @@ export interface Transcript {
     text: HighlightMatch;
   };
   _snippetResult: {
-    text: SnippetMatch,
-  },
+    text: SnippetMatch;
+  };
 }
 export interface TranscriptHit extends SingleHit {
   transcriptions: { [objectID: string]: Transcript };

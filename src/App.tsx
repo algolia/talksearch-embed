@@ -73,14 +73,14 @@ export type OpenDetail = (
     start,
     indexName,
   }: {
-      id: string;
-      title: string;
-      description: string;
-      speaker: string;
-      year: number;
-      start?: number;
-      indexName: string;
-    }
+    id: string;
+    title: string;
+    description: string;
+    speaker: string;
+    year: number;
+    start?: number;
+    indexName: string;
+  }
 ) => void;
 
 interface State {
