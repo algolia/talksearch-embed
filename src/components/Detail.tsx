@@ -1,12 +1,15 @@
 import { h, Component } from 'preact';
 import {
   InstantSearch,
-  Hits,
   SearchBox,
   PoweredBy,
   Configure,
 } from 'react-instantsearch/dom';
-import { connectPagination } from 'react-instantsearch/connectors';
+import {
+  connectPagination,
+  connectHits,
+  connectStateResults,
+} from 'react-instantsearch/connectors';
 import * as algoliasearch from 'algoliasearch';
 import { connectMenu } from 'react-instantsearch/connectors';
 import YouTube from 'react-youtube';
@@ -45,8 +48,13 @@ const RestrictToVideo = ({ id }: { id: string }) => (
   <VirtualMenu attributeName="id" defaultRefinement={id} />
 );
 
-const client = algoliasearch('FOQUAZ6YNS', '72ee3a317835b8618eda01c6fcc88f77');
+const Hits = connectStateResults(
+  connectHits(({ hits, searchState: { query = '' }, render }) =>
+    render({ hits, query })
+  )
+);
 
+const client = algoliasearch('FOQUAZ6YNS', '72ee3a317835b8618eda01c6fcc88f77');
 interface State {
   title?: string;
   description?: string;
@@ -212,21 +220,43 @@ export default class Detail extends Component<Props, State> {
                     snippetEllipsisText="…"
                     hitsPerPage={7}
                   />
-                  <SearchBox
-                    translations={{
-                      placeholder: 'Search in this video',
+                  <Hits
+                    render={({
+                      hits,
+                      query,
+                    }: {
+                      hits: SingleHit[];
+                      query: string;
+                    }) => {
+                      const noResults = query.length === 0 && hits.length === 1;
+                      return (
+                        <div>
+                          <div hidden={!noResults} className="tc mt4">
+                            There are no transcripts for this video
+                          </div>
+                          <div hidden={noResults}>
+                            <SearchBox
+                              translations={{
+                                placeholder: 'Search in this video',
+                              }}
+                            />
+                            <div className="mt2">
+                              {hits.map(hit => (
+                                <DetailHit
+                                  hit={hit}
+                                  onSeek={this.onSeek}
+                                  key={hit.objectID}
+                                />
+                              ))}
+                            </div>
+                            <div className="tc dn db-ns">
+                              <Pagination />
+                            </div>
+                          </div>
+                        </div>
+                      );
                     }}
                   />
-                  <div className="mt2">
-                    <Hits
-                      hitComponent={({ hit }: { hit: SingleHit }) => (
-                        <DetailHit hit={hit} onSeek={this.onSeek} />
-                      )}
-                    />
-                    <div className="tc dn db-ns">
-                      <Pagination />
-                    </div>
-                  </div>
                 </InstantSearch>
               </div>
             </div>

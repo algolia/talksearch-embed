@@ -37,8 +37,8 @@ function transcriptIfRelevant(
       hit._snippetResult && hit._snippetResult.text
         ? hit._snippetResult.text.matchLevel
         : hit._highlightResult &&
-        hit._highlightResult.text &&
-        hit._highlightResult.text.matchLevel;
+          hit._highlightResult.text &&
+          hit._highlightResult.text.matchLevel;
     if (matchLevel !== 'none') {
       const { objectID, start, text, id } = hit;
       return {
@@ -155,14 +155,14 @@ class Hits extends Component<Props, null> {
                       openDetail={openDetail}
                     />
                   ) : (
-                      <MainDetailHit
-                        key={hit.objectID}
-                        hit={hit}
-                        index={index}
-                        onRefine={onRefine}
-                        openDetail={openDetail}
-                      />
-                    )
+                    <MainDetailHit
+                      key={hit.objectID}
+                      hit={hit}
+                      index={index}
+                      onRefine={onRefine}
+                      openDetail={openDetail}
+                    />
+                  )
               )}
             </Pinboard>
           )}
