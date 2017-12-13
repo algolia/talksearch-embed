@@ -6,12 +6,12 @@ import { TranscriptHit } from './MainHits';
 import Tags, { OnRefine } from './Tags';
 
 const Speaker = ({ hit }) => (
-  <div style={{ color: '#3369E7' }} className="f6">
+  <div className="f6 o-70">
     <Highlight hit={hit} attributeName="speaker" tagName="mark" />
   </div>
 );
 const Title = ({ hit }) => (
-  <h1 className="f5 mt1">
+  <h1 className="f4 mt1 lh-title">
     <Highlight hit={hit} attributeName="title" tagName="mark" />
   </h1>
 );
@@ -54,12 +54,12 @@ export default class MainHit extends Component<MainProps, void> {
           </button>
           <div className="ml2">
             <div>
-              <div className="f7 o-40 mb1">Duration</div>
-              <div>{secoToMin(duration)}</div>
+              <div className="f7 o-60">Duration</div>
+              <div className="f6 o-90">{secoToMin(duration)}</div>
             </div>
-            <div className="mt4">
-              <div className="f7 o-40 mb1">Year</div>
-              <div>{year}</div>
+            <div className="mt2">
+              <div className="f7 o-60">Year</div>
+              <div className="f6 o-90">{year}</div>
             </div>
           </div>
         </div>

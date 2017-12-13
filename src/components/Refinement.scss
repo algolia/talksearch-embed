@@ -8,6 +8,10 @@
     &__SearchBox {
       padding-right: 1em;
     }
+    &__itemLabel {
+      color: #182359;
+      font-size: 1rem
+    }
 
     @media (max-width: 40rem) {
       &__root {
@@ -24,8 +28,6 @@
       }
 
       &__item {
-        color: #3e396b;
-        font-weight: 300;
 
         label {
           padding: 1em;

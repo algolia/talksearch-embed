@@ -8,7 +8,6 @@ export default class SearchBar extends Component<Props, void> {
   render() {
     return (
       <div className="flex flex-wrap flex-nowrap-ns items-center ma2">
-        <span className="fln mv2 mv3-ns mh3-ns f6-ns">{this.props.name}</span>
         <div className="fla">
           <SearchBox
             translations={{
@@ -16,7 +15,7 @@ export default class SearchBar extends Component<Props, void> {
             }}
           />
         </div>
-        <div className="fln ma1 dn db-l">
+        <div className="fln ma1 dn db-l ml2">
           <PoweredBy />
         </div>
       </div>

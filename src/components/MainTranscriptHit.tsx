@@ -59,7 +59,7 @@ export default class MainTranscriptHit extends Component<HitProps, any> {
       <MainHit
         render={({ hit }: { hit: TranscriptHit }) => (
           <div>
-            <div className="f6 fw3 break-words">
+            <div className="f7 o-80 bunting break-words">
               <Description hit={hit} />
             </div>
             <Transcripts
