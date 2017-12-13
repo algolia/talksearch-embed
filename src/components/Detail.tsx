@@ -75,8 +75,8 @@ const SwitchResults = connectStateResults(
 
     return (
       <div>
-        <div hidden={!noResults} className="tc mt4">
-          There are no transcripts for this video
+        <div hidden={!noResults} className="tc mt6 w-80 center">
+          <i>There are no transcripts for this video</i>
         </div>
         <div hidden={noResults}>
           <SearchBox
@@ -245,7 +245,7 @@ export default class Detail extends Component<Props, State> {
                   }}
                   onReady={this.onReady}
                 />
-                <div className="mt3 f6 f5-ns">{description}</div>
+                <div className="mt3 f6 f5-ns pa2 pa0-ns">{description}</div>
               </div>
 
               <div className="fln w-100 w-40-m w-30-l mt3 mt0-ns ph1 ph0-ns">

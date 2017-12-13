@@ -70,6 +70,15 @@ body {
   .pa2-40[class] {
     padding: var(--spacing-small);
   }
+  .pa4-l[class] {
+    padding: var(--spacing-large);
+  }
+  .w-80-l[class] {
+    width: 80%;
+  }
+  .w-20-l[class] {
+    width: 20%;
+  }
   .flex-row-40[class] {
     flex-direction: row;
   }
