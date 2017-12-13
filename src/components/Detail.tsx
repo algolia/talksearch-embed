@@ -194,7 +194,7 @@ export default class Detail extends Component<Props, State> {
     return (
       open && (
         <div>
-          <div className="w-100 bg-white pt1 pt3 bunting">
+          <div className="center w-100 w-70-l bg-white pt1 pt3 bunting">
             <div className="mb2 flrnw h3 ph1 ph3-ns">
               {avatar && (
                 <div className="fln mr3" style={{ width: 64 }}>
@@ -202,10 +202,10 @@ export default class Detail extends Component<Props, State> {
                 </div>
               )}
               <div className="fla flcnw flspa">
-                <div className="fln f7 f5-m f4-ns">
-                  {speaker && <span className="mulberry pr2">{speaker} -</span>}
+                <div className="fln f7 f5-ns o-70">
+                  {speaker && <span className="pr2 ">{speaker} -</span>}
                   {name}
-                  {year && <span className="mulberry pl2">- {year}</span>}
+                  {year && <span className="pl2">- {year}</span>}
                 </div>
                 <div className="fln f5 f3-ns b ellipsis">{title}</div>
               </div>
@@ -215,7 +215,7 @@ export default class Detail extends Component<Props, State> {
                     className="fln mba pointer bg-transparent bw0 pa0"
                     onClick={onCloseDetail}
                   >
-                    <span className="dn db-ns black-50 f5">
+                    <span className="dn db-ns royal-blue f5">
                       <span className="icon-caret-left" /> back to search
                     </span>
                     <span className="dn-ns db b bunting tr mt2">Back</span>
@@ -245,7 +245,7 @@ export default class Detail extends Component<Props, State> {
                   }}
                   onReady={this.onReady}
                 />
-                <div className="mt3 lh-copy f6">{description}</div>
+                <div className="mt3 f6 f5-ns">{description}</div>
               </div>
 
               <div className="fln w-100 w-40-m w-30-l mt3 mt0-ns ph1 ph0-ns">
@@ -274,9 +274,9 @@ export default class Detail extends Component<Props, State> {
                     <div className="fln tl">
                       <button
                         onClick={this.showEmbedModal}
-                        className="bg-transparent bn bunting pointer"
+                        className="bg-transparent bn underline o-70 bunting pointer f6 f5-ns"
                       >
-                        <span className="dejavu black">{'< /> '}</span>
+                        <span className="dejavu black">{'</> '}</span>
                         embed this talk on your webpage
                       </button>
                       {showModal && (
@@ -286,16 +286,16 @@ export default class Detail extends Component<Props, State> {
                       )}
                     </div>
                   </div>
-                  <div className="fln w-20 flc">
+                  <div className="fln flc w4">
                     <a href="https://algolia.com" target="_blank">
-                      <img src="/img/search-by-algolia.svg" />
+                      <img src="/img/search-by-algolia.svg"/>
                     </a>
                   </div>
                 </div>
 
                 <div className="dn flex-ns flex-nowrap b--black-30 pv3 ph5">
                   <div className="fla flrnw">
-                    <div className="fln w-30 pr4 flrnw flrcv">
+                    <div className="fln w5 pr4 flrnw flrcv">
                       <a
                         href="https://community.algolia.com/talksearch"
                         target="_blank"
@@ -303,13 +303,13 @@ export default class Detail extends Component<Props, State> {
                         <img className="fln" src="/img/talksearch.svg" />
                       </a>
                     </div>
-                    <div className="fln w-70 black-30 lh-copy f5 flc">
-                      <div className="fla">
+                    <div className="fln w-60 bunting lh-copy f6 flc">
+                      <div className="fla o-70">
                         A tool to help conference organizers make all their
                         videos searchable & interactive.
                         <a
                           href="https://community.algolia.com/talksearch"
-                          className="link b royal-blue pl2"
+                          className="link royal-blue pl2"
                         >
                           Visit the TalkSearch project
                         </a>
