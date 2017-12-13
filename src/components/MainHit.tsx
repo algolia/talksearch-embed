@@ -6,7 +6,7 @@ import { TranscriptHit } from './MainHits';
 import Tags, { OnRefine } from './Tags';
 
 const Speaker = ({ hit }) => (
-  <div className="f7 fw6 o-60 ttu">
+  <div className="f6 o-70">
     <Highlight hit={hit} attributeName="speaker" tagName="mark" />
   </div>
 );

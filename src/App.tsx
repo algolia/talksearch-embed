@@ -247,7 +247,7 @@ export default class App extends Component<Props, State> {
               <Stats />
             </div>
             <div className="flex flex-nowrap flex-column flex-row-40">
-              <div className="mb4 mb0-l mr4-l shadow-0 shadow-none-40 fln w-30-40 w-20-l pa2-40">
+              <div className="mb4 mb0-l mr4-l fln w-30-40 w-20-l pa2-40">
                 <Refinement attribute="tags" defaultRefinement={tags} />
                 <Refinement
                   attribute="year"
