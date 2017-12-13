@@ -48,7 +48,53 @@ const RestrictToVideo = ({ id }: { id: string }) => (
   <VirtualMenu attributeName="id" defaultRefinement={id} />
 );
 
-const Hits = connectHits(({ hits, render }) => render({ hits }));
+const Hits = connectHits(
+  ({ hits, onSeek }: { hits: SingleHit[]; onSeek: (number) => void }) => (
+    <div>
+      {hits.map(hit => (
+        <DetailHit key={hit.objectID} hit={hit} onSeek={onSeek} />
+      ))}
+    </div>
+  )
+);
+
+const SwitchResults = connectStateResults(
+  ({
+    searchState: { query = '' },
+    onSeek,
+    searchResults,
+  }: {
+    searchState: { query: string };
+    onSeek: (number) => void;
+    searchResults?: { hits: SingleHit[] };
+  }) => {
+    // Can't use destructuring with default value since searchResults
+    // is null by default not undefined
+    const hits = (searchResults && searchResults.hits) || [];
+    const noResults = query.length === 0 && hits.length === 1;
+
+    return (
+      <div>
+        <div hidden={!noResults} className="tc mt4">
+          There are no transcripts for this video
+        </div>
+        <div hidden={noResults}>
+          <SearchBox
+            translations={{
+              placeholder: 'Search in this video',
+            }}
+          />
+          <div className="mt2">
+            <Hits onSeek={onSeek} />
+          </div>
+          <div className="tc dn db-ns">
+            <Pagination />
+          </div>
+        </div>
+      </div>
+    );
+  }
+);
 
 const client = algoliasearch('FOQUAZ6YNS', '72ee3a317835b8618eda01c6fcc88f77');
 interface State {
@@ -216,39 +262,7 @@ export default class Detail extends Component<Props, State> {
                     snippetEllipsisText="…"
                     hitsPerPage={7}
                   />
-                  <Hits
-                    render={({ hits }: { hits: SingleHit[] }) => {
-                      console.log(hits);
-                      return (
-                        <div>
-                          <SearchBox
-                            translations={{
-                              placeholder: 'Search in this video',
-                            }}
-                          />
-                          <div className="mt2">
-                            {hits.length === 1 &&
-                            hits[0]._snippetResult.text.value === '' ? (
-                              <div className="tc mt4">
-                                There are no transcripts for this video
-                              </div>
-                            ) : (
-                              hits.map(hit => (
-                                <DetailHit
-                                  hit={hit}
-                                  onSeek={this.onSeek}
-                                  key={hit.objectID}
-                                />
-                              ))
-                            )}
-                          </div>
-                          <div className="tc dn db-ns">
-                            <Pagination />
-                          </div>
-                        </div>
-                      );
-                    }}
-                  />
+                  <SwitchResults onSeek={this.onSeek} />
                 </InstantSearch>
               </div>
             </div>
