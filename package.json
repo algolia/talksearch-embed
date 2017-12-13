@@ -8,7 +8,8 @@
     "build:production": "cross-env NODE_ENV=production npm run build",
     "serve": "preact build && preact serve",
     "dev": "preact watch --https",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "format": "prettier --write '**/*.{ts,tsx,js,md,scss}' '!build/**/*'"
   },
   "eslintConfig": {
     "extends": [
