@@ -217,33 +217,37 @@ export default class Detail extends Component<Props, State> {
                     hitsPerPage={7}
                   />
                   <Hits
-                    render={({
-                      hits,
-                    }: // query,
-                    {
-                      hits: SingleHit[];
-                      // query: string;
-                    }) => (
-                      <div>
-                        <SearchBox
-                          translations={{
-                            placeholder: 'Search in this video',
-                          }}
-                        />
-                        <div className="mt2">
-                          {hits.map(hit => (
-                            <DetailHit
-                              hit={hit}
-                              onSeek={this.onSeek}
-                              key={hit.objectID}
-                            />
-                          ))}
+                    render={({ hits }: { hits: SingleHit[] }) => {
+                      console.log(hits);
+                      return (
+                        <div>
+                          <SearchBox
+                            translations={{
+                              placeholder: 'Search in this video',
+                            }}
+                          />
+                          <div className="mt2">
+                            {hits.length === 1 &&
+                            hits[0]._snippetResult.text.value === '' ? (
+                              <div className="tc mt4">
+                                There are no transcripts for this video
+                              </div>
+                            ) : (
+                              hits.map(hit => (
+                                <DetailHit
+                                  hit={hit}
+                                  onSeek={this.onSeek}
+                                  key={hit.objectID}
+                                />
+                              ))
+                            )}
+                          </div>
+                          <div className="tc dn db-ns">
+                            <Pagination />
+                          </div>
                         </div>
-                        <div className="tc dn db-ns">
-                          <Pagination />
-                        </div>
-                      </div>
-                    )}
+                      );
+                    }}
                   />
                 </InstantSearch>
               </div>
