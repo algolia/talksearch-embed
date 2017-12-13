@@ -48,11 +48,7 @@ const RestrictToVideo = ({ id }: { id: string }) => (
   <VirtualMenu attributeName="id" defaultRefinement={id} />
 );
 
-const Hits = connectStateResults(
-  connectHits(({ hits, searchState: { query = '' }, render }) =>
-    render({ hits, query })
-  )
-);
+const Hits = connectHits(({ hits, render }) => render({ hits }));
 
 const client = algoliasearch('FOQUAZ6YNS', '72ee3a317835b8618eda01c6fcc88f77');
 interface State {
@@ -161,9 +157,9 @@ export default class Detail extends Component<Props, State> {
               )}
               <div className="fla flcnw flspa">
                 <div className="fln f7 f5-m f4-ns">
-                  <span className="mulberry pr2">{speaker} -</span>
+                  {speaker && <span className="mulberry pr2">{speaker} -</span>}
                   {name}
-                  <span className="mulberry pl2">- {year}</span>
+                  {year && <span className="mulberry pl2">- {year}</span>}
                 </div>
                 <div className="fln f5 f3-ns b ellipsis">{title}</div>
               </div>
@@ -223,39 +219,31 @@ export default class Detail extends Component<Props, State> {
                   <Hits
                     render={({
                       hits,
-                      query,
-                    }: {
+                    }: // query,
+                    {
                       hits: SingleHit[];
-                      query: string;
-                    }) => {
-                      const noResults = query.length === 0 && hits.length === 1;
-                      return (
-                        <div>
-                          <div hidden={!noResults} className="tc mt4">
-                            There are no transcripts for this video
-                          </div>
-                          <div hidden={noResults}>
-                            <SearchBox
-                              translations={{
-                                placeholder: 'Search in this video',
-                              }}
+                      // query: string;
+                    }) => (
+                      <div>
+                        <SearchBox
+                          translations={{
+                            placeholder: 'Search in this video',
+                          }}
+                        />
+                        <div className="mt2">
+                          {hits.map(hit => (
+                            <DetailHit
+                              hit={hit}
+                              onSeek={this.onSeek}
+                              key={hit.objectID}
                             />
-                            <div className="mt2">
-                              {hits.map(hit => (
-                                <DetailHit
-                                  hit={hit}
-                                  onSeek={this.onSeek}
-                                  key={hit.objectID}
-                                />
-                              ))}
-                            </div>
-                            <div className="tc dn db-ns">
-                              <Pagination />
-                            </div>
-                          </div>
+                          ))}
                         </div>
-                      );
-                    }}
+                        <div className="tc dn db-ns">
+                          <Pagination />
+                        </div>
+                      </div>
+                    )}
                   />
                 </InstantSearch>
               </div>
