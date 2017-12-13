@@ -12,7 +12,7 @@ export default class Error extends Component<any, any> {
           textAlign: 'center',
           height: 'calc(100% - 16px)',
           fontFamily:
-            'Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+            '"Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
         }}
       >
         <div>

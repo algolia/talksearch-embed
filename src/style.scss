@@ -10,7 +10,8 @@ html {
 
 body {
   --main: var(--color, #4841b0);
-  // --secondary: #3771e4;
+  height: 100%;
+  overflow: auto;
 }
 
 // We use the [class] hack to overspecify the selectors so they are more
@@ -81,11 +82,6 @@ body {
   }
 }
 
-body {
-  height: 100%;
-  overflow: auto;
-}
-
 img {
   width: 100%;
   max-height: 100%;
@@ -107,11 +103,7 @@ img {
 
 // shadow that works in safari
 .shadow-0 {
-  box-shadow: 0 2px 2px 0 rgba(73, 85, 136, 0.29);
-
-  &:hover {
-    box-shadow: 0 2px 3px 1px rgba(73, 85, 136, 0.29);
-  }
+  box-shadow: 0 1.5px 3px 1px rgba(73, 85, 136, 0.29);
 }
 
 .break-words {
@@ -131,11 +123,6 @@ img {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.ais-InstantSearch__root,
-button {
-  font-family: Montserrat, sans-serif !important;
 }
 
 .ais-Hits__root .text,

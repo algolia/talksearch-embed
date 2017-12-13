@@ -9,10 +9,10 @@ export default class Tags extends Component<Props, void> {
   render() {
     const { tags = [], onRefine } = this.props;
     return (
-      <div className="flex overflow-auto f7">
+      <div className="flex overflow-auto f7 mb2">
         {tags.map(tag => (
           <button
-            className="bn nowrap bg-logan fw3 ma1 pa1 br-pill pointer"
+            className="bn nowrap o-30 white bg-port-gore mr1 ph2 pv1 lh-solid br-pill pointer"
             onClick={() => onRefine({ tag })}
           >
             {tag}

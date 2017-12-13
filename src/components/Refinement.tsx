@@ -23,7 +23,7 @@ export default class Refinement extends Component<Props, void> {
         {big =>
           (responsive || big) && (
             <article>
-              <h1 className="hide-40 f5">{attribute}</h1>
+              <h1 className="hide-40 f5 mt4">{attribute}</h1>
               <RefinementList
                 attributeName={attribute}
                 withSearchBox={withSearchBox && big}

@@ -197,7 +197,7 @@ export default class App extends Component<Props, State> {
 
     // todo: get rid of ugly conditional in `title`
     return (
-      <div className="montserrat ma0">
+      <div className="ma0">
         <Helmet
           htmlAttributes={{ lang: 'en' }}
           link={[
