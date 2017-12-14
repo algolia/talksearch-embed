@@ -242,12 +242,15 @@ export default class App extends Component<Props, State> {
                 />
               )}
             </RefinedSearch>
-            <SearchBar name={name} />
-            <div className="mb2 ml2 dn db-l">
-              <Stats />
+            <div className="w-100 w-80-l center mt4-l">
+              <SearchBar name={name} />
+              <div className="mb4 ml2 dn db-l">
+                <Stats />
+              </div>
             </div>
+
             <div className="flex flex-nowrap flex-column flex-row-40 w-100 pa2 ph4-l">
-              <div className="mb4 mb0-l fln w-30-40">
+              <div className="mb4 mb0-l fln w-30-40 w-20-60">
                 <Refinement attribute="tags" defaultRefinement={tags} />
                 <Refinement
                   attribute="year"
@@ -267,7 +270,7 @@ export default class App extends Component<Props, State> {
                   />
                 )}
               </div>
-              <div className="fln w-70-40">
+              <div className="fln w-70-40 w-80-60">
                 <MainHits
                   openDetail={this.openDetail}
                   onRefine={this.onRefine}

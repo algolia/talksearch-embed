@@ -70,15 +70,6 @@ body {
   .pa2-40[class] {
     padding: var(--spacing-small);
   }
-  .pa4-l[class] {
-    padding: var(--spacing-large);
-  }
-  .w-80-l[class] {
-    width: 80%;
-  }
-  .w-20-l[class] {
-    width: 20%;
-  }
   .flex-row-40[class] {
     flex-direction: row;
   }
@@ -89,6 +80,12 @@ body {
   }
   .shadow-none-l[class] {
     box-shadow: none;
+  }
+  .w-80-60[class] {
+    width: 80%;
+  }
+  .w-20-60[class] {
+    width: 20%;
   }
 }
 
@@ -111,7 +108,6 @@ img {
   height: 1em;
 }
 
-// shadow that works in safari
 .shadow-0 {
   box-shadow: 0 1.5px 3px 1px rgba(73, 85, 136, 0.29);
 }
