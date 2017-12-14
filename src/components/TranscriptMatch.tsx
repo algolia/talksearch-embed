@@ -8,7 +8,7 @@ interface Props {
 export default class TranscriptMatch extends Component<Props, void> {
   render() {
     return (
-      <div>
+      <div className="f6 buting lh-solid">
         <Snippet hit={this.props.hit} attributeName="text" tagName="mark" />
       </div>
     );

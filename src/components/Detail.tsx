@@ -202,7 +202,7 @@ export default class Detail extends Component<Props, State> {
                 </div>
               )}
               <div className="fla flcnw flspa">
-                <div className="fln f7 f5-ns o-70">
+                <div className="fln f7 b f6-ns">
                   {speaker && <span>{speaker} - </span>}
                   {name}
                   {year && <span> - {year}</span>}

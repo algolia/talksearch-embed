@@ -47,6 +47,7 @@ export default class MainHit extends Component<MainProps, void> {
             className="bn bg-transparent pointer pa0 relative f3"
           >
             <span className="absolute icon-play white o-70 ma3" />
+            <div className="absolute f7 bg-black pa1 ph2 white o-70" style="bottom:.6em;right:.2em">{secoToMin(duration)}</div>
             <img src={url} />
           </button>
         <div className="ph2 pb2">
