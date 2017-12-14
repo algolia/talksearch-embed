@@ -203,9 +203,9 @@ export default class Detail extends Component<Props, State> {
               )}
               <div className="fla flcnw flspa">
                 <div className="fln f7 f5-ns o-70">
-                  {speaker && <span className="pr2 ">{speaker} -</span>}
+                  {speaker && <span>{speaker} - </span>}
                   {name}
-                  {year && <span className="pl2">- {year}</span>}
+                  {year && <span> - {year}</span>}
                 </div>
                 <div className="fln f5 f3-ns b ellipsis">{title}</div>
               </div>
