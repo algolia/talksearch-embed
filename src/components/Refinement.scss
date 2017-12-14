@@ -10,7 +10,14 @@
     }
     &__itemLabel {
       color: #182359;
-      font-size: 1rem
+      font-size: .9rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: inline-block;
+      max-width: 70%;
+      line-height: 1.4em;
+      vertical-align: middle;
     }
 
     @media (max-width: 40rem) {
