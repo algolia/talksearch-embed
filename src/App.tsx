@@ -244,7 +244,7 @@ export default class App extends Component<Props, State> {
             </RefinedSearch>
             <div className="w-100 w-80-l center mt4-l">
               <SearchBar name={name} />
-              <div className="mb4 ml2 dn db-l">
+              <div className="mb2 ml2 dn db-l">
                 <Stats />
               </div>
             </div>
