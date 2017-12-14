@@ -15,7 +15,7 @@ export default class SearchBar extends Component<Props, void> {
             }}
           />
         </div>
-        <div className="fln ma1 dn db-l ml2">
+        <div className="fln ma1 dn db-l ml2 f6 bunting">
           <PoweredBy />
         </div>
       </div>
