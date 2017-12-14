@@ -6,12 +6,12 @@ import { TranscriptHit } from './MainHits';
 import Tags, { OnRefine } from './Tags';
 
 const Speaker = ({ hit }) => (
-  <div className="f6 o-70">
+  <span className="f7 bunting b">
     <Highlight hit={hit} attributeName="speaker" tagName="mark" />
-  </div>
+  </span>
 );
 const Title = ({ hit }) => (
-  <h1 className="f4 mt1 lh-title">
+  <h1 className="f4 mt1 mb1 bunting lh-title">
     <Highlight hit={hit} attributeName="title" tagName="mark" />
   </h1>
 );
@@ -41,30 +41,23 @@ export default class MainHit extends Component<MainProps, void> {
 
     const { thumbnails: { url }, duration, year, tags } = hit;
     return (
-      <article className="shadow-0 bg-white br6 pa3 bunting">
-        <Speaker hit={hit} />
-        <Title hit={hit} />
-        <div className="flex mb2">
+      <article className="shadow-0 bg-white br6 pa2 bunting">
           <button
             onClick={this.openDetail}
             className="bn bg-transparent pointer pa0 relative f3"
           >
             <span className="absolute icon-play white o-70 ma3" />
-            <img src={url} className="br6 shadow-0" />
+            <img src={url} />
           </button>
-          <div className="ml2">
-            <div>
-              <div className="f7 o-60">Duration</div>
-              <div className="f6 o-90">{secoToMin(duration)}</div>
-            </div>
-            <div className="mt2">
-              <div className="f7 o-60">Year</div>
-              <div className="f6 o-90">{year}</div>
-            </div>
+        <div className="ph2 pb2">
+          <Title hit={hit} />
+          <div className="mb2">
+            <Speaker hit={hit} />
+            <span className="f6 o-70"> {year}</span>
           </div>
+          <Tags tags={tags} onRefine={onRefine} />
+          {render({ hit })}
         </div>
-        <Tags tags={tags} onRefine={onRefine} />
-        {render({ hit })}
       </article>
     );
   }

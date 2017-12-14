@@ -12,7 +12,7 @@ export default class Tags extends Component<Props, void> {
       <div className="flex overflow-auto f7">
         {tags.map(tag => (
           <button
-            className="bn nowrap bunting o-70 bg-ghost mr1 ph2 pv1 lh-solid br-pill pointer mb2"
+            className="bn nowrap bunting o-70 bg-ghost mr1 ph2 pv1 lh-solid br-pill pointer mb3 mt1"
             onClick={() => onRefine({ tag })}
           >
             {tag}

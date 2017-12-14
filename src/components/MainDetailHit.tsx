@@ -34,7 +34,7 @@ export default class MainDetailHit extends Component<HitProps, any> {
     return (
       <MainHit
         render={({ hit }: { hit: SingleHit }) => (
-          <div className="f6 o-80 break-words">
+          <div className="f7 o-80 lh-copy break-words">
             <Description hit={hit} />
           </div>
         )}
