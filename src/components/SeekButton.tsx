@@ -20,7 +20,7 @@ const SeekButton = ({
     <div className="fla flc ma1 f5">
       <span className="icon-play tac" />
     </div>
-    <div className="fln f7 tc">
+    <div className="fln f8 tc">
       <Time time={start} />
     </div>
   </button>
