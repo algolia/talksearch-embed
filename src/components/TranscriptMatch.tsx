@@ -9,7 +9,7 @@ export default class TranscriptMatch extends Component<Props, void> {
   render() {
     return (
       <div className="f7 bunting">
-        <Snippet hit={this.props.hit} attributeName="text" tagName="mark" />…
+        <Snippet hit={this.props.hit} attributeName="text" tagName="mark" />
       </div>
     );
   }

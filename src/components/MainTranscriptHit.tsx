@@ -20,7 +20,7 @@ const Transcripts: FunctionalComponent<{
   <div className="f6">
     {Object.entries(transcriptions).map(
       ([objectID, transcription]) =>
-        transcription && (
+        transcription._snippetResult.text && (
           <div key={objectID} className="mt2 flex items-center">
             <SeekButton
               start={transcription.start}
