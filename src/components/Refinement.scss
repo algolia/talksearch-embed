@@ -8,16 +8,22 @@
     &__SearchBox {
       padding-right: 1em;
     }
+
     &__itemLabel {
       color: #182359;
-      font-size: .9rem;
+      font-size: 0.9rem;
       white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: inline-block;
-      max-width: 70%;
-      line-height: 1.4em;
-      vertical-align: middle;
+    }
+
+    @media (min-width: 40rem) {
+      &__itemLabel {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: inline-block;
+        max-width: 70%;
+        line-height: 1.4em;
+        vertical-align: middle;
+      }
     }
 
     @media (max-width: 40rem) {
@@ -35,7 +41,6 @@
       }
 
       &__item {
-
         label {
           padding: 1em;
           margin: 1em;
@@ -47,10 +52,6 @@
 
       &__itemSelected {
         font-weight: 600;
-      }
-
-      &__itemLabel {
-        white-space: pre;
       }
 
       &__itemBox {

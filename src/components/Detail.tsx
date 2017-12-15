@@ -288,7 +288,7 @@ export default class Detail extends Component<Props, State> {
                   </div>
                   <div className="fln flc w4">
                     <a href="https://algolia.com" target="_blank">
-                      <img src="/img/search-by-algolia.svg"/>
+                      <img src="/img/search-by-algolia.svg" />
                     </a>
                   </div>
                 </div>

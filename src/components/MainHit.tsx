@@ -1,6 +1,6 @@
 import { h, Component } from 'preact';
 import { Highlight, Snippet } from 'react-instantsearch/dom';
-import secoToMin from 'sec-to-min';
+import secToMin from 'sec-to-min';
 import { SingleHit, OpenDetail } from '../App';
 import { TranscriptHit } from './MainHits';
 import Tags, { OnRefine } from './Tags';
@@ -42,14 +42,19 @@ export default class MainHit extends Component<MainProps, void> {
     const { thumbnails: { url }, duration, year, tags } = hit;
     return (
       <article className="shadow-0 bg-white br6 pa2 bunting">
-          <button
-            onClick={this.openDetail}
-            className="bn bg-transparent pointer pa0 relative f3"
+        <button
+          onClick={this.openDetail}
+          className="bn bg-transparent pointer pa0 relative f3"
+        >
+          <span className="absolute icon-play white o-70 ma3" />
+          <div
+            className="absolute f7 bg-black pa1 ph2 white o-70"
+            style="bottom:.6em;right:.2em"
           >
-            <span className="absolute icon-play white o-70 ma3" />
-            <div className="absolute f7 bg-black pa1 ph2 white o-70" style="bottom:.6em;right:.2em">{secoToMin(duration)}</div>
-            <img src={url} />
-          </button>
+            {secToMin(duration)}
+          </div>
+          <img src={url} />
+        </button>
         <div className="ph2 pb2">
           <Title hit={hit} />
           <div className="mb2">
