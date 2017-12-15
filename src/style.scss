@@ -143,8 +143,8 @@ button {
 }
 
 .ais-SearchBox__input {
-  -webkit-appearance: none;
-  appearance: none;
+  -webkit-appearance: none !important;
+  appearance: none !important;
 }
 
 .ais-Hits__root .text,
