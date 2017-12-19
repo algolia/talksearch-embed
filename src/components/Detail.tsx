@@ -10,7 +10,7 @@ import {
   connectHits,
   connectStateResults,
 } from 'react-instantsearch/connectors';
-import * as algoliasearch from 'algoliasearch';
+import * as algoliasearch from 'algoliasearch/lite';
 import { connectMenu } from 'react-instantsearch/connectors';
 import YouTube from 'react-youtube';
 

@@ -1,5 +1,5 @@
 import { Component } from 'preact';
-import algoliasearch from 'algoliasearch';
+import algoliasearch from 'algoliasearch/lite';
 import applyPolyfills from './util/polyfill';
 import App from './App.tsx';
 import Error from './Error.tsx';
