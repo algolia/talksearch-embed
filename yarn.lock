@@ -62,7 +62,7 @@
     lodash.debounce "^4.0.8"
     prop-types "^15.5.10"
 
-"@types/algoliasearch@^3.24.5":
+"@types/algoliasearch@3.24.5":
   version "3.24.5"
   resolved "https://registry.yarnpkg.com/@types/algoliasearch/-/algoliasearch-3.24.5.tgz#6101cb5cef8f9eac4c86391d43950cb419a69b4e"
 
@@ -179,9 +179,9 @@ algoliasearch-helper@^2.21.0:
     qs "^6.2.1"
     util "^0.10.3"
 
-algoliasearch@^3.24.0:
-  version "3.24.7"
-  resolved "https://registry.yarnpkg.com/algoliasearch/-/algoliasearch-3.24.7.tgz#7ba6c41c9c87b3d36c3181e1d93d482b2ae1a660"
+algoliasearch@3.24.8:
+  version "3.24.8"
+  resolved "https://registry.yarnpkg.com/algoliasearch/-/algoliasearch-3.24.8.tgz#5e7c93959d51d933773c167718649358c6189b9b"
   dependencies:
     agentkeepalive "^2.2.0"
     debug "^2.6.8"
@@ -199,9 +199,9 @@ algoliasearch@^3.24.0:
     semver "^5.1.0"
     tunnel-agent "^0.6.0"
 
-algoliasearch@^3.24.8:
-  version "3.24.8"
-  resolved "https://registry.yarnpkg.com/algoliasearch/-/algoliasearch-3.24.8.tgz#5e7c93959d51d933773c167718649358c6189b9b"
+algoliasearch@^3.24.0:
+  version "3.24.7"
+  resolved "https://registry.yarnpkg.com/algoliasearch/-/algoliasearch-3.24.7.tgz#7ba6c41c9c87b3d36c3181e1d93d482b2ae1a660"
   dependencies:
     agentkeepalive "^2.2.0"
     debug "^2.6.8"
@@ -517,7 +517,7 @@ babel-core@^6.26.0:
     slash "^1.0.0"
     source-map "^0.5.6"
 
-babel-eslint@^8.0.3:
+babel-eslint@8.0.3:
   version "8.0.3"
   resolved "https://registry.yarnpkg.com/babel-eslint/-/babel-eslint-8.0.3.tgz#f29ecf02336be438195325cd47c468da81ee4e98"
   dependencies:
@@ -1928,20 +1928,9 @@ copy-descriptor@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/copy-descriptor/-/copy-descriptor-0.1.1.tgz#676f6eb3c39997c2ee1ac3a924fd6124748f578d"
 
-copy-webpack-plugin@^4.1.0:
-  version "4.2.3"
-  resolved "https://registry.yarnpkg.com/copy-webpack-plugin/-/copy-webpack-plugin-4.2.3.tgz#4a3c61089f3b635777f0f0af346c338b39d63755"
-  dependencies:
-    bluebird "^3.5.1"
-    glob "^7.1.2"
-    is-glob "^4.0.0"
-    loader-utils "^0.2.15"
-    lodash "^4.3.0"
-    minimatch "^3.0.4"
-
-copy-webpack-plugin@^4.3.0:
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/copy-webpack-plugin/-/copy-webpack-plugin-4.3.0.tgz#cfdf4d131c78d66917a1bb863f86630497aacf42"
+copy-webpack-plugin@4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/copy-webpack-plugin/-/copy-webpack-plugin-4.3.1.tgz#19ba6370bf6f8e263cbd66185a2b79f2321a9302"
   dependencies:
     cacache "^10.0.1"
     find-cache-dir "^1.0.0"
@@ -1953,6 +1942,17 @@ copy-webpack-plugin@^4.3.0:
     p-limit "^1.0.0"
     pify "^3.0.0"
     serialize-javascript "^1.4.0"
+
+copy-webpack-plugin@^4.1.0:
+  version "4.2.3"
+  resolved "https://registry.yarnpkg.com/copy-webpack-plugin/-/copy-webpack-plugin-4.2.3.tgz#4a3c61089f3b635777f0f0af346c338b39d63755"
+  dependencies:
+    bluebird "^3.5.1"
+    glob "^7.1.2"
+    is-glob "^4.0.0"
+    loader-utils "^0.2.15"
+    lodash "^4.3.0"
+    minimatch "^3.0.4"
 
 core-js@^1.0.0:
   version "1.2.7"
@@ -2011,9 +2011,9 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-cross-env@^5.1.1:
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/cross-env/-/cross-env-5.1.1.tgz#b6d8ab97f304c0f71dae7277b75fe424c08dfa74"
+cross-env@5.1.3:
+  version "5.1.3"
+  resolved "https://registry.yarnpkg.com/cross-env/-/cross-env-5.1.3.tgz#f8ae18faac87692b0a8b4d2f7000d4ec3a85dfd7"
   dependencies:
     cross-spawn "^5.1.0"
     is-windows "^1.0.0"
@@ -2762,11 +2762,11 @@ escope@^3.6.0:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-eslint-config-algolia@^13.0.1:
+eslint-config-algolia@13.0.1:
   version "13.0.1"
   resolved "https://registry.yarnpkg.com/eslint-config-algolia/-/eslint-config-algolia-13.0.1.tgz#b94dedaf7d613dcca9f32c9488462100dc251aa3"
 
-eslint-config-prettier@^2.9.0:
+eslint-config-prettier@2.9.0:
   version "2.9.0"
   resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-2.9.0.tgz#5ecd65174d486c22dff389fe036febf502d468a3"
   dependencies:
@@ -2786,7 +2786,7 @@ eslint-module-utils@^2.1.1:
     debug "^2.6.8"
     pkg-dir "^1.0.0"
 
-eslint-plugin-import@^2.8.0:
+eslint-plugin-import@2.8.0:
   version "2.8.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-import/-/eslint-plugin-import-2.8.0.tgz#fa1b6ef31fcb3c501c09859c1b86f1fc5b986894"
   dependencies:
@@ -2801,14 +2801,14 @@ eslint-plugin-import@^2.8.0:
     minimatch "^3.0.3"
     read-pkg-up "^2.0.0"
 
-eslint-plugin-prettier@^2.4.0:
+eslint-plugin-prettier@2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-2.4.0.tgz#85cab0775c6d5e3344ef01e78d960f166fb93aae"
   dependencies:
     fast-diff "^1.1.1"
     jest-docblock "^21.0.0"
 
-eslint-plugin-react@^7.5.1:
+eslint-plugin-react@7.5.1:
   version "7.5.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-7.5.1.tgz#52e56e8d80c810de158859ef07b880d2f56ee30b"
   dependencies:
@@ -2824,7 +2824,7 @@ eslint-scope@^3.7.1:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-eslint@^4.13.1:
+eslint@4.13.1:
   version "4.13.1"
   resolved "https://registry.yarnpkg.com/eslint/-/eslint-4.13.1.tgz#0055e0014464c7eb7878caf549ef2941992b444f"
   dependencies:
@@ -4005,7 +4005,7 @@ ieee754@^1.1.4:
   version "1.1.8"
   resolved "https://registry.yarnpkg.com/ieee754/-/ieee754-1.1.8.tgz#be33d40ac10ef1926701f6f08a2d86fbfd1ad3e4"
 
-if-env@^1.0.0:
+if-env@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/if-env/-/if-env-1.0.0.tgz#6e09082cdd3f2ccfb75baf022a4a971565f6007c"
   dependencies:
@@ -5295,7 +5295,7 @@ node-pre-gyp@^0.6.39:
     tar "^2.2.1"
     tar-pack "^3.4.0"
 
-node-sass@^4.7.2:
+node-sass@4.7.2:
   version "4.7.2"
   resolved "https://registry.yarnpkg.com/node-sass/-/node-sass-4.7.2.tgz#9366778ba1469eb01438a9e8592f4262bcb6794e"
   dependencies:
@@ -6079,14 +6079,14 @@ postcss@^6.0.0, postcss@^6.0.1, postcss@^6.0.14, postcss@^6.0.2:
     source-map "^0.6.1"
     supports-color "^4.4.0"
 
-preact-cli-plugin-typescript@^0.2.2:
+preact-cli-plugin-typescript@0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/preact-cli-plugin-typescript/-/preact-cli-plugin-typescript-0.2.2.tgz#02d1e0f629000268005aef6c2b03751c4da43223"
   dependencies:
     awesome-typescript-loader "^3.2.1"
     typescript "^2.4.1"
 
-preact-cli@^2.0.0:
+preact-cli@2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/preact-cli/-/preact-cli-2.1.0.tgz#d3d041f21b0f0f2fa3337ede57151a0d63bc5a99"
   dependencies:
@@ -6155,7 +6155,7 @@ preact-cli@^2.0.0:
     which "^1.2.14"
     yargs "^8.0.1"
 
-preact-compat@^3.14.3, preact-compat@^3.17.0:
+preact-compat@3.17.0, preact-compat@^3.14.3:
   version "3.17.0"
   resolved "https://registry.yarnpkg.com/preact-compat/-/preact-compat-3.17.0.tgz#528cfdfc301190c1a0f47567336be1f4be0266b3"
   dependencies:
@@ -6165,7 +6165,7 @@ preact-compat@^3.14.3, preact-compat@^3.17.0:
     prop-types "^15.5.8"
     standalone-react-addons-pure-render-mixin "^0.1.1"
 
-preact-helmet@^4.0.0-alpha-3:
+preact-helmet@4.0.0-alpha-3:
   version "4.0.0-alpha-3"
   resolved "https://registry.yarnpkg.com/preact-helmet/-/preact-helmet-4.0.0-alpha-3.tgz#1e7cd8fda5134c93d7614dbb89199cb8a6543b21"
   dependencies:
@@ -6191,13 +6191,13 @@ preact-transition-group@^1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/preact-transition-group/-/preact-transition-group-1.1.1.tgz#f0a49327ea515ece34ea2be864c4a7d29e5d6e10"
 
+preact@8.2.7:
+  version "8.2.7"
+  resolved "https://registry.yarnpkg.com/preact/-/preact-8.2.7.tgz#316249fb678cd5e93e7cee63cea7bfb62dbd6814"
+
 preact@^8.1.0:
   version "8.2.6"
   resolved "https://registry.yarnpkg.com/preact/-/preact-8.2.6.tgz#0028b426ef98fcca741a3c617ff5b813b9a947c7"
-
-preact@^8.2.7:
-  version "8.2.7"
-  resolved "https://registry.yarnpkg.com/preact/-/preact-8.2.7.tgz#316249fb678cd5e93e7cee63cea7bfb62dbd6814"
 
 prelude-ls@~1.1.2:
   version "1.1.2"
@@ -6211,7 +6211,7 @@ preserve@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
 
-prettier@^1.9.2:
+prettier@1.9.2:
   version "1.9.2"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.9.2.tgz#96bc2132f7a32338e6078aeb29727178c6335827"
 
@@ -6423,13 +6423,13 @@ rc@^1.0.1, rc@^1.1.2, rc@^1.1.6, rc@^1.1.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-instantsearch-theme-algolia@^4.3.0-beta.0:
-  version "4.3.0-beta.0"
-  resolved "https://registry.yarnpkg.com/react-instantsearch-theme-algolia/-/react-instantsearch-theme-algolia-4.3.0-beta.0.tgz#5006f778ee66c1bb2a68008328fbdc9885bca013"
+react-instantsearch-theme-algolia@4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/react-instantsearch-theme-algolia/-/react-instantsearch-theme-algolia-4.3.0.tgz#c9f8bf78245ade5d68b396e68bc86891d2c49811"
 
-react-instantsearch@^4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/react-instantsearch/-/react-instantsearch-4.2.0.tgz#96c11f6e0c6e343c93ed63648f4bd9a993429460"
+react-instantsearch@4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/react-instantsearch/-/react-instantsearch-4.3.0.tgz#121c929000d844648223f27a47223b9c2ba0cacf"
   dependencies:
     algoliasearch "^3.24.0"
     algoliasearch-helper "^2.21.0"
@@ -6437,21 +6437,21 @@ react-instantsearch@^4.2.0:
     lodash "^4.17.4"
     prop-types "^15.5.10"
 
-react-media@^1.6.1:
+react-media@1.6.1:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/react-media/-/react-media-1.6.1.tgz#84e7986a92356b106dca026363f8f5c88054fe72"
   dependencies:
     json2mq "^0.2.0"
     prop-types "^15.5.10"
 
-react-pinboard@^0.0.9:
+react-pinboard@0.0.9:
   version "0.0.9"
   resolved "https://registry.yarnpkg.com/react-pinboard/-/react-pinboard-0.0.9.tgz#84a23f876c7db09e440df5ba09d9362559c9815c"
   dependencies:
     lodash.debounce "^4.0.8"
     prop-types "^15.5.10"
 
-react-youtube@^7.5.0:
+react-youtube@7.5.0:
   version "7.5.0"
   resolved "https://registry.yarnpkg.com/react-youtube/-/react-youtube-7.5.0.tgz#3175a9c4e078164cf103ce4bc780a9e4ca4f1f94"
   dependencies:
@@ -6860,7 +6860,7 @@ sass-graph@^2.2.4:
     scss-tokenizer "^0.2.3"
     yargs "^7.0.0"
 
-sass-loader@^6.0.6:
+sass-loader@6.0.6:
   version "6.0.6"
   resolved "https://registry.yarnpkg.com/sass-loader/-/sass-loader-6.0.6.tgz#e9d5e6c1f155faa32a4b26d7a9b7107c225e40f9"
   dependencies:
@@ -6893,7 +6893,7 @@ scss-tokenizer@^0.2.3:
     js-base64 "^2.1.8"
     source-map "^0.4.2"
 
-sec-to-min@^1.0.1:
+sec-to-min@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/sec-to-min/-/sec-to-min-1.0.1.tgz#88fa7762da853ef444191c72147dd85696bc20f1"
 
