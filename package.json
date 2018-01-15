@@ -9,6 +9,7 @@
     "serve": "preact build && preact serve",
     "dev": "preact watch --https",
     "lint": "eslint src",
+    "test": "yarn lint && yarn build:production",
     "format": "prettier --write '**/*.{ts,tsx,js,md,scss}' '!build/**/*'"
   },
   "eslintConfig": {
