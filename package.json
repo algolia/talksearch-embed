@@ -9,20 +9,17 @@
     "serve": "preact build && preact serve",
     "dev": "preact watch --https",
     "lint": "eslint src",
-    "test": "yarn lint && yarn build:production",
+    "test": "yarn lint",
     "format": "prettier --write '**/*.{ts,tsx,js,md,scss}' '!build/**/*'"
   },
   "eslintConfig": {
-    "extends": [
-      "algolia/react"
-    ],
+    "extends": ["algolia/react"],
     "rules": {
-      "react/react-in-jsx-scope": "off"
+      "react/react-in-jsx-scope": "off",
+      "no-warning-comments": "warn"
     }
   },
-  "eslintIgnore": [
-    "build/*"
-  ],
+  "eslintIgnore": ["build/*"],
   "devDependencies": {
     "babel-eslint": "8.0.3",
     "copy-webpack-plugin": "4.3.1",
