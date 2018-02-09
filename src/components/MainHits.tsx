@@ -1,11 +1,11 @@
 import { h, Component } from 'preact';
-import Pinboard from '@haroenv/react-pinboard';
 import { connectInfiniteHits } from 'react-instantsearch/connectors';
 
 import { SingleHit, HighlightMatch, OpenDetail, SnippetMatch } from '../App';
 import MainDetailHit from './MainDetailHit';
 import MainTranscriptHit from './MainTranscriptHit';
 import { OnRefine } from './Tags';
+import './MainHits.scss';
 
 export interface Transcript {
   objectID: string;
@@ -136,14 +136,7 @@ class Hits extends Component<Props, null> {
       <div>
         {hits &&
           hits.length > 0 && (
-            <Pinboard
-              cols={[
-                { media: '(min-width: 1000px)', cols: 4 },
-                { media: '(min-width: 800px)', cols: 3 },
-                { media: '(min-width: 500px)', cols: 2 },
-                { media: '', cols: 1 },
-              ]}
-            >
+            <div className="hits-container">
               {hits.map(
                 (hit, index) =>
                   hasTranscript(hit) ? (
@@ -164,14 +157,17 @@ class Hits extends Component<Props, null> {
                     />
                   )
               )}
-            </Pinboard>
+            </div>
           )}
-        {/* todo: doesn't work yet because pinboard uses the children */
-        /*
-          <button onClick={this.loadMore} disabled={!hasMore}>
+        <div className="ma3 tc">
+          <button
+            onClick={this.loadMore}
+            disabled={!hasMore}
+            className="ba bw1 b--black br-pill black bg-transparent pa2 pointer"
+          >
             Load more
           </button>
-          */}
+        </div>
       </div>
     );
   }

@@ -55,13 +55,6 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@haroenv/react-pinboard@0.0.19":
-  version "0.0.19"
-  resolved "https://registry.yarnpkg.com/@haroenv/react-pinboard/-/react-pinboard-0.0.19.tgz#3c5b849f39f34f45ffc4eda4076193a8718d7a25"
-  dependencies:
-    lodash.debounce "^4.0.8"
-    prop-types "^15.5.10"
-
 "@types/algoliasearch@3.24.5":
   version "3.24.5"
   resolved "https://registry.yarnpkg.com/@types/algoliasearch/-/algoliasearch-3.24.5.tgz#6101cb5cef8f9eac4c86391d43950cb419a69b4e"
