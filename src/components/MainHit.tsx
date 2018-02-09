@@ -55,8 +55,9 @@ export default class MainHit extends Component<MainProps, void> {
           </div>
           <img src={url} />
         </button>
-        <div className="ph2 pb2">
+        <div className="ph2 pb2 flex flex-column">
           <Title hit={hit} />
+
           <div className="mb2">
             <Speaker hit={hit} />
             <span className="f6 o-70"> {year}</span>
