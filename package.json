@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
-    "build": "preact build",
+    "build": "preact build --no-prerender",
     "build:production": "cross-env NODE_ENV=production npm run build",
     "serve": "preact build && preact serve",
     "dev": "preact watch --https",
@@ -51,7 +51,7 @@
     "react-instantsearch-theme-algolia": "4.3.0",
     "react-media": "1.6.1",
     "react-pinboard": "0.0.9",
-    "react-router-dom": "^4.2.2",
+    "react-router": "^4.2.0",
     "react-youtube": "7.5.0",
     "sec-to-min": "1.0.1"
   }
