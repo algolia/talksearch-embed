@@ -23,9 +23,7 @@ export default class Error extends Component<any, any> {
           <p>Welcome to TalkSearch</p>
         </div>
         <p>
-          please provide an{' '}
-          <code style={{ fontFamily: 'DejaVu, Consolas, monospace' }}>i</code>{' '}
-          query string for your provided index name.
+          Please add the specific conference you want to this url (after the /)
         </p>
         <p>
           If you want to sign up, please see{' '}

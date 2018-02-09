@@ -3,7 +3,7 @@ import { Component } from 'preact';
 import applyPolyfills from './util/polyfill';
 import App from './App.tsx';
 import Error from './Error.tsx';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 applyPolyfills();
 
@@ -30,8 +30,7 @@ export default class Index extends Component {
   render() {
     return (
       <Router>
-        <div>
-          <Route exact path="/" component={Error} />
+        <Switch>
           <Route
             exact
             path="/:indexName"
@@ -45,7 +44,8 @@ export default class Index extends Component {
               />
             )}
           />
-        </div>
+          <Route component={Error} />
+        </Switch>
       </Router>
     );
   }
