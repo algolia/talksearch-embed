@@ -5,12 +5,16 @@ import { h, Component } from 'preact';
 import Helmet from 'preact-helmet';
 import { InstantSearch, Configure, Stats } from 'react-instantsearch/dom';
 import { connectStateResults } from 'react-instantsearch/connectors';
+import algoliasearch from 'algoliasearch/lite';
 
 import MainHits from './components/MainHits';
 import Detail from './components/Detail';
 import SearchBar from './components/SearchBar';
 import Refinement from './components/Refinement';
 import { OnRefine } from './components/Tags';
+
+const client = algoliasearch('FOQUAZ6YNS', '72ee3a317835b8618eda01c6fcc88f77');
+const meta = client.initIndex('METADATA');
 
 const RefinedSearch = connectStateResults(
   ({ children, searchState: { query = '' } }) => {
@@ -95,8 +99,15 @@ interface State {
   defaultRefinements: {
     tags: string[];
   };
+  metadata?: Metadata;
 }
-
+export interface Metadata {
+  objectID: string;
+  name: string;
+  youtubeURL: string;
+  avatar: string;
+  accentColor?: string;
+}
 const defaultState = {
   id: '',
   start: 0,
@@ -109,21 +120,15 @@ const defaultState = {
   defaultRefinements: {
     tags: [],
   },
+  metadata: undefined,
 };
 
-export interface Metadata {
-  objectID: string;
-  name: string;
-  youtubeURL: string;
-  avatar: string;
-  accentColor?: string;
-}
 interface Props {
   indexName: string;
-  metadata: Metadata;
   videoName: string | undefined;
   affiliation: boolean;
   autoplay: boolean;
+  accentEnabled: boolean;
 }
 export default class App extends Component<Props, State> {
   state = defaultState;
@@ -175,6 +180,21 @@ export default class App extends Component<Props, State> {
       defaultRefinements: { tags: [] },
     });
 
+  componentDidMount() {
+    const { indexName, accentEnabled } = this.props;
+    if (indexName && indexName !== 'ALL_VIDEOS') {
+      meta.getObject(indexName).then(metadata => {
+        if (metadata.accentColor && accentEnabled) {
+          document.body.style.setProperty('--color', metadata.accentColor);
+        }
+
+        this.setState({
+          metadata,
+        });
+      });
+    }
+  }
+
   render() {
     const {
       open: detailOpen,
@@ -186,14 +206,11 @@ export default class App extends Component<Props, State> {
       year,
       defaultRefinements: { tags = [] },
       indexName: stateIndex,
+      metadata,
     } = this.state;
-    const {
-      indexName,
-      metadata: { name },
-      videoName,
-      affiliation,
-    } = this.props;
+    const { indexName, videoName, affiliation } = this.props;
     const open = detailOpen || Boolean(videoName);
+    const name = metadata ? metadata.name || '' : '';
 
     // todo: get rid of ugly conditional in `title`
     return (
@@ -221,7 +238,7 @@ export default class App extends Component<Props, State> {
           description={description}
           year={year}
           speaker={speaker}
-          metadata={this.props.metadata}
+          metadata={this.state.metadata}
           affiliation={affiliation}
           autoplay={this.props.autoplay ? 1 : 0}
         />

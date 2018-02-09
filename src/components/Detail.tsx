@@ -64,10 +64,10 @@ const SwitchResults = connectStateResults(
     onSeek,
     searchResults,
   }: {
-      searchState: { query: string };
-      onSeek: (number) => void;
-      searchResults?: { hits: SingleHit[] };
-    }) => {
+    searchState: { query: string };
+    onSeek: (number) => void;
+    searchResults?: { hits: SingleHit[] };
+  }) => {
     // Can't use destructuring with default value since searchResults
     // is null by default not undefined
     const hits = (searchResults && searchResults.hits) || [];
@@ -174,7 +174,7 @@ export default class Detail extends Component<Props, State> {
       onCloseDetail,
       indexName,
       affiliation,
-      metadata: { name: _name, avatar: _avatar },
+      metadata: { name: _name = '', avatar: _avatar = '' } = {},
       autoplay,
     } = this.props;
     const {
@@ -184,7 +184,7 @@ export default class Detail extends Component<Props, State> {
       year,
       singleVideo,
       showModal,
-      metadata: { name: __name, avatar: __avatar },
+      metadata: { name: __name = '', avatar: __avatar = '' } = {},
     } = this.state;
 
     // todo: do this correctly
