@@ -51,7 +51,7 @@
     "react-instantsearch-theme-algolia": "4.3.0",
     "react-media": "1.6.1",
     "react-pinboard": "0.0.9",
-    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
     "react-youtube": "7.5.0",
     "sec-to-min": "1.0.1"
   }

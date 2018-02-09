@@ -3,7 +3,7 @@ import { Component } from 'preact';
 import applyPolyfills from './util/polyfill';
 import App from './App.tsx';
 import Error from './Error.tsx';
-import { BrowserRouter as Router, Route } from 'react-router';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 applyPolyfills();
 
