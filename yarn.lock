@@ -6367,9 +6367,9 @@ rc@^1.0.1, rc@^1.1.2, rc@^1.1.6, rc@^1.1.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-instantsearch-theme-algolia@4.3.0:
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/react-instantsearch-theme-algolia/-/react-instantsearch-theme-algolia-4.3.0.tgz#c9f8bf78245ade5d68b396e68bc86891d2c49811"
+react-instantsearch-theme-algolia@4.5.1:
+  version "4.5.1"
+  resolved "https://registry.yarnpkg.com/react-instantsearch-theme-algolia/-/react-instantsearch-theme-algolia-4.5.1.tgz#29513fcb54100ea29764cbdf1961312ffc82393b"
 
 react-instantsearch@4.5.1:
   version "4.5.1"

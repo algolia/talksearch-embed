@@ -48,7 +48,7 @@
     "preact-compat": "3.18.0",
     "preact-helmet": "4.0.0-alpha-3",
     "react-instantsearch": "4.5.1",
-    "react-instantsearch-theme-algolia": "4.3.0",
+    "react-instantsearch-theme-algolia": "4.5.1",
     "react-media": "1.6.1",
     "react-pinboard": "0.0.9",
     "react-router-dom": "4.2.2",
