@@ -1381,6 +1381,10 @@ builtin-status-codes@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/builtin-status-codes/-/builtin-status-codes-3.0.0.tgz#85982878e21b98e1c66425e03d0174788f569ee8"
 
+builtins@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/builtins/-/builtins-1.0.3.tgz#cb94faeb61c8696451db36534e1422f94f0aee88"
+
 bytes@3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/bytes/-/bytes-3.0.0.tgz#d32815404d689699f85a4ea4fa8755dd13a96048"
@@ -6018,9 +6022,9 @@ preact-cli-plugin-typescript@0.2.2:
     awesome-typescript-loader "^3.2.1"
     typescript "^2.4.1"
 
-preact-cli@2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/preact-cli/-/preact-cli-2.1.1.tgz#fbdf269d625f1a4d9b8782498ed9181546ea9153"
+preact-cli@2.1.3:
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/preact-cli/-/preact-cli-2.1.3.tgz#7e74f25f59956106dadb7adcf5138d9ca9f3f65b"
   dependencies:
     autoprefixer "^7.1.0"
     babel-loader "^7.0.0"
@@ -6082,6 +6086,7 @@ preact-cli@2.1.1:
     unfetch "^3.0.0"
     update-notifier "^2.3.0"
     url-loader "^0.5.8"
+    validate-npm-package-name "^3.0.0"
     webpack "^3.7.0"
     webpack-dev-server "^2.9.0"
     webpack-merge "^4.1.0"
@@ -7986,6 +7991,12 @@ validate-npm-package-license@^3.0.1:
   dependencies:
     spdx-correct "~1.0.0"
     spdx-expression-parse "~1.0.0"
+
+validate-npm-package-name@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/validate-npm-package-name/-/validate-npm-package-name-3.0.0.tgz#5fa912d81eb7d0c74afc140de7317f0ca7df437e"
+  dependencies:
+    builtins "^1.0.3"
 
 value-equal@^0.4.0:
   version "0.4.0"

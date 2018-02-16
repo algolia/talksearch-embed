@@ -35,7 +35,7 @@
     "eslint-plugin-react": "7.6.1",
     "if-env": "1.0.4",
     "node-sass": "4.7.2",
-    "preact-cli": "2.1.1",
+    "preact-cli": "2.1.3",
     "preact-cli-plugin-typescript": "0.2.2",
     "prettier": "1.10.2",
     "sass-loader": "6.0.6"
