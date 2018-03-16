@@ -28,7 +28,7 @@
     "babel-eslint": "8.2.2",
     "copy-webpack-plugin": "4.5.1",
     "eslint": "4.19.0",
-    "eslint-config-algolia": "13.0.1",
+    "eslint-config-algolia": "13.1.0",
     "eslint-config-prettier": "2.9.0",
     "eslint-plugin-import": "2.8.0",
     "eslint-plugin-prettier": "2.6.0",
