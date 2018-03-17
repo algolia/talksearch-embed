@@ -43,7 +43,7 @@
   "dependencies": {
     "@types/algoliasearch": "3.24.9",
     "algoliasearch": "3.25.1",
-    "cross-env": "5.1.3",
+    "cross-env": "5.1.4",
     "preact": "8.2.7",
     "preact-compat": "3.18.0",
     "preact-helmet": "4.0.0-alpha-3",
