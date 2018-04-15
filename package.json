@@ -41,7 +41,7 @@
     "sass-loader": "6.0.7"
   },
   "dependencies": {
-    "@types/algoliasearch": "3.24.9",
+    "@types/algoliasearch": "3.24.10",
     "algoliasearch": "3.26.0",
     "cross-env": "5.1.4",
     "preact": "8.2.7",
