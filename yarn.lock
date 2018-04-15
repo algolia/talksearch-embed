@@ -78,9 +78,9 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@types/algoliasearch@3.24.9":
-  version "3.24.9"
-  resolved "https://registry.yarnpkg.com/@types/algoliasearch/-/algoliasearch-3.24.9.tgz#a4346f0ce0cd74cc9e6669652b93bdad2c05e48b"
+"@types/algoliasearch@3.24.10":
+  version "3.24.10"
+  resolved "https://registry.yarnpkg.com/@types/algoliasearch/-/algoliasearch-3.24.10.tgz#af9d59793c33669635f500ffc67c7062570ab119"
 
 "@types/configstore@^2.1.1":
   version "2.1.1"
