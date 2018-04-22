@@ -6458,9 +6458,9 @@ react-router@^4.2.0:
     prop-types "^15.5.4"
     warning "^3.0.0"
 
-react-youtube@7.5.0:
-  version "7.5.0"
-  resolved "https://registry.yarnpkg.com/react-youtube/-/react-youtube-7.5.0.tgz#3175a9c4e078164cf103ce4bc780a9e4ca4f1f94"
+react-youtube@7.6.0:
+  version "7.6.0"
+  resolved "https://registry.yarnpkg.com/react-youtube/-/react-youtube-7.6.0.tgz#ea4b7a9396f635b9f2a9f03bfe2a39b93cbdd59d"
   dependencies:
     lodash "^4.17.4"
     prop-types "^15.5.3"
