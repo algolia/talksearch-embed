@@ -9,9 +9,9 @@ import pify from 'pify';
 const markdown = pify(metalsmithMarkdown());
 const layouts = pify(
   metalsmithLayouts({
-    directory: './playground/src/_layouts',
-    pattern: '**/*.html',
+    directory: './playground/layouts',
     default: 'index.pug',
+    pattern: '**/*.html',
   })
 );
 const ignoreLayouts = pify(metalsmithIgnore('_layouts/*'));
@@ -19,10 +19,14 @@ const addPathData = pify(metalsmithPaths());
 
 function plugin() {
   return async function createHtml(files, pipeline, next) {
-    await markdown(files, pipeline);
-    await addPathData(files, pipeline);
-    await layouts(files, pipeline);
-    await ignoreLayouts(files, pipeline);
+    try {
+      await markdown(files, pipeline);
+      await addPathData(files, pipeline);
+      await layouts(files, pipeline);
+      // await ignoreLayouts(files, pipeline);
+    } catch(err) {
+      console.info(err);
+    }
     next();
   };
 }

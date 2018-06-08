@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+
+import build from '../../playground/lib/build';
+import serve from 'live-server';
+
+build.run({ serve: true });
+serve.start({
+  root: './playground/dist',
+});

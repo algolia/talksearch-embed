@@ -1,16 +1,27 @@
 import metalsmith from 'metalsmith';
 import debug from './plugins/debug';
 import createHtml from './plugins/create-html';
+import liveServer from './plugins/live-server';
 
-function run() {
-  metalsmith('.')
+function run(userOptions) {
+  const options = {
+    serve: false,
+    ...userOptions,
+  };
+
+  const pipeline = metalsmith('.')
     .source('./playground/src')
-    .destination('./playground/dist')
-    .use(createHtml())
-    .use(debug())
-    .build(err => {
-      console.info(err);
-    });
+    .destination('./playground/dist');
+
+  if (options.serve) {
+    pipeline.use(liveServer());
+  }
+
+  pipeline.use(createHtml());
+
+  pipeline.build(err => {
+    console.info(err);
+  });
 }
 
 const Build = {

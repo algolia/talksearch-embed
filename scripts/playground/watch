@@ -1,7 +1,0 @@
-#!/usr/bin/env sh
-
-yarn run playground:build
-
-parallelshell \
-  "onchange './playground/lib' './playground/src' -- yarn run playground:build" \
-  "live-server ./playground/dist"
