@@ -1,0 +1,26 @@
+doctype html
+html.no-js(lang='en')
+  head
+    - var siteTitle = `${conferenceName} TalkSearch`
+    - var siteDescription = `Search into all the ${conferenceName} talks`
+    - var siteUrl = `https://talksearch-playground.netlify.com${path.dhref}`
+    meta(charset='utf-8')
+    meta(http-equiv='x-ua-compatible', content='ie=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title #{siteTitle}
+    meta(name='twitter:site', content=siteTitle)
+    meta(property='og:site_name', content=siteTitle)
+    meta(property='og:title', content=siteTitle)
+    meta(name='description', content=siteDescription)
+    meta(name='twitter:description', content=siteDescription)
+    meta(property='og:description', content=siteDescription)
+    meta(name='twitter:creator', content='@algolia')
+    meta(property='og:url', content=siteUrl)
+    meta(name='twitter:card', content='summary_large_image')
+    meta(name='twitter:image', content='https://website.com/card.png')
+    meta(property='og:image', content='https://website.com/card.png')
+    link(rel='stylesheet', href='css/main.css')
+  body
+    div kjkjk
+    script(src='js/main.js')
+
