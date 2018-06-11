@@ -13,9 +13,6 @@ const search = instantsearch({
   },
 });
 
-
-
-
 /**
  * Searchbar
  **/
@@ -28,16 +25,16 @@ search.addWidget(
     magnifier: {
       cssClasses: {
         root:
-          'hidden sm:block absolute pin-y pin-l w-1 sm:w-2 ml-1 text-white fill-current',
+          'hidden sm_block absolute pin-y pin-l w-1 sm_w-2 ml-1 text-white fill-current',
       },
     },
     reset: {
       cssClasses: {
         root:
-          'hidden sm:block absolute pin-y pin-r w-2 mr-1 text-white-75 fill-current',
+          'hidden sm_block absolute pin-y pin-r w-2 mr-1 text-white-75 fill-current',
       },
     },
-    wrapInput: false,
+    lwrapInput: false,
     loadingIndicator: false,
   })
 );
@@ -87,27 +84,27 @@ function renderHit(item) {
   const url = _.get(item, 'caption.url');
 
   const renderedViews = `
-    <div class="absolute pin-r pin-t p-0+ text--1 text-white bg-black-75">
+    <div class="absolute pin-r pin-t p-0x text--1 text-white bg-black-75">
       ${viewCount} views
     </div>`;
 
   let renderedCaption = '';
   if (captionMatch) {
     renderedCaption = `
-      <div class="overflow-hidden absolute pin-b pin-x h-2+">
+      <div class="overflow-hidden absolute pin-b pin-x h-2x">
         <div 
           class="absolute z-1 bg-blur pin bg-no-repeat bg-cover bg-center-bottom" 
           style="background-image:url(${thumbnail})"
         ></div>
       </div>
-      <div class="hit-captions absolute z-2 pin-b pin-x h-2+ flrnw flc text-white text-1 bold text-outline text-center">
+      <div class="hit-captions absolute z-2 pin-b pin-x h-2x flrnw flc text-white text-1 bold text-outline text-center">
         <div>${captionMatch}</div>
       </div>
       `;
   }
 
   return `
-    <div class="fln w-100 sm:w-50 lg:w-33 px-1 pb-1+">
+    <div class="fln w-100 sm_w-50 lg_w-33 px-1 pb-1x">
       <div class="flcnw">
         <a 
           class="fln bg-no-repeat bg-cover bg-center h-5 relative" 
@@ -119,7 +116,7 @@ function renderHit(item) {
           ${renderedCaption}
         </a>
         <div class="fla">
-          <div class="hit-title text-black bold text-2 py-0+ leading-loose">${title}</div>
+          <div class="hit-title text-black bold text-2 py-0x leading-loose">${title}</div>
           <div class="text-gray">
             <span class="">${authorName}</span>
             in
@@ -141,9 +138,9 @@ search.addWidget(
     maxPages: 20,
     cssClasses: {
       root: 'list-reset text-center my-1',
-      item: 'inline-block bold mx-0+ text-3',
+      item: 'inline-block bold mx-0x text-3',
       link:
-        'text-black no-underline px-1 rounded-full hover:bg-paua hover:text-white',
+        'text-black no-underline px-1 rounded-full hover_bg-paua hover_text-white',
       disabled: 'hidden',
     },
     // default is to scroll to 'body', here we disable this behavior

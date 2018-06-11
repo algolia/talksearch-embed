@@ -1,0 +1,42 @@
+doctype html
+html.no-js(lang='en')
+  head
+    - var siteTitle = `${conferenceName} TalkSearch`
+    - var siteDescription = `Search into all the ${conferenceName} talks`
+    - var siteUrl = `https://talksearch-playground.netlify.com${path.dhref}`
+    meta(charset='utf-8')
+    meta(http-equiv='x-ua-compatible', content='ie=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title #{siteTitle}
+    meta(name='twitter:site', content=siteTitle)
+    meta(property='og:site_name', content=siteTitle)
+    meta(property='og:title', content=siteTitle)
+    meta(name='description', content=siteDescription)
+    meta(name='twitter:description', content=siteDescription)
+    meta(property='og:description', content=siteDescription)
+    meta(name='twitter:creator', content='@algolia')
+    meta(property='og:url', content=siteUrl)
+    meta(name='twitter:card', content='summary_large_image')
+    meta(name='twitter:image', content='https://website.com/card.png')
+    meta(property='og:image', content='https://website.com/card.png')
+    link(rel='stylesheet', href='/style.css')
+    body.open-sans
+      .fixed.w-100.z-5.bg-paua.flrnw.flc.h-3.sm_h-3x.px-0x.sm_px-1
+        a.flrnw.fln.flc.mr-0x.sm_mr-1(href=conferenceUrl)
+          img.h-2.lg_hidden.sm_h-3(src='./logo-small.svg', alt=`Logo ${conferenceName}`)
+          img.hidden.lg_block.lg_h-3(src='./logo.png', alt=`Logo ${conferenceName}`)
+        .fla.flcnw.h-2.relative.sm_h-3.mr-0x.md_mx-3
+          input#searchbar.w-100.fla.pl-1.bg-white-10.text-white.text-1.rounded-full.outline-none.sm_pl-3.sm_text-3.focus_bg-white-25
+        a.hidden.fln.flc.w-4.mx-1.md_flex.sm_mr-0x.md_w-4x.md_mr-2(href='https://www.algolia.com/?utm_source=takeoffconference&utm_medium=link&utm_campaign=talksearch', target='_blank')
+          img(src='/logo-algolia.svg', alt='Powered by Algolia')
+      .font-mono.pt-3.max-w-xl.m-auto.sm_pt-3x.px-0x.sm_px-2
+        #conferences.hidden.md_block.my-1.text-grey.text-3.bold
+        #years.hidden.md_block.my-1.text-3.text-grey.bold
+        #hits.pt-1
+        #pagination
+      script(src='https://cdn.jsdelivr.net/npm/instantsearch.js@2.7.6')
+      script(src='https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js')
+      script(src='/search.js')
+
+      div !{contents}
+

@@ -1,8 +1,7 @@
+/* eslint-disable import/no-commonjs */
+import _ from 'lodash';
 const colors = {
   transparent: 'transparent',
-
-  paua: '#2a255a',
-  valencia: '#e4504b',
 
   white: '#ffffff',
   'white-10': 'rgba(255, 255, 255, .10)',
@@ -11,7 +10,7 @@ const colors = {
   'white-65': 'rgba(255, 255, 255, .65)',
   'white-75': 'rgba(255, 255, 255, .75)',
   black: '#22292F',
-  'pure-black': '#000',
+  'black-pure': '#000',
   'black-25': 'rgba(0, 0, 0, .25)',
   'black-50': 'rgba(0, 0, 0, .5)',
   'black-65': 'rgba(0, 0, 0, .65)',
@@ -36,29 +35,30 @@ const dimensionScale = {
   '3': '4rem',
   '4': '8rem',
   '5': '16rem',
-  '1+': '1.5rem',
-  '2+': '3rem',
-  '3+': '6rem',
-  '4+': '12rem',
+  '1x': '1.5rem',
+  '2x': '3rem',
+  '3x': '6rem',
+  '4x': '12rem',
   '10': '10%',
   '20': '20%',
   '25': '25%',
   '30': '30%',
+  '33': 'calc(100% / 3)',
   '40': '40%',
   '50': '50%',
   '60': '60%',
+  '66': 'calc(100% / 1.5)',
   '70': '70%',
   '75': '75%',
   '80': '80%',
   '90': '90%',
-  '33': 'calc(100% / 3)',
-  '66': 'calc(100% / 1.5)',
   '100': '100%',
   sm: '576px',
   md: '768px',
   lg: '992px',
   xl: '1200px',
 };
+
 const widthScale = {
   ...dimensionScale,
   '100vw': '100vw',
@@ -76,25 +76,26 @@ const spacingScale = {
   '3': '4rem',
   '4': '8rem',
   '5': '16rem',
-  '0+': '.25rem',
-  '05+': '.75rem',
-  '1+': '1.5rem',
-  '2+': '3rem',
-  '3+': '6rem',
-  '4+': '12rem',
+  '0x': '.25rem',
+  '05x': '.75rem',
+  '1x': '1.5rem',
+  '2x': '3rem',
+  '3x': '6rem',
+  '4x': '12rem',
   '10': '10%',
   '20': '20%',
   '25': '25%',
   '30': '30%',
+  '33': 'calc(100% / 3)',
   '40': '40%',
   '50': '50%',
   '60': '60%',
+  '66': 'calc(100% / 1.5)',
   '70': '70%',
   '75': '75%',
   '80': '80%',
   '90': '90%',
-  '33': 'calc(100% / 3)',
-  '66': 'calc(100% / 1.5)',
+  '100': '100%',
 };
 const marginScale = {
   ...spacingScale,
@@ -113,7 +114,121 @@ const fontScale = {
   '7': '3rem', // 48px
 };
 
-export default {
+const zIndex = {
+  auto: 'auto',
+  '-2': -20,
+  '-1': -10,
+  '0': 0,
+  '1': 10,
+  '2': 20,
+  '3': 30,
+  '4': 40,
+  '5': 50,
+};
+
+const opacity = {
+  '0': '0',
+  '15': '.15',
+  '25': '.25',
+  '50': '.5',
+  '75': '.75',
+  '100': '1',
+};
+
+const shortNames = {
+  bold: {
+    fontWeight: 'bold',
+  },
+};
+const utilities = {
+  'outline-none': {
+    outline: 'none',
+  },
+  'text-outline': {
+    'text-shadow':
+      '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000',
+  },
+  'bg-blur': {
+    filter: 'blur(10px)',
+  },
+};
+const flexbox = {
+  flrnw: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  flrw: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
+  flcnw: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  flcw: {
+    display: 'flex',
+    flexDirection: 'column',
+    flexWrap: 'wrap',
+  },
+  fln: {
+    flex: 'none',
+  },
+  fla: {
+    flex: '1 1 auto',
+    minWidth: 0,
+    minHeight: 0,
+  },
+  flccv: {
+    justifyContent: 'center',
+  },
+  flcch: {
+    alignItems: 'center',
+  },
+  flrcv: {
+    alignItems: 'center',
+  },
+  flrch: {
+    justifyContent: 'center',
+  },
+  flc: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  flrar: {
+    justifyContent: 'flex-start',
+  },
+  flral: {
+    justifyContent: 'flex-end',
+  },
+  flcat: {
+    justifyContent: 'flex-start',
+  },
+  flcab: {
+    justifyContent: 'flex-end',
+  },
+  flspa: {
+    justifyContent: 'space-around',
+  },
+  flspb: {
+    justifyContent: 'space-between',
+  },
+};
+
+function addCustomClasses(customClasses) {
+  return ({ addUtilities }) => {
+    const prefixedClasses = _.mapKeys(customClasses, (value, key) => `.${key}`);
+    addUtilities(prefixedClasses);
+  };
+}
+
+const plugins = [
+  addCustomClasses(shortNames),
+  addCustomClasses(flexbox),
+  addCustomClasses(utilities),
+];
+
+module.exports = {
   textSizes: fontScale,
   width: widthScale,
   minWidth: widthScale,
@@ -129,6 +244,10 @@ export default {
   negativeMargin: marginScale,
 
   colors,
+  zIndex,
+  opacity,
+
+  plugins,
   screens: {
     sm: '576px',
     md: '768px',
@@ -221,25 +340,6 @@ export default {
     inner: 'inset 0 2px 4px 0 rgba(0,0,0,0.06)',
     none: 'none',
   },
-  zIndex: {
-    auto: 'auto',
-    '-2': -20,
-    '-1': -10,
-    '0': 0,
-    '1': 10,
-    '2': 20,
-    '3': 30,
-    '4': 40,
-    '5': 50,
-  },
-  opacity: {
-    '0': '0',
-    '15': '.15',
-    '25': '.25',
-    '50': '.5',
-    '75': '.75',
-    '100': '1',
-  },
   svgFill: {
     current: 'currentColor',
   },
@@ -297,21 +397,6 @@ export default {
 
   /*
   |-----------------------------------------------------------------------------
-  | Plugins                                https://tailwindcss.com/docs/plugins
-  |-----------------------------------------------------------------------------
-  |
-  | Here is where you can register any additional plugins you'd like to use in
-  | your project.
-  |
-  | Be sure to view the complete plugin documentation to learn more about how
-  | the plugin system works.
-  |
-  */
-
-  plugins: [],
-
-  /*
-  |-----------------------------------------------------------------------------
   | Advanced Options         https://tailwindcss.com/docs/configuration#options
   |-----------------------------------------------------------------------------
   |
@@ -323,6 +408,6 @@ export default {
   options: {
     prefix: '',
     important: false,
-    separator: ':',
+    separator: '_',
   },
 };

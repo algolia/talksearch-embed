@@ -1,5 +1,7 @@
 import metalsmith from 'metalsmith';
+import addPathData from 'metalsmith-paths';
 // import debug from './plugins/debug';
+import createIndex from './plugins/create-index';
 import createHtml from './plugins/create-html';
 import liveServer from './plugins/live-server';
 import compileCss from './plugins/compile-css';
@@ -12,13 +14,17 @@ function run(userOptions) {
 
   const pipeline = metalsmith('.')
     .source('./playground/src')
-    .destination('./playground/dist');
+    .destination('./playground/dist')
+    .use(addPathData());
 
   if (options.serve) {
     pipeline.use(liveServer());
   }
 
-  pipeline.use(createHtml()).use(compileCss());
+  pipeline
+    .use(createIndex())
+    .use(createHtml())
+    .use(compileCss());
 
   pipeline.build(err => {
     console.info(err);

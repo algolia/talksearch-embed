@@ -30,13 +30,22 @@ function addMissingLayoutSuffix(files) {
 }
 
 /**
- * Transforms all markdown files into HTML with wrapping layout
+ * Create an index file with links to all demos
  **/
 function plugin() {
-  return async function createHtml(files, pipeline, next) {
-    await markdown(files, pipeline);
-    addMissingLayoutSuffix(files);
-    await layouts(files, pipeline);
+  return async function createIndex(files, pipeline, next) {
+    // Find all demos
+    const demos = _.filter(files, (value, path) =>
+      _.endsWith(path, '/index.md')
+    );
+    // Find the index main page
+    const index = files['index.md'];
+
+    index.conferenceList = _.map(demos, demo => ({
+      url: demo.path.dhref,
+      name: demo.conferenceName,
+    }));
+
     next();
   };
 }
