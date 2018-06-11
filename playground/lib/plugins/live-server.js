@@ -1,20 +1,17 @@
-/* eslint-disable no-param-reassign */
-import metalsmithWatch from 'metalsmith-watch';
+/* eslint-disable no-param-reassign, valid-jsdoc */
+import metalsmithBrowserSync from 'metalsmith-browser-sync';
 import pify from 'pify';
+
+const browserSync = pify(
+  metalsmithBrowserSync({
+    server: 'playground/dist',
+    files: ['playground/src/**/*.md', 'playground/layouts/*.pug'],
+  })
+);
 
 function plugin() {
   return async function liveServer(files, pipeline, next) {
-    const watch = pify(
-      metalsmithWatch({
-        paths: {
-          './playground/src/**/*': true,
-          './playground/layouts/*.pug': '**/*',
-        },
-        livereload: false,
-      })
-    );
-
-    await watch(files, pipeline);
+    await browserSync(files, pipeline);
     next();
   };
 }

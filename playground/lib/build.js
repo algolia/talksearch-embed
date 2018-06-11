@@ -1,7 +1,8 @@
 import metalsmith from 'metalsmith';
-import debug from './plugins/debug';
+// import debug from './plugins/debug';
 import createHtml from './plugins/create-html';
 import liveServer from './plugins/live-server';
+import compileCss from './plugins/compile-css';
 
 function run(userOptions) {
   const options = {
@@ -17,7 +18,7 @@ function run(userOptions) {
     pipeline.use(liveServer());
   }
 
-  pipeline.use(createHtml());
+  pipeline.use(createHtml()).use(compileCss());
 
   pipeline.build(err => {
     console.info(err);

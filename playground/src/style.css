@@ -1,0 +1,51 @@
+/* stylelint-disable at-rule-no-unknown */
+@tailwind preflight;
+@tailwind utilities;
+/* stylelint-enable at-rule-no-unknown */
+
+/* Debug */
+.debug, .debug * {
+  outline: 1px solid gold;
+}
+
+/* Flexbox */
+.flrnw { @apply .flex .flex-row .flex-no-wrap; }
+.flrw { @apply .flex .flex-row .flex-wrap; }
+.flcnw { @apply .flex .flex-col .flex-no-wrap; }
+.flcw { @apply .flex .flex-col .flex-wrap; }
+.fln { @apply .flex-none; }
+.fla { @apply .flex-1; }
+.flc { @apply .justify-center .items-center }
+.flcch { @apply .justify-center }
+.flccv { @apply .items-center }
+.flrar { @apply .justify-end }
+.flral { @apply .justify-start }
+.flcat { @apply .justify-start }
+.flcab { @apply .justify-end }
+.flspa { @apply .justify-around }
+.flspb { @apply .justify-between }
+
+/* Background position */
+/* https://github.com/tailwindcss/tailwindcss/pull/485 */
+.bg-center-bottom {
+  background-position: center bottom;
+}
+
+/* Bold */
+.bold { @apply .font-bold }
+
+/* Outline */
+.outline-none { outline: none; }
+
+/* Subtitles outline */
+.text-outline {
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;  
+}
+
+/* Blurry background */
+.bg-blur { filter: blur(10px); }
+

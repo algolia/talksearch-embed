@@ -19,8 +19,25 @@ html.no-js(lang='en')
     meta(name='twitter:card', content='summary_large_image')
     meta(name='twitter:image', content='https://website.com/card.png')
     meta(property='og:image', content='https://website.com/card.png')
-    link(rel='stylesheet', href='css/main.css')
-  body
-    div Content test...
-    script(src='js/main.js')
+    link(rel='stylesheet', href='/style.css')
+    body.open-sans
+      .fixed.w-100.z-5.bg-paua.flrnw.flc.h-3(class='sm:h-3+ px-0+ sm:px-1')
+        a.flrnw.fln.flc(href=conferenceUrl, class='mr-0+ sm:mr-1')
+          img.h-2(src='./logo-small.svg', alt=`Logo ${conferenceName}`, class='lg:hidden sm:h-3')
+          img.hidden(src='./logo.png', alt=`Logo ${conferenceName}`, class='lg:block lg:h-3')
+        .fla.flcnw.h-2.relative(class='sm:h-3 mr-0+ md:mx-3')
+          input#searchbar.w-100.fla.pl-1.bg-white-10.text-white.text-1.rounded-full.outline-none(class='sm:pl-3 sm:text-3 focus:bg-white-25')
+        a.hidden.fln.flc.w-4.mx-1(class='md:flex sm:mr-0+ md:w-4+ md:mr-2', href='https://www.algolia.com/?utm_source=takeoffconference&utm_medium=link&utm_campaign=talksearch', target='_blank')
+          img(src='/logo-algolia.svg', alt='Powered by Algolia')
+      .font-mono.pt-3.max-w-xl.m-auto(class='sm:pt-3+ px-0+ sm:px-2')
+        #conferences.hidden.my-1.text-grey.text-3.bold(class='md:block')
+        #years.hidden.my-1.text-3.text-grey.bold(class='md:block')
+        #hits.pt-1
+        #pagination
+      script(src='https://cdn.jsdelivr.net/npm/instantsearch.js@2.7.6')
+      script(src='https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js')
+      script(src='/search.js')
+
+      div !{contents}
+      div ok!
 
