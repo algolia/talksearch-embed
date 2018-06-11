@@ -1,18 +1,26 @@
 /* eslint-disable no-param-reassign, valid-jsdoc */
 import _ from 'lodash';
-import metalsmithMarkdown from 'metalsmith-markdown';
 import metalsmithLayouts from 'metalsmith-layouts';
+import metalsmithInPlace from 'metalsmith-in-place';
 import pify from 'pify';
 
-const markdown = pify(metalsmithMarkdown());
+const pugOptions = {
+  pretty: true,
+  basedir: './playground/',
+};
+
+const inPlace = pify(
+  metalsmithInPlace({
+    pattern: '**/*.pug',
+    engineOptions: pugOptions,
+  })
+);
 const layouts = pify(
   metalsmithLayouts({
     directory: './playground/layouts',
     default: 'search.pug',
     pattern: '**/*.html',
-    engineOptions: {
-      pretty: true,
-    },
+    engineOptions: pugOptions,
   })
 );
 
@@ -34,9 +42,13 @@ function addMissingLayoutSuffix(files) {
  **/
 function plugin() {
   return async function createHtml(files, pipeline, next) {
-    await markdown(files, pipeline);
+    // Convert all .pug content to HTML
+    await inPlace(files, pipeline);
+
+    // Add layout around HTML pages
     addMissingLayoutSuffix(files);
     await layouts(files, pipeline);
+
     next();
   };
 }

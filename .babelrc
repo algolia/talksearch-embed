@@ -1,11 +1,9 @@
 {
-  "presets": [ "es2015" ],
+  "presets": ["es2015"],
   "plugins": ["transform-object-rest-spread"],
   "env": {
     "test": {
-      "plugins": [
-        "babel-plugin-rewire"
-      ]
+      "plugins": ["babel-plugin-rewire"]
     }
-  },
+  }
 }

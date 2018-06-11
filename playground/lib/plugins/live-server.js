@@ -5,7 +5,11 @@ import pify from 'pify';
 const browserSync = pify(
   metalsmithBrowserSync({
     server: 'playground/dist',
-    files: ['playground/src/**/*', 'playground/layouts/*'],
+    files: [
+      'playground/src/**/*',
+      'playground/layouts/*',
+      'playground/mixins/*',
+    ],
   })
 );
 

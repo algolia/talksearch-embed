@@ -9,7 +9,4 @@ html.no-js(lang='en')
     meta(name='twitter:card', content='summary_large_image')
     link(rel='stylesheet', href='/style.css')
     body.open-sans
-      .flrnw.m-3
-        each val in conferenceList
-          .fln.w-33
-            a.text-black.no-underline.hover_underline.py-1.block(href=val.url)=val.name
+      div!=contents

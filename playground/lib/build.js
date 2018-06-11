@@ -5,6 +5,7 @@ import createIndex from './plugins/create-index';
 import createHtml from './plugins/create-html';
 import liveServer from './plugins/live-server';
 import compileCss from './plugins/compile-css';
+import compileJs from './plugins/compile-js';
 
 function run(userOptions) {
   const options = {
@@ -24,7 +25,8 @@ function run(userOptions) {
   pipeline
     .use(createIndex())
     .use(createHtml())
-    .use(compileCss());
+    .use(compileCss())
+    .use(compileJs());
 
   pipeline.build(err => {
     console.info(err);
