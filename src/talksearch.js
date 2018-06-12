@@ -1,5 +1,5 @@
-import instantsearch from 'instantsearch.js';
-import _ from 'lodash';
+/* eslint-disable import/no-commonjs */
+// import merge from 'lodash/merge';
 
 function talksearch(userOptions) {
   const defaultOptions = {
@@ -8,8 +8,8 @@ function talksearch(userOptions) {
   };
   console.info(userOptions);
 
-  const options = _.merge(defaultOptions, userOptions);
-  return instantsearch(options);
+  // const options = merge(defaultOptions, userOptions);
+  // return instantsearch(options);
 }
 
-export default talksearch;
+module.exports = talksearch;

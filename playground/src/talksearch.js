@@ -1,0 +1,1 @@
+../../build/talksearch.js
