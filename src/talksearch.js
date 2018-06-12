@@ -6,7 +6,7 @@ function talksearch(userOptions) {
     appId: '8J7GPSC0XN',
     apiKey: '28a29bbca9c6d43514d6654de6a8471c',
   };
-  console.info(userOptions);
+  console.info("test");
 
   // const options = merge(defaultOptions, userOptions);
   // return instantsearch(options);

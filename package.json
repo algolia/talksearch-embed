@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build": "./scripts/build",
-    "playground:serve": "babel-node ./scripts/playground/serve",
+    "playground:serve": "./scripts/playground/serve",
     "playground:build": "babel-node ./scripts/playground/build"
   },
   "dependencies": {},
@@ -52,6 +52,8 @@
     "prettier": "^1.9.2",
     "tailwindcss": "^0.5.3",
     "webpack": "^4.12.0",
-    "webpack-command": "^0.2.1"
+    "webpack-cli": "^3.0.4",
+    "webpack-command": "^0.2.1",
+    "webpack-dev-server": "^3.1.4"
   }
 }

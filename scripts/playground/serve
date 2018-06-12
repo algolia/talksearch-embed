@@ -1,5 +1,5 @@
-#!/usr/bin/env node
+#!/usr/bin/env sh
 
-import build from '../../playground/lib/build';
-
-build.run({ serve: true });
+WATCH=1 parallelshell \
+  "webpack --config ./webpack.dev.watch.js" \
+  "yarn run playground:build"

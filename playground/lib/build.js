@@ -7,18 +7,15 @@ import liveServer from './plugins/live-server';
 import compileCss from './plugins/compile-css';
 import compileJs from './plugins/compile-js';
 
-function run(userOptions) {
-  const options = {
-    serve: false,
-    ...userOptions,
-  };
+function run() {
+  const isServe = process.env.WATCH;
 
   const pipeline = metalsmith('.')
     .source('./playground/src')
     .destination('./playground/dist')
     .use(addPathData());
 
-  if (options.serve) {
+  if (isServe) {
     pipeline.use(liveServer());
   }
 

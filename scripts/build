@@ -2,5 +2,5 @@
 
 mkdir -p ./build
 
-NODE_ENV=production BABEL_ENV=production webpack \
+webpack \
   --config ./webpack.prod.build.js
