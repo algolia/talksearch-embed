@@ -1,0 +1,59 @@
+/* stylelint-disable at-rule-no-unknown */
+@tailwind preflight; 
+@tailwind utilities;
+
+.debug, .debug * { outline: 1px solid gold; }
+
+/* Searchbox magnifying glass */
+.ais-search-box--magnifier {
+  @apply .hidden;
+  @apply .absolute .pin-y .pin-l;
+  @apply .w-1;
+  @apply .ml-1;
+  @apply .text-white .fill-current;
+}
+@screen sm {
+  .ais-search-box--magnifier {
+    @apply .block;
+    @apply .w-2;
+  }
+}
+
+/* Searchbox close icon */
+.ais-search-box--reset {
+  @apply .hidden;
+  @apply .absolute .pin-y .pin-r;
+  @apply .w-2;
+  @apply .mr-1;
+  @apply .text-white-75 .fill-current;
+}
+@screen sm {
+  .ais-search-box--reset {
+    @apply .block;
+  }
+}
+
+/* Pagination links */
+.ais-pagination--link {
+  @apply .text-black;
+  @apply .no-underline;
+  @apply .px-1;
+  @apply .rounded-full;
+}
+.ais-pagination--link:hover {
+  @apply .text-white;
+}
+.ais-pagination {
+  @apply .list-reset;
+  @apply .text-center;
+  @apply .my-1;
+}
+.ais-pagination--item {
+  @apply .inline-block;
+  @apply .bold;
+  @apply .mx-0x;
+  @apply .text-3;
+}
+.ais-pagination--disabled {
+  @apply .hidden;
+}

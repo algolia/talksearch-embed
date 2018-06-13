@@ -1,5 +1,5 @@
 /* eslint-disable import/no-commonjs */
-import _ from 'lodash';
+const _ = require('lodash');
 const colors = {
   transparent: 'transparent',
 

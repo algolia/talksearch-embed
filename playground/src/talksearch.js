@@ -1,1 +1,1 @@
-../../build/talksearch.js
+../../dist/talksearch.js

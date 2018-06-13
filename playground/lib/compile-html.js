@@ -34,7 +34,6 @@ async function convertToHtml(inputFile) {
   const layoutContent = await readFile(layoutPath);
 
   const pugOptions = {
-    pretty: true,
     basedir: './playground/',
     ...inputFile,
   };

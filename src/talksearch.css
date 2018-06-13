@@ -1,0 +1,7 @@
+/* stylelint-disable at-rule-no-unknown */
+@tailwind preflight; 
+@tailwind utilities;
+
+.ais-hits {
+  @apply .bg-red;
+}

@@ -40,7 +40,7 @@ function interpolateVariables(initialContent, files, filePath) {
 }
 
 async function compileWithBabel(content, pipeline, filePath) {
-  const babelConfigPath = path.normalize(`${__dirname}/../../../.babelrc`);
+  const babelConfigPath = path.resolve('.babelrc');
   const babelConfig = await readJson(babelConfigPath);
   const fullPath = path.join(pipeline.directory(), pipeline.source(), filePath);
   const babelOptions = {

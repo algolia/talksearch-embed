@@ -5,11 +5,14 @@
   "license": "MIT",
   "scripts": {
     "build": "./scripts/build",
+    "build:js": "./scripts/build-js",
+    "build:css": "babel-node ./scripts/build-css",
     "playground:serve": "./scripts/playground/serve",
     "playground:build": "babel-node ./scripts/playground/build"
   },
   "dependencies": {},
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^1.0.1",
     "autoprefixer": "^8.6.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
@@ -32,9 +35,7 @@
     "jest": "^22.4.3",
     "json-stable-stringify": "^1.0.1",
     "jsonfile": "^4.0.0",
-    "jstransformer-pug": "^0.3.0",
     "live-server": "^1.2.0",
-    "lodash": "^4.17.10",
     "lodash-es": "^4.17.10",
     "metalsmith": "^2.3.0",
     "metalsmith-browser-sync": "^1.1.1",
@@ -44,12 +45,12 @@
     "parallelshell": "^3.0.2",
     "pify": "^3.0.0",
     "postcss": "^6.0.22",
+    "postcss-clean": "^1.1.0",
     "prettier": "^1.9.2",
     "pug": "^2.0.3",
     "tailwindcss": "^0.5.3",
     "webpack": "^4.12.0",
     "webpack-cli": "^3.0.4",
-    "webpack-command": "^0.2.1",
-    "webpack-dev-server": "^3.1.4"
+    "webpack-command": "^0.2.1"
   }
 }

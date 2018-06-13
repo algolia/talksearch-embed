@@ -1,11 +1,11 @@
-import metalsmith from 'metalsmith';
 import addPathData from 'metalsmith-paths';
+import compileCss from './compile-css';
+import compileHtml from './compile-html';
+import compileJs from './compile-js';
+import createIndex from './create-index';
+import liveServer from './live-server';
+import metalsmith from 'metalsmith';
 // import debug from './plugins/debug';
-import compileCss from './plugins/compile-css';
-import compileHtml from './plugins/compile-html';
-import compileJs from './plugins/compile-js';
-import createIndex from './plugins/create-index';
-import liveServer from './plugins/live-server';
 
 function run() {
   const isServe = process.env.WATCH;

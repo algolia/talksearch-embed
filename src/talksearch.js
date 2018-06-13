@@ -1,5 +1,5 @@
 /* eslint-disable import/no-commonjs */
-import { get } from 'lodash';
+import get from 'lodash-es/get';
 
 function highlight(hit, key) {
   return get(hit, `_highlightResult.${key}.value`);

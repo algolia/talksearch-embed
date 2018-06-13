@@ -1,0 +1,7 @@
+/* stylelint-disable at-rule-no-unknown */
+.header {
+  @apply .bg-purple;
+}
+.ais-pagination--link:hover {
+  @apply .bg-purple;
+}
