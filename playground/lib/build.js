@@ -1,11 +1,11 @@
 import metalsmith from 'metalsmith';
 import addPathData from 'metalsmith-paths';
 // import debug from './plugins/debug';
-import createIndex from './plugins/create-index';
-import createHtml from './plugins/create-html';
-import liveServer from './plugins/live-server';
 import compileCss from './plugins/compile-css';
+import compileHtml from './plugins/compile-html';
 import compileJs from './plugins/compile-js';
+import createIndex from './plugins/create-index';
+import liveServer from './plugins/live-server';
 
 function run() {
   const isServe = process.env.WATCH;
@@ -21,7 +21,7 @@ function run() {
 
   pipeline
     .use(createIndex())
-    .use(createHtml())
+    .use(compileHtml())
     .use(compileCss())
     .use(compileJs());
 

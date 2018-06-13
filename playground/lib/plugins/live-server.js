@@ -9,6 +9,7 @@ const browserSync = pify(
       'playground/src/**/*',
       'playground/layouts/*',
       'playground/mixins/*',
+      'playground/includes/*',
     ],
   })
 );

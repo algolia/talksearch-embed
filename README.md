@@ -22,3 +22,4 @@ dependencies and `yarn start` for starting. Don't forget to set `NODE_ENV` to
 ## Setting an index
 
 The `indexName` is the search string: `http://localhost:8000?i=dotconferences`
+

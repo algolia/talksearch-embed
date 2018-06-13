@@ -520,10 +520,6 @@ arr-union@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/arr-union/-/arr-union-3.1.0.tgz#e39b09aea9def866a8f206e288af63919bae39c4"
 
-array-differ@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/array-differ/-/array-differ-1.0.0.tgz#eff52e3758249d33be402b8bb8e564bb2b5d4031"
-
 array-equal@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/array-equal/-/array-equal-1.0.0.tgz#8c2a5ef2472fd9ea742b04c77a75093ba2757c93"
@@ -1842,12 +1838,6 @@ cipher-base@^1.0.0, cipher-base@^1.0.1, cipher-base@^1.0.3:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
 
-circular-json@^0.1.6:
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/circular-json/-/circular-json-0.1.6.tgz#fd692b65f8bce4f2900bea14f74ad681ab294c7f"
-  dependencies:
-    wru ">= 0.0.0"
-
 circular-json@^0.3.1:
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/circular-json/-/circular-json-0.3.3.tgz#815c99ea84f6809529d2f45791bdf82711352d66"
@@ -2315,10 +2305,6 @@ debug@^3.1.0, debug@~3.1.0:
   resolved "https://registry.yarnpkg.com/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
   dependencies:
     ms "2.0.0"
-
-debug@~0.7.4:
-  version "0.7.4"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-0.7.4.tgz#06e1ea8082c2cb14e39806e22e2f6f757f92af39"
 
 debug@~2.2.0:
   version "2.2.0"
@@ -3945,12 +3931,6 @@ ini@^1.3.4, ini@~1.3.0:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/ini/-/ini-1.3.5.tgz#eee25f56db1c9ec6085e0c22778083f596abf927"
 
-inputformat-to-jstransformer@^1.2.1:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/inputformat-to-jstransformer/-/inputformat-to-jstransformer-1.3.0.tgz#67f261071ad403c0c7193f8a2c5858803504cc02"
-  dependencies:
-    require-one "^1.0.3"
-
 inquirer@^3.0.6:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/inquirer/-/inquirer-3.3.0.tgz#9dd2f2ad765dcab1ff0443b491442a20ba227dc9"
@@ -4309,7 +4289,7 @@ is-typedarray@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/is-typedarray/-/is-typedarray-1.0.0.tgz#e479c80858df0c1b11ddda6940f96011fcda4a9a"
 
-is-utf8@^0.2.0, is-utf8@^0.2.1, is-utf8@~0.2.0:
+is-utf8@^0.2.0, is-utf8@~0.2.0:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/is-utf8/-/is-utf8-0.2.1.tgz#4b0da1442104d1b336340e80797e865cf39f7d72"
 
@@ -4854,7 +4834,7 @@ jstransformer-pug@^0.3.0:
   dependencies:
     pug "^2.0.0-rc.4"
 
-jstransformer@1.0.0, jstransformer@^1.0.0:
+jstransformer@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/jstransformer/-/jstransformer-1.0.0.tgz#ed8bf0921e2f3f1ed4d5c1a44f68709ed24722c3"
   dependencies:
@@ -5014,6 +4994,10 @@ locate-path@^2.0.0:
     p-locate "^2.0.0"
     path-exists "^3.0.0"
 
+lodash-es@^4.17.10:
+  version "4.17.10"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.10.tgz#62cd7104cdf5dd87f235a837f0ede0e8e5117e05"
+
 lodash.isfinite@^3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/lodash.isfinite/-/lodash.isfinite-3.3.2.tgz#fb89b65a9a80281833f0b7478b3a5104f898ebb3"
@@ -5037,10 +5021,6 @@ lodash@^4.13.1, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.3.0:
 lodash@^4.17.10, lodash@^4.17.5:
   version "4.17.10"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.10.tgz#1b7793cf7259ea38fb3661d4d38b3260af8ae4e7"
-
-lodash@~2.4.1:
-  version "2.4.2"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-2.4.2.tgz#fadd834b9683073da179b3eae6d9c0d15053f73e"
 
 log-symbols@^2.1.0, log-symbols@^2.2.0:
   version "2.2.0"
@@ -5083,10 +5063,6 @@ loud-rejection@^1.0.0, loud-rejection@^1.6.0:
 lowercase-keys@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/lowercase-keys/-/lowercase-keys-1.0.1.tgz#6f9e30b47084d971a7c820ff15a6c5167b74c26f"
-
-lru-cache@2:
-  version "2.7.3"
-  resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-2.7.3.tgz#6d4524e8b955f95d4f5b58851ce21dd72fb4e952"
 
 lru-cache@^4.0.1:
   version "4.1.1"
@@ -5139,10 +5115,6 @@ map-visit@^1.0.0:
   resolved "https://registry.yarnpkg.com/map-visit/-/map-visit-1.0.0.tgz#ecdca8f13144e660f1b5bd41f12f3479d98dfb8f"
   dependencies:
     object-visit "^1.0.0"
-
-marked@~0.3.9:
-  version "0.3.19"
-  resolved "https://registry.yarnpkg.com/marked/-/marked-0.3.19.tgz#5d47f709c4c9fc3c216b6d46127280f40b39d790"
 
 md5.js@^1.3.4:
   version "1.3.4"
@@ -5229,57 +5201,9 @@ metalsmith-browser-sync@^1.1.1:
     debug "^2.1.3"
     lodash "^3.7.0"
 
-metalsmith-ignore@^0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/metalsmith-ignore/-/metalsmith-ignore-0.1.2.tgz#6ae6c694ba62a41585e8b481a11e2928c5ac4028"
-  dependencies:
-    multimatch "^0.1.0"
-
-metalsmith-in-place@^4.1.1:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/metalsmith-in-place/-/metalsmith-in-place-4.1.1.tgz#d36c6642818062202bdd26eae2c279c7efe7a5bc"
-  dependencies:
-    debug "^3.1.0"
-    inputformat-to-jstransformer "^1.2.1"
-    is-utf8 "^0.2.1"
-    jstransformer "^1.0.0"
-    multimatch "^2.1.0"
-
-metalsmith-json@^0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/metalsmith-json/-/metalsmith-json-0.1.2.tgz#a1721857b59dd659f637aa3692887a7fb18ebadc"
-  dependencies:
-    lodash "~2.4.1"
-
-metalsmith-layouts@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/metalsmith-layouts/-/metalsmith-layouts-2.1.0.tgz#523ce8778795a1fffd3390fa4a88e27911b47846"
-  dependencies:
-    debug "^3.1.0"
-    inputformat-to-jstransformer "^1.2.1"
-    is-utf8 "^0.2.1"
-    jstransformer "^1.0.0"
-    multimatch "^2.1.0"
-
-metalsmith-markdown@^0.2.2:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/metalsmith-markdown/-/metalsmith-markdown-0.2.2.tgz#f863b7c9c0b2cd5bf034ee0899b0e5a8cde1ebd3"
-  dependencies:
-    debug "~0.7.4"
-    marked "~0.3.9"
-
 metalsmith-paths@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/metalsmith-paths/-/metalsmith-paths-3.0.1.tgz#a427d18e26e73a3bebcac4873f87fb1501070ba2"
-
-metalsmith-writemetadata@^0.4.5:
-  version "0.4.5"
-  resolved "https://registry.yarnpkg.com/metalsmith-writemetadata/-/metalsmith-writemetadata-0.4.5.tgz#e2cfe00b85d80d4eb7f4a9da60017534566e6374"
-  dependencies:
-    circular-json "^0.1.6"
-    debug "^2.1.3"
-    multimatch "^2.0.0"
-    node.extend "^1.1.3"
 
 metalsmith@^2.3.0:
   version "2.3.0"
@@ -5405,13 +5329,6 @@ minimatch@3.0.4, minimatch@^3.0.0, minimatch@^3.0.2, minimatch@^3.0.3, minimatch
   dependencies:
     brace-expansion "^1.1.7"
 
-minimatch@~0.2.14:
-  version "0.2.14"
-  resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-0.2.14.tgz#c74e780574f63c6f9a090e90efbe6ef53a6a756a"
-  dependencies:
-    lru-cache "2"
-    sigmund "~1.0.0"
-
 minimist-options@^3.0.1:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/minimist-options/-/minimist-options-3.0.2.tgz#fba4c8191339e13ecf4d61beb03f070103f3d954"
@@ -5521,22 +5438,6 @@ multicast-dns@^6.0.1:
   dependencies:
     dns-packet "^1.3.1"
     thunky "^1.0.2"
-
-multimatch@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/multimatch/-/multimatch-0.1.0.tgz#099d9f8f8463ac36cfbfa27360bc16cee87ded64"
-  dependencies:
-    lodash "~2.4.1"
-    minimatch "~0.2.14"
-
-multimatch@^2.0.0, multimatch@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/multimatch/-/multimatch-2.1.0.tgz#9c7906a22fb4c02919e2f5f75161b4cdbd4b2a2b"
-  dependencies:
-    array-differ "^1.0.0"
-    array-union "^1.0.1"
-    arrify "^1.0.0"
-    minimatch "^3.0.0"
 
 mute-stream@0.0.7:
   version "0.0.7"
@@ -5677,12 +5578,6 @@ node-pre-gyp@^0.6.39:
     semver "^5.3.0"
     tar "^2.2.1"
     tar-pack "^3.4.0"
-
-node.extend@^1.1.3:
-  version "1.1.6"
-  resolved "https://registry.yarnpkg.com/node.extend/-/node.extend-1.1.6.tgz#a7b882c82d6c93a4863a5504bd5de8ec86258b96"
-  dependencies:
-    is "^3.1.0"
 
 nopt@1.0.10:
   version "1.0.10"
@@ -6498,7 +6393,7 @@ pug-walk@^1.1.7:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/pug-walk/-/pug-walk-1.1.7.tgz#c00d5c5128bac5806bec15d2b7e7cdabe42531f3"
 
-pug@^2.0.0-rc.4:
+pug@^2.0.0-rc.4, pug@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/pug/-/pug-2.0.3.tgz#71cba82537c95a5eab7ed04696e4221f53aa878e"
   dependencies:
@@ -6912,10 +6807,6 @@ require-main-filename@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/require-main-filename/-/require-main-filename-1.0.1.tgz#97f717b69d48784f5f526a6c5aa8ffdda055a4d1"
 
-require-one@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/require-one/-/require-one-1.0.3.tgz#0efebcce980fefc3df84ce00f269e19c8b6f4990"
-
 require-uncached@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/require-uncached/-/require-uncached-1.0.3.tgz#4e0d56d6c9662fd31e43011c4b95aa49955421d3"
@@ -7233,10 +7124,6 @@ shebang-regex@^1.0.0:
 shellwords@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/shellwords/-/shellwords-0.1.1.tgz#d6b9181c1a48d397324c84871efbcfc73fc0654b"
-
-sigmund@~1.0.0:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/sigmund/-/sigmund-1.0.1.tgz#3ff21f198cad2175f9f3b781853fd94d0d19b590"
 
 signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"
@@ -8491,10 +8378,6 @@ write@^0.2.1:
   resolved "https://registry.yarnpkg.com/write/-/write-0.2.1.tgz#5fc03828e264cea3fe91455476f7a3c566cb0757"
   dependencies:
     mkdirp "^0.5.1"
-
-"wru@>= 0.0.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/wru/-/wru-0.3.0.tgz#2f04208c7eafc211512da5f047f06aa0032b4c38"
 
 ws@^4.0.0:
   version "4.1.0"

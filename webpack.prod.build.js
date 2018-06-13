@@ -9,7 +9,7 @@ const babelPlugin = new HappyPack({
 module.exports = {
   mode: 'production',
   entry: {
-    talksearch: [path.resolve(__dirname, 'src/talksearch.js')],
+    talksearch: [path.resolve(__dirname, 'index.js')],
   },
   output: {
     path: path.resolve(__dirname, 'build'),
