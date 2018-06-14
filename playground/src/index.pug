@@ -1,0 +1,20 @@
+doctype html
+html.no-js(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='x-ua-compatible', content='ie=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title TalkSearch playground
+    meta(name='twitter:creator', content='@algolia')
+    meta(name='twitter:card', content='summary_large_image')
+    link(rel='stylesheet', href='/style.css')
+    body
+      .pt-2.max-w-xl.m-auto
+        .flrnw
+          each demo in demos
+            .fln.w-33
+              a.no-underline.block.border.border-solid.border-black.p-1.m-1.hover_bg-black-25(href=demo.url)
+                .flrnw.flc
+                  .fln.w-25
+                    img.h-3(src=demo.logo)
+                  .fla.text-3.text-black=demo.name
