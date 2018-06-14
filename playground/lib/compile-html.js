@@ -1,24 +1,41 @@
 /* eslint-disable no-param-reassign, valid-jsdoc */
 import pug from 'pug';
 import fs from 'fs';
+import path from 'path';
 import pMap from 'p-map';
 import pify from 'pify';
 import _ from 'lodash';
+import $glob from 'glob';
 const readFile = pify(fs.readFile);
+const glob = pify($glob);
 
-function setDefaultMetadata(inputFile) {
+// Find a file matching a specific pattern that is in the same folder and
+// returns its relative path
+async function findSiblingFile(inputFile, pattern) {
+  const dirname = _.get(inputFile, 'path.dir');
+  const basedir = `./playground/src/${dirname}`;
+
+  const matches = await glob(`${basedir}/${pattern}`);
+  if (_.isEmpty(matches)) {
+    return null;
+  }
+  const basename = path.basename(_.first(matches));
+  return `./${basename}`;
+}
+
+// Set all default metadata of the file, avoiding boilerplate
+async function setDefaultMetadata(inputFile) {
   // Add default metadata
   const defaultMetadata = {
     layout: 'search.pug',
     apiKey: 'YOUR_API_KEY',
     indexName: 'YOUR_INDEX_NAME',
-    cssClasses: {
-      header: {
-        wrapper: null,
-      },
-    },
   };
   const newFile = _.merge(defaultMetadata, inputFile);
+
+  // Find the path to the logos
+  defaultMetadata.logoPath = await findSiblingFile(inputFile, 'logo.*');
+  defaultMetadata.logoSmallPath = await findSiblingFile(inputFile, 'logo-small.*');
 
   // Add .pug layout
   const layout = newFile.layout;
@@ -64,7 +81,7 @@ function plugin() {
       let file = files[filePath];
 
       // We first set all the default metadata
-      file = setDefaultMetadata(file);
+      file = await setDefaultMetadata(file, filePath);
 
       // We convert to html
       file = await convertToHtml(file);

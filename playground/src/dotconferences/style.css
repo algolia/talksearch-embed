@@ -1,8 +1,7 @@
 /* stylelint-disable at-rule-no-unknown */
 .header {
-  @apply .bg-purple;
+  @apply .bg-gray;
 }
 .ais-pagination--link:hover {
-  @apply .bg-purple;
+  @apply .bg-gray .text-yellow;
 }
-

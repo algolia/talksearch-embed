@@ -35,6 +35,7 @@
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jest": "^21.15.1",
     "eslint-plugin-prettier": "^2.6.0",
+    "glob": "^7.1.2",
     "happypack": "^5.0.0",
     "jest": "^22.4.3",
     "lodash": "^4.17.10",

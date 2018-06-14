@@ -1,6 +1,6 @@
 /* eslint-disable import/no-commonjs */
-import _ from 'lodash';
-import defaultConfig from '../tailwind.config.js';
+const _ = require('lodash');
+const defaultConfig = require('../../../tailwind.config.js');
 
 module.exports = _.merge(defaultConfig, {
   colors: {
