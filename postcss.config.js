@@ -9,7 +9,7 @@ const shouldMinify = process.env.MINIFY;
 const tailwindConfig = './tailwind.config.js';
 const filterOptions = {
   filter(selector) {
-    return _.startsWith(selector, '.ais-');
+    return _.startsWith(selector, '.ais-') || _.startsWith(selector, '.ats-');
   },
 };
 const cleanCssOptions = {

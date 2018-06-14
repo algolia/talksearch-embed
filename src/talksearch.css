@@ -2,6 +2,80 @@
 @tailwind preflight; 
 @tailwind utilities;
 
+/* Wrapper of all hits */
 .ais-hits {
-  @apply .bg-red;
+  @apply .flex .flex-row .flex-wrap;
 }
+
+/* Each hit */
+.ais-hits--item {
+  @apply .flex-none;
+  @apply .w-100
+}
+@screen sm {
+  .ais-hits--item {
+    @apply .w-50;
+  }
+}
+@screen lg {
+  .ais-hits--item {
+    @apply .w-33;
+  }
+}
+
+/* Inside one hit */
+.ats-hit--root {
+  @apply .flex .flex-col .flex-no-wrap;
+  @apply .px-1 .pb-1x
+}
+/* The thumbnail, added as a background image */
+.ats-hit--thumbnail  {
+  @apply .flex-none;
+  @apply .bg-no-repeat .bg-cover .bg-center;
+  @apply .h-5;
+  @apply .relative;
+}
+/* The wrapper around the blur effect beneath the subtitle */
+.ats-hit--captionBackdrop {
+  @apply .absolute .pin-b .pin-x;
+  @apply .overflow-hidden;
+  @apply .h-2x
+}
+/* The blured element, using the same thumnail as the video as background */
+.ats-hit--captionBlur {
+  @apply .absolute .pin .z-1;
+  @apply .bg-blur;
+  @apply .bg-no-repeat .bg-cover .bg-bottom;
+}
+/* The matching caption text */
+.ats-hit--caption {
+  @apply .absolute .z-2 .pin-b .pin-x;
+  @apply .h-2x;
+  @apply .flrnw .flc;
+  @apply .text-white .text-1 .bold .text-outline .text-center;
+  @apply .px-1x;
+}
+/* Highlights in the matched caption */
+.ats-hit--caption .ats-highlight {
+  @apply .text-yellow;
+}
+
+/* Details under the video */
+.ats-hit--details {
+  @apply .flex-auto;
+}
+.ats-hit--videoTitle {
+  @apply .text-black .bold .text-2;
+  @apply .py-0x;
+}
+.ats-hit--videoSubtitle {
+  @apply .text-gray;
+}
+
+.ats-hit--views {
+  @apply .absolute .pin-r .pin-t;
+  @apply .p-0x;
+  @apply .text--1 .text-white .bg-black-75;
+}
+
+

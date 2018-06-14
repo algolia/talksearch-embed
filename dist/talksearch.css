@@ -279,6 +279,134 @@
  * We can remove this when the reversion is in a normal Chrome release.
  */
 
+/* Wrapper of all hits */
+
 .ais-hits {
-  background-color: #e3342f;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/* Each hit */
+
+.ais-hits--item {
+  flex: none;
+  width: 100%;
+}
+
+@media (min-width: 576px) {
+  .ais-hits--item {
+    width: 50%;
+  }
+}
+
+@media (min-width: 992px) {
+  .ais-hits--item {
+    width: calc(100% / 3);
+  }
+}
+
+/* Inside one hit */
+
+.ats-hit--root {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1.5rem;
+}
+
+/* The thumbnail, added as a background image */
+
+.ats-hit--thumbnail {
+  flex: none;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 16rem;
+  position: relative;
+}
+
+/* The wrapper around the blur effect beneath the subtitle */
+
+.ats-hit--captionBackdrop {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  overflow: hidden;
+  height: 3rem;
+}
+
+/* The blured element, using the same thumnail as the video as background */
+
+.ats-hit--captionBlur {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  -webkit-filter: blur(10px);
+          filter: blur(10px);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+}
+
+/* The matching caption text */
+
+.ats-hit--caption {
+  position: absolute;
+  z-index: 20;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  text-align: center;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Highlights in the matched caption */
+
+.ats-hit--caption .ats-highlight {
+  color: #ffed4a;
+}
+
+/* Details under the video */
+
+.ats-hit--details {
+  flex: auto;
+}
+
+.ats-hit--videoTitle {
+  color: #22292f;
+  font-weight: bold;
+  font-size: 1.125rem;
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+}
+
+.ats-hit--videoSubtitle {
+  color: #777;
+}
+
+.ats-hit--views {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: .25rem;
+  font-size: .875rem;
+  color: #fff;
+  background-color: rgba(0, 0, 0, .75);
 }

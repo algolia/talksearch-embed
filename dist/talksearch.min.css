@@ -1,1 +1,1 @@
-.ais-hits{background-color:#e3342f}
+.ais-hits{display:flex;flex-direction:row;flex-wrap:wrap}.ais-hits--item{flex:none;width:100%}@media (min-width:576px){.ais-hits--item{width:50%}}@media (min-width:992px){.ais-hits--item{width:calc(100% / 3)}}.ats-hit--root{display:flex;flex-direction:column;flex-wrap:nowrap;padding-left:1rem;padding-right:1rem;padding-bottom:1.5rem}

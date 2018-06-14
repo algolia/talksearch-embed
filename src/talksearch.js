@@ -29,59 +29,52 @@ function hitTemplate(item) {
   const url = get(item, 'caption.url');
 
   const renderedViews = `
-    <div class="absolute pin-r pin-t p-0x text--1 text-white bg-black-75">
+    <div class="ats-hit--views">
       ${viewCount} views
     </div>`;
 
   let renderedCaption = '';
   if (captionMatch) {
     renderedCaption = `
-      <div class="overflow-hidden absolute pin-b pin-x h-2x">
+      <div class="ats-hit--captionBackdrop">
         <div 
-          class="absolute z-1 bg-blur pin bg-no-repeat bg-cover bg-center-bottom" 
+          class="ats-hit--captionBlur" 
           style="background-image:url(${thumbnail})"
         ></div>
       </div>
-      <div class="hit-captions absolute z-2 pin-b pin-x h-2x flrnw flc text-white text-1 bold text-outline text-center">
+      <div class="ats-hit--caption">
         <div>${captionMatch}</div>
       </div>
       `;
   }
 
   return `
-    <div class="px-1 pb-1+">
-      <div class="flcnw">
-        <a 
-          class="fln bg-no-repeat bg-cover bg-center h-5 relative" 
-          style="background-image:url(${thumbnail})"
-          href="${url}"
-          target="_blank"
-        >
-          ${renderedViews}
-          ${renderedCaption}
-        </a>
-        <div class="fla">
-          <div class="hit-title text-black bold text-2 py-0x leading-loose">${title}</div>
-          <div class="text-gray">
-            <span class="">${authorName}</span>
-            in
-            <span class="">${conferenceYear}</span>
-          </div>
+    <div class="ats-hit--root">
+      <a 
+        class="ats-hit--thumbnail" 
+        style="background-image:url(${thumbnail})"
+        href="${url}"
+        target="_blank"
+      >
+        ${renderedViews}
+        ${renderedCaption}
+      </a>
+      <div class="ats-hit--details">
+        <div class="ats-hit--videoTitle">${title}</div>
+        <div class="ats-hit--videoSubtitle">
+          <span class="ats-hit--authorName">${authorName}</span>
+          in
+          <span class="ats-hit--conferenceYear">${conferenceYear}</span>
         </div>
       </div>
     </div>
   `;
 }
 
-function emptyTemplate() {
-  return `<div class="text-5 text-gray text-center pt-3">Sorry, no videos found.</div>`;
-}
-
 const TalkSearch = {
   templates: {
     hits: {
       item: hitTemplate,
-      empty: emptyTemplate
     },
   },
 };
