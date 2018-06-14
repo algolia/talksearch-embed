@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+mkdir -p ./dist
+
+postcss \
+  ./src/talksearch.css \
+  --config ./postcss.config.js \
+  --watch \
+  --output ./dist/talksearch.css

@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+mkdir -p ./dist
+
+postcss \
+  ./src/talksearch.css \
+  --config ./postcss.config.js \
+  --output ./dist/talksearch.css
+
+MINIFY=1 postcss \
+  ./src/talksearch.css \
+  --config ./postcss.config.js \
+  --output ./dist/talksearch.min.css
+

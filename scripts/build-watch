@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+parallelshell \
+  "yarn run build:js:watch" \
+  "yarn run build:css:watch"

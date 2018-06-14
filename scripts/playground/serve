@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
 
-WATCH=1 parallelshell \
-  "webpack --config ./webpack.dev.watch.js" \
-  "yarn run playground:build"
+parallelshell \
+  "yarn run build:watch" \
+  "yarn run playground:build:watch"
