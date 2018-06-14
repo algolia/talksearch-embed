@@ -27,7 +27,7 @@
 /* Inside one hit */
 .ats-hit--root {
   @apply .flex .flex-col .flex-no-wrap;
-  @apply .px-1 .pb-1x
+  @apply .px-1 .pb-1x;
 }
 /* The thumbnail, added as a background image */
 .ats-hit--thumbnail  {

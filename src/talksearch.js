@@ -16,7 +16,7 @@ function hitTemplate(item) {
   const title = highlight(item, 'video.title');
   const thumbnail = video.thumbnails.high.url;
   const authorName = highlight(item, 'author.name');
-  const conferenceYear = item.conference.year;
+  const conferenceYear = get(item, 'conference.year');
   const viewCount = formatNumber(video.popularity.views);
 
   // Display a caption only if it matches
@@ -48,8 +48,12 @@ function hitTemplate(item) {
       `;
   }
 
-  const renderedAuthorName = `<span class="ats-hit--authorName">${authorName}</span>`;
-  const renderedConferenceYear = `<span class="ats-hit--conferenceYear">${conferenceYear}</span>`;
+  const renderedAuthorName = authorName
+    ? `<span class="ats-hit--authorName">${authorName}</span>`
+    : '';
+  const renderedConferenceYear = conferenceYear
+    ? `<span class="ats-hit--conferenceYear">${conferenceYear}</span>`
+    : '';
   const videoSubtitle = authorName
     ? `${renderedAuthorName} in ${renderedConferenceYear}`
     : renderedConferenceYear;

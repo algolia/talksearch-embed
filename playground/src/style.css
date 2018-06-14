@@ -53,7 +53,7 @@ body {
   @apply opacity-75;
 }
 
-/* Filtering on years */
+/* Menu (years, conference) */
 .ais-menu--body {
   @apply .text-center .bold;
 }
@@ -63,8 +63,9 @@ body {
   @apply .mx-0x .px-1 .py-0x;
   @apply .rounded-full;
 }
-.ais-menu--item:hover, .ais-menu--item__active {
-  @apply .bg-gray text-white;
+.ais-menu--item:hover,
+.ais-menu--item__active {
+  @apply .bg-black-50 text-white;
 }
 .ais-menu--link {
   @apply text-inherit no-underline;
@@ -72,34 +73,41 @@ body {
 }
 .ais-menu--count {
   @apply .rounded-full px-05 py-0x ml-0x;
-  @apply .bg-gray;
+  @apply .bg-black-50;
   @apply .text--2 .text-white;
 }
-.ais-menu--item:hover .ais-menu--count {
-  @apply bg-black;
+.ais-menu--item:hover .ais-menu--count,
+.ais-menu--item__active .ais-menu--count {
+  @apply bg-white-50 text-black-50;
 }
 
-/* Pagination links */
-.ais-pagination--link {
-  @apply .text-black;
-  @apply .no-underline;
-  @apply .px-1;
-  @apply .rounded-full;
-}
-.ais-pagination--link:hover {
-  @apply .text-white;
-}
+/**
+ * PAGINATION
+ **/
 .ais-pagination {
   @apply .list-reset;
   @apply .text-center;
   @apply .my-1;
 }
 .ais-pagination--item {
+  @apply .rounded-full;
   @apply .inline-block;
-  @apply .bold;
+  @apply .bold .text-3;
   @apply .mx-0x;
-  @apply .text-3;
 }
-.ais-pagination--disabled {
+.ais-pagination--item:hover, 
+.ais-pagination--item__active {
+  @apply .bg-gray;
+}
+.ais-pagination--item:hover .ais-pagination--link, 
+.ais-pagination--item__active .ais-pagination--link {
+  @apply text-white;
+}
+.ais-pagination--link {
+  @apply .text-black;
+  @apply .no-underline;
+  @apply .px-1;
+}
+.ais-pagination--item__disabled {
   @apply .hidden;
 }
