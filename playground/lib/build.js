@@ -2,7 +2,6 @@ import addPathData from 'metalsmith-paths';
 import compileCss from './compile-css';
 import compileHtml from './compile-html';
 import compileJs from './compile-js';
-import createIndex from './create-index';
 import liveServer from './live-server';
 import metalsmith from 'metalsmith';
 // import debug from './plugins/debug';
@@ -20,7 +19,6 @@ function run() {
   }
 
   pipeline
-    .use(createIndex())
     .use(compileHtml())
     .use(compileCss())
     .use(compileJs());

@@ -389,6 +389,13 @@
   flex: auto;
 }
 
+/* Highlight */
+
+.ats-hit--details .ats-highlight {
+  border-bottom-width: 1px;
+  border-color: #777;
+}
+
 .ats-hit--videoTitle {
   color: #22292f;
   font-weight: bold;

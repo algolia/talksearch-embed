@@ -48,6 +48,12 @@ function hitTemplate(item) {
       `;
   }
 
+  const renderedAuthorName = `<span class="ats-hit--authorName">${authorName}</span>`;
+  const renderedConferenceYear = `<span class="ats-hit--conferenceYear">${conferenceYear}</span>`;
+  const videoSubtitle = authorName
+    ? `${renderedAuthorName} in ${renderedConferenceYear}`
+    : renderedConferenceYear;
+
   return `
     <div class="ats-hit--root">
       <a 
@@ -61,11 +67,7 @@ function hitTemplate(item) {
       </a>
       <div class="ats-hit--details">
         <div class="ats-hit--videoTitle">${title}</div>
-        <div class="ats-hit--videoSubtitle">
-          <span class="ats-hit--authorName">${authorName}</span>
-          in
-          <span class="ats-hit--conferenceYear">${conferenceYear}</span>
-        </div>
+        <div class="ats-hit--videoSubtitle">${videoSubtitle}</div>
       </div>
     </div>
   `;

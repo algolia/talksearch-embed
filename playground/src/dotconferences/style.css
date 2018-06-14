@@ -1,10 +1,16 @@
 /* stylelint-disable at-rule-no-unknown */
-.ais-search-box--magnifier {
-  @apply .text-yellow;
+body {
+  @apply .work-sans;
 }
 .header {
   @apply .bg-gray;
 }
+.ais-search-box--magnifier {
+  @apply .text-yellow;
+}
 .ais-pagination--link:hover {
   @apply .bg-gray .text-yellow;
+}
+.ats-hit--details .ats-highlight {
+  @apply .border-gray;
 }

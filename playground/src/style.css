@@ -4,6 +4,10 @@
 
 .debug, .debug * { outline: 1px solid gold; }
 
+body {
+  @apply .text-black .font-sans;
+}
+
 /* Searchbox magnifying glass */
 .ais-search-box--magnifier {
   @apply .hidden;
@@ -37,6 +41,42 @@
 .ais-hits__empty {
   @apply .text-5 .text-gray .text-center;
   @apply .pt-3;
+}
+
+/* Hit overlay */
+.ats-hit--thumbnail:hover:after {
+  content: "";
+  @apply absolute pin;
+  @apply .bg-cover bg-no-repeat bg-center;
+  background-image: url("/youtube-overlay.png");
+  background-size: 150px 100px;
+  @apply opacity-75;
+}
+
+/* Filtering on years */
+.ais-menu--body {
+  @apply .text-center .bold;
+}
+.ais-menu--item {
+  @apply .inline-block;
+  @apply .cursor-pointer;
+  @apply .mx-0x .px-1 .py-0x;
+  @apply .rounded-full;
+}
+.ais-menu--item:hover, .ais-menu--item__active {
+  @apply .bg-gray text-white;
+}
+.ais-menu--link {
+  @apply text-inherit no-underline;
+  @apply flrnw flc;
+}
+.ais-menu--count {
+  @apply .rounded-full px-05 py-0x ml-0x;
+  @apply .bg-gray;
+  @apply .text--2 .text-white;
+}
+.ais-menu--item:hover .ais-menu--count {
+  @apply bg-black;
 }
 
 /* Pagination links */

@@ -23,6 +23,7 @@
   }
 }
 
+
 /* Inside one hit */
 .ats-hit--root {
   @apply .flex .flex-col .flex-no-wrap;
@@ -63,6 +64,10 @@
 /* Details under the video */
 .ats-hit--details {
   @apply .flex-auto;
+}
+/* Highlight */
+.ats-hit--details .ats-highlight {
+  @apply .border-b .border-gray;
 }
 .ats-hit--videoTitle {
   @apply .text-black .bold .text-2;

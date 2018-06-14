@@ -12,4 +12,5 @@ html.no-js(lang='en')
       .flrnw.m-3
         each val in conferenceList
           .fln.w-33
+            img(src=logoPath)
             a.text-black.no-underline.hover_underline.py-1.block(href=val.url)=val.name

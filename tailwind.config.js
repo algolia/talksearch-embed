@@ -2,6 +2,7 @@
 const _ = require('lodash');
 const colors = {
   transparent: 'transparent',
+  inherit: 'inherit',
 
   white: '#ffffff',
   'white-10': 'rgba(255, 255, 255, .10)',

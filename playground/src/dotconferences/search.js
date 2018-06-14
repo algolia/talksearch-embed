@@ -14,7 +14,7 @@ const menuTemplates = {
   },
 };
 const menuCssClasses = {
-  body: 'text-center',
+  body: 'text-center bold',
   item: 'inline-block cursor-pointer mx-0x',
 };
 
