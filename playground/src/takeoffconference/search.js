@@ -1,6 +1,6 @@
 // include: instanciate.js
 // include: searchbox.js
-// include: years.js
+// include: menu-years.js
 // include: hits.js
 // include: pagination.js
 

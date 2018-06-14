@@ -6,7 +6,5 @@ search.addWidget(
     container: '#years',
     attributeName: 'conference.year',
     sortBy: ['name:desc'],
-    // templates: menuTemplates,
-    // cssClasses: menuCssClasses,
   })
 );

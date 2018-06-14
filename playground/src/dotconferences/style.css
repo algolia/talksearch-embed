@@ -2,15 +2,26 @@
 body {
   @apply .work-sans;
 }
+
 .header {
   @apply .bg-gray;
 }
+
 .ais-search-box--magnifier {
   @apply .text-yellow;
 }
-.ais-pagination--link:hover {
-  @apply .bg-gray .text-yellow;
+
+.ais-menu--item:hover, .ais-menu--item__active {
+  @apply .bg-gray text-yellow;
 }
+.ais-menu--count {
+  @apply .hidden;
+}
+
 .ats-hit--details .ats-highlight {
   @apply .border-gray;
+}
+
+.ais-pagination--link:hover {
+  @apply .bg-gray .text-yellow;
 }
