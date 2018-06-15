@@ -81,6 +81,10 @@ async function compileWithPostCss(files, filePath) {
     ? fileContent
     : `${baseContent}\n${fontContent}\n${fileContent}`;
 
+  // Should purgecss to keep only what is really used by the page
+  // Should add on top all the .ais- .ats-
+  // And fonts
+
   // Processing it
   const processor = postcss([tailwind(tailwindConfigPath), autoprefixer]);
   const compiledContent = await processor.process(content, {
