@@ -4,7 +4,7 @@
 search.addWidget(
   instantsearch.widgets.searchBox({
     container: '#searchbox',
-    placeholder: 'Search by topic, year, speaker or any sentence',
+    placeholder: '{{inputPlaceholder}}',
     poweredBy: false,
     wrapInput: false,
     loadingIndicator: false,

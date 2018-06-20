@@ -35,6 +35,10 @@ function interpolateVariables(initialContent, files, filePath) {
   let newContent = initialContent;
   newContent = newContent.replace('{{apiKey}}', metadata.apiKey);
   newContent = newContent.replace('{{indexName}}', metadata.indexName);
+  newContent = newContent.replace(
+    '{{inputPlaceholder}}',
+    metadata.inputPlaceholder
+  );
 
   return newContent;
 }

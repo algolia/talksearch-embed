@@ -12,6 +12,7 @@ async function setDefaultMetadata(inputFile) {
   const defaultMetadata = {
     apiKey: 'YOUR_API_KEY',
     indexName: 'YOUR_INDEX_NAME',
+    inputPlaceholder: 'Search by topic, year, speaker or any sentence',
   };
   const newFile = _.merge(defaultMetadata, inputFile);
 

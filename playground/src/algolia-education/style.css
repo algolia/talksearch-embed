@@ -1,0 +1,30 @@
+/* stylelint-disable at-rule-no-unknown */
+.header {
+  @apply .bg-blue;
+}
+
+body {
+  /* @apply .montserrat; */
+}
+
+/* Main highlight */
+.ats-hit--details .ats-highlight {
+  @apply .border-blue text-blue;
+}
+/* Caption highlight */
+.ats-hit--caption .ats-highlight {
+  @apply .text-blue;
+}
+
+/* Years/Conference menu hover/active */
+.ais-menu--item:hover,
+.ais-menu--item__active {
+  @apply .bg-blue text-white;
+}
+
+/* Pagination active/hover */
+.ais-pagination--item:hover, 
+.ais-pagination--item__active {
+  @apply .bg-blue;
+}
+
