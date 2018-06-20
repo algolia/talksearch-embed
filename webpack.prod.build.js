@@ -1,11 +1,11 @@
 /* eslint-disable import/no-commonjs */
+/**
+ * Our code will be transpiled to ES2015 through Babel. babel-plugin-lodash and
+ * lodash-webpack-plugin will remove all lodash methods not used, while still
+ * allowing us to globally import lodash as _
+ **/
 const path = require('path');
-const HappyPack = require('happypack');
-
-const babelPlugin = new HappyPack({
-  loaders: ['babel-loader'],
-});
-
+const LodashWebpackPlugin = require('lodash-webpack-plugin');
 module.exports = {
   mode: 'production',
   entry: {
@@ -17,5 +17,21 @@ module.exports = {
     library: '[name]',
     libraryTarget: 'umd',
   },
-  plugins: [babelPlugin],
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        enforce: 'pre',
+        use: { loader: 'babel-loader' },
+      },
+    ],
+  },
+  plugins: [
+    new LodashWebpackPlugin({
+      shorthands: true,
+      collections: true,
+      paths: true,
+    }),
+  ],
 };

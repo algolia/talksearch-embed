@@ -4,6 +4,7 @@ html.no-js(lang='en')
     - var siteTitle = `${conferenceName} TalkSearch`
     - var siteDescription = `Search into all the ${conferenceName} talks`
     - var siteUrl = `https://talksearch-playground.netlify.com${path.dhref}`
+    - var utmLink = `https://www.algolia.com/?utm_source=${indexName}&utm_medium=link&utm_campaign=talksearch`
     meta(charset='utf-8')
     meta(http-equiv='x-ua-compatible', content='ie=edge')
     meta(name='viewport', content='width=device-width, initial-scale=1')
@@ -29,7 +30,7 @@ html.no-js(lang='en')
           img.hidden.lg_block.lg_h-3(src=logoPath, alt=`Logo ${conferenceName}`)
         .fla.flcnw.h-2.relative.sm_h-3.mr-0x.md_mx-3
           input#searchbox.w-100.fla.pl-1.bg-white-10.text-white.text-1.rounded-full.outline-none.sm_pl-3.sm_text-3.focus_bg-white-25
-        a.hidden.fln.flc.w-4.mx-1.md_flex.sm_mr-0x.md_w-4x.md_mr-2(href='https://www.algolia.com/?utm_source=takeoffconference&utm_medium=link&utm_campaign=talksearch', target='_blank')
+        a.hidden.fln.flc.w-4.mx-1.md_flex.sm_mr-0x.md_w-4x.md_mr-2(href=utmLink, target='_blank')
           img(src='/logo-algolia.svg', alt='Powered by Algolia')
 
       .pt-3.max-w-xl.m-auto.sm_pt-3x.px-0x.sm_px-2
@@ -41,7 +42,12 @@ html.no-js(lang='en')
       script(src='https://cdn.jsdelivr.net/npm/instantsearch.js@2.7.6')
       script(src='/talksearch.js')
 
-      script(src='https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js')
       script(src='./search.js')
+      script(async, src="https://www.googletagmanager.com/gtag/js?id=UA-32446386-31")
+      script
+        |window.dataLayer = window.dataLayer || [];
+        |function gtag(){dataLayer.push(arguments);}
+        |gtag('js', new Date());
+        |gtag('config', 'UA-32446386-31');
 
 

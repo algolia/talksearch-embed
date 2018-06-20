@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`hitTemplate renderCaption should render a caption with the thumbnail as background 1`] = `
+
+<div class="ats-hit--captionBackdrop">
+  <div class="ats-hit--captionBlur"
+       style="background-image:url(my_url)"
+  >
+  </div>
+</div>
+<div class="ats-hit--caption">
+  <div>
+    my_caption
+  </div>
+</div>
+
+`;
+
+exports[`hitTemplate renderConferenceYear should render the year in an element 1`] = `
+
+<span class="ats-hit--conferenceYear">
+  2018
+</span>
+
+`;
+
+exports[`hitTemplate renderSpeakers should render only one speaker 1`] = `
+
+<span class="ats-hit--speakers">
+  <span class="ats-hit--speakerName">
+    foo
+  </span>
+</span>
+
+`;
+
+exports[`hitTemplate renderSpeakers should render several speakers 1`] = `
+
+<span class="ats-hit--speakers">
+  <span class="ats-hit--speakerName">
+    foo
+  </span>
+  ,
+  <span class="ats-hit--speakerName">
+    bar
+  </span>
+</span>
+
+`;
+
+exports[`hitTemplate renderVideoSubtitle should only render the speaker if no year 1`] = `
+
+<div class="ats-hit--videoSubtitle">
+  Tim Carry
+</div>
+
+`;
+
+exports[`hitTemplate renderVideoSubtitle should only render the year if no speakers 1`] = `
+
+<div class="ats-hit--videoSubtitle">
+  2018
+</div>
+
+`;
+
+exports[`hitTemplate renderVideoSubtitle should render both speakers and year 1`] = `
+
+<div class="ats-hit--videoSubtitle">
+  Tim Carry in 2018
+</div>
+
+`;
+
+exports[`hitTemplate renderViews should return an element with 1k views 1`] = `
+
+<div class="ats-hit--views">
+  1k views
+</div>
+
+`;
