@@ -137,7 +137,7 @@ function hitTemplate(item) {
         ${renderedCaption}
       </a>
       <div class="ats-hit--details">
-        <div class="ats-hit--videoTitle">${title}</div>
+        <a class="ats-hit--videoTitle" href="${url}">${title}</a>
         ${renderedSubtitle}
       </div>
     </div>

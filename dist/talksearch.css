@@ -397,11 +397,17 @@
 }
 
 .ats-hit--videoTitle {
+  display: block;
   color: #22292f;
   font-weight: bold;
   font-size: 1.125rem;
+  text-decoration: none;
   padding-top: .25rem;
   padding-bottom: .25rem;
+}
+
+.ats-hit--videoTitle:hover {
+  text-decoration: underline;
 }
 
 .ats-hit--videoSubtitle {

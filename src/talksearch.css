@@ -70,8 +70,12 @@
   @apply .border-b .border-gray;
 }
 .ats-hit--videoTitle {
-  @apply .text-black .bold .text-2;
+  @apply .block;
+  @apply .text-black .bold .text-2 no-underline;
   @apply .py-0x;
+}
+.ats-hit--videoTitle:hover {
+  @apply underline;
 }
 .ats-hit--videoSubtitle {
   @apply .text-gray;
