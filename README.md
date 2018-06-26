@@ -1,24 +1,7 @@
-# TalkSearch embed
+# This repository is archived
 
-![TalkSearch](assets/img/logo-talksearch-line@2x.png)
+The official repositories for TalkSearch are:
 
-> This is part of the [TalkSearch](https://community.algolia.com/talksearch)
-> project by [Algolia](https://algolia.com)
-
-[Website](https://community.algolia.com/talksearch) |
-[**embed**](https://github.com/algolia/talksearch-embed) |
-[scraper](https://github.com/algolia/talksearch-scraper) |
-[landing page source](https://github.com/algolia/talksearch)
-
-This here is the code that you'll use to show a TalkSearch implementation on
-your site.
-
-## Setting up
-
-This is a `preact-cli` project. You need to run `yarn` to install the
-dependencies and `yarn start` for starting. Don't forget to set `NODE_ENV` to
-`production` on production.
-
-## Setting an index
-
-The `indexName` is the search string: `http://localhost:8000?i=dotconferences`
+- [talksearch](https://github.com/algolia/talksearch): Code of the documentation website
+- [talksearch.js](https://github.com/algolia/talksearch.js): Code of the front-end library
+- [talksearch-scraper](https://github.com/algolia/talksearch-scraper): Code of the crawler
